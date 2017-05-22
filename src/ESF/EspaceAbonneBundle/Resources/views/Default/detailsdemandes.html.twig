@@ -1,0 +1,35 @@
+{% extends ":backend:sidebar.html.twig" %}
+
+{% block title %}
+    Détails Demandes - {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
+        <li ><a href="{{ path('esf_espace_abonne_mesDemandes') }}">Mes Demandes</a></li>
+        <li class="active">Détails</li>
+    </ol>
+{% endblock %}
+
+{% block Content %} 
+    <!-- Modifier Demandes -->
+    <div class="col-md-12">
+        <h1>Détail de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Inscription à {{ eA_Demande_Inscription.type }}</h4>
+            </div>
+            <div class="panel-body">                                        
+                Votre demande est : {{ eA_Demande_Inscription.etat }}
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
+                {#
+                <a class="btn btn-primary" href="{{ path('esf_espace_abonne_modifierDemandes', { 'id': eA_Demande_Inscription.id }) }}">Modifier</a>
+                #}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

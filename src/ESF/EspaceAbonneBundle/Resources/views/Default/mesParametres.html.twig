@@ -1,0 +1,44 @@
+{% extends ":backend:sidebar.html.twig" %}
+
+{% block title %}
+  Mes Parametres - {{ parent() }}
+{% endblock %}
+
+{% block Content %} 
+  <!-- Mes Parametres -->
+  {{ form_start(form) }}
+  
+  {% if not form.vars.valid %}
+    <div class="alert alert-error">
+      {{ form_errors(form) }}
+    </div>
+  {% endif %}
+
+  <div class="col-md-5">
+    <div class="form-group">
+      <div>
+        {{dump(form)}}
+       {{ form_start(form, { 'action': path('fos_user_change_password'), 'attr': { 'class': 'fos_user_change_password' } }) }}
+       {{ form_widget(form) }}
+       <div>
+        <input type="submit" class="btn btn-primary" value="{{ 'change_password.submit'|trans }}" />
+      </div>
+      {{ form_end(form) }}
+    </div>            
+  </div>      
+  {{ form_end(form) }}
+</div>
+
+<div class="col-md-5">
+  <div class="form-group">
+    {{dump(form)}}
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+      <input type="submit" class="btn btn-primary" value="{{ 'profile.edit.submit'|trans }}" />
+    </div>
+    {{ form_end(form) }}
+
+  </div>
+</div>
+{% endblock %}

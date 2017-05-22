@@ -1,0 +1,34 @@
+{# app/Resources/views/layoutdudeego.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+ {# Contenu de la balise head #}
+ {% block Head %} 
+   {% include ':backend:head.html.twig' %}
+ {% endblock %}
+
+</head>
+<body>
+  {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+    {# Contenu de l'en-tete #}
+    {% block Header %} 
+    {% endblock %}
+
+    {# Contenu de la balise nav #}
+    {% block Navigation %} 
+      {% include ':backend:navigation.html.twig' %}   
+    {% endblock %}
+
+    {# Contenu du corps de page #}
+    {% block Body %} 
+    {% endblock %}
+
+    {# Contenu du pied de page #}
+    {% block Footer %} 
+      {% include ':backend:footer.html.twig' %} 
+    {% endblock %}
+  {#{% endif %}#}
+</body>  
+</html>

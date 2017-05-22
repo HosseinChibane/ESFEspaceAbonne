@@ -1,0 +1,46 @@
+{% extends ":backend:sidebar.html.twig" %}
+
+{% block title %}
+	Aide - {{ parent() }}
+{% endblock %}
+{% block breadcrumb %}
+
+    <ol class="breadcrumb">
+        <li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
+        <li class="active">FAQ</li>
+    </ol>
+{% endblock %}
+
+{% block Content %}
+	<!-- Page Content -->
+	<div class="container">
+		<!-- Content Row -->
+		<div class="row">
+			<div class="col-md-10">
+				<div class="panel-group" id="accordion">
+					{% if listFAQ is defined %}
+						{% for rowFAQ in listFAQ %}
+							<!-- /.panel -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ rowFAQ.id }}">{{ rowFAQ.question}}</a>
+									</h4>
+								</div>
+								<div id="{{ rowFAQ.id }}" class="panel-collapse collapse">
+									<div class="panel-body">
+										{{ rowFAQ.reponse }}
+									</div>
+								</div>
+							</div>
+							<!-- /.panel -->
+						{% endfor %}
+					{% endif %}
+				</div>
+				<!-- /.panel-group -->
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+	</div>
+{% endblock %}

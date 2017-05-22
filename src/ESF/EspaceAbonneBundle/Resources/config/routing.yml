@@ -1,0 +1,93 @@
+esf_esf_espace_abonne_homepage:
+    path:     /
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:index }
+
+esf_espace_abonne_home:
+    path:      /
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:index }
+
+esf_espace_abonne_monProfil:
+    path:      /Default/monprofil/
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:monprofil }
+
+esf_espace_abonne_mesParametres:
+    path:      /Default/mesparametres
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametres }
+esf_espace_abonne_mesParametresMDP:
+    path:      /Default/mesparametresMDP
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametresMDP }
+esf_espace_abonne_mesParametresMAIL:
+    path:      /Default/mesparametresMAIL
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametresMAIL }
+
+esf_espace_abonne_mesDemandes:
+    path:      /Default/mesdemandes
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesdemandes }
+esf_espace_abonne_detailsDemandes:
+    path:      /Default/detailsdemandes/{id}
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:detailsdemandes }
+esf_espace_abonne_modifierDemandes:
+    path:      /Default/modifierdemandes/{id}
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:modifierdemandes }
+    methods: GET|POST
+
+esf_espace_abonne_mesDocuments:
+    path:      /Default/mesdocuments
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesdocuments }
+esf_espace_abonne_aide:
+    path:      /Default/aide
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:aide } 
+esf_espace_abonne_contact:
+    path:      /Default/contact
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:contact }
+    methods: POST|GET 
+
+esf_espace_abonne_universiteStepsOne:
+    path:      /Default/universiteOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteOne } 
+esf_espace_abonne_universiteStepsTwo:
+    path:      /Default/universiteTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteTwo } 
+esf_espace_abonne_universiteStepsThree:
+    path:      /Default/universiteThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteTwo } 
+
+esf_espace_abonne_langueStepsOne:
+    path:      /Default/langueOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueOne } 
+esf_espace_abonne_langueStepsTwo:
+    path:      /Default/langueTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueTwo } 
+esf_espace_abonne_langueStepsThree:
+    path:      /Default/langueThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueTwo } 
+
+esf_espace_abonne_logementStepsOne:
+    path:      /Default/logementOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementOne }    
+esf_espace_abonne_logementStepsTwo:
+    path:      /Default/logementTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementTwo } 
+esf_espace_abonne_logementStepsThree:
+    path:      /Default/logementThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementTwo } 
+
+esf_espace_abonne_preparationStepsOne:
+    path:      /Default/preparationOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationOne }    
+esf_espace_abonne_preparationStepsTwo:
+    path:      /Default/preparationTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationTwo } 
+esf_espace_abonne_preparationStepsThree:
+    path:      /Default/preparationThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationTwo } 
+
+  
+
+esf_espace_abonne_mutuelle:
+    path:      /Default/mutuelle
+    defaults: { _controller: ESFEspaceAbonneBundle:Default:mutuelle }       
+
+espace_admin_panel:
+    path:      /Admin/adminPanel
+    defaults: { _controller: ESFEspaceAbonneBundle:Admin:adminPanel }  

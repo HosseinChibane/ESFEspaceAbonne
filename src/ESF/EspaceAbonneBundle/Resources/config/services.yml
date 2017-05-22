@@ -1,0 +1,4 @@
+services:
+#    esf_espace_abonne.example:
+#        class: ESF\EspaceAbonneBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,52 @@
+{% extends ":backend:sidebar.html.twig" %}
+
+{% block title %}
+    Inscription Université - {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
+        <li class="active">Inscription</li>
+    </ol>
+{% endblock %}
+
+{% block Content %} 
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Etape 1</h2>
+            <p>Veuillez sélectionner les champs ci-dessous et rechercher afin de passer à l'étape suivante.</p>
+            {{ form_start(form) }}
+            {% if not form.vars.valid %}
+                <div class="alert alert-error">
+                    {{ form_errors(form) }}
+                </div>
+            {% endif %}
+            <div class="form-group">
+                {{ form_label(form.langueUniversite, 'Langue') }}
+                {{ form_errors(form.langueUniversite) }}
+                {{ form_widget(form.langueUniversite) }}
+
+                {{ form_label(form.formation, 'Formation') }}
+                {{ form_errors(form.formation) }}
+                {{ form_widget(form.formation) }}
+
+                {{ form_label(form.nometablissement, 'Université') }}
+                {{ form_errors(form.nometablissement) }}
+                {{ form_widget(form.nometablissement) }}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        {{ form_widget(form.reinitialiser) }}
+                        {{ form_widget(form.rechercher) }}
+                    </div>
+                </div>
+            </div>
+            {# Token CSRF #}
+            {{ form_widget(form._token) }}
+            
+            {{ form_end(form, {'render_rest': false}) }}
+        </div>
+    </div>
+{% endblock %}

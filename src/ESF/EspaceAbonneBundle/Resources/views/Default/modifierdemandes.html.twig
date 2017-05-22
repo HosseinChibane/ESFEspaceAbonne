@@ -1,0 +1,66 @@
+{% extends ":backend:sidebar.html.twig" %}
+
+{% block title %}
+    Modifier Demandes - {{ parent() }}
+{% endblock %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
+        <li ><a href="{{ path('esf_espace_abonne_mesDemandes') }}">Mes Demandes</a></li>
+        <li class="active">Modifier</li>
+    </ol>
+{% endblock %}
+
+{% block Content %} 
+    <!-- Détails Demandes -->
+    <div class="col-md-12">
+        <h1>Modification de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
+
+        {{ form_start(edit_form) }}
+
+        {% if not edit_form.vars.valid %}
+            <div class="alert alert-error">
+                {{ form_errors(edit_form) }}
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            {{ form_label(edit_form.type, 'Type d\'Inscription') }}
+            {{ form_widget(edit_form.type, { 'attr':{'disabled':'disabled'} }) }}
+
+            {{ form_label(edit_form.etat, 'Etat de l\'Inscription') }}
+            {{ form_widget(edit_form.etat, { 'attr':{'disabled':'disabled'} }) }}
+
+            {{ form_label(edit_form.documentinscription.nom, 'Document d\'Inscription') }}
+            {{ form_widget(edit_form.documentinscription.nom) }}
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form_widget(edit_form.documentinscription.pdfFile) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                 {% for flash_message in app.session.flashBag.get('notice') %}
+                    <div class="flash-notice">
+                        {{ flash_message }}
+                    </div>
+                {% endfor %}
+                <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
+                {{ form_widget(edit_form.documentinscription.Enregistrer) }}
+            </div>
+        </div>
+    </div>
+
+    {# Token CSRF #}
+    {{ form_widget(edit_form._token) }}
+
+    {{ form_end(edit_form, {'render_rest': false }) }}
+</div>
+{% endblock %}
