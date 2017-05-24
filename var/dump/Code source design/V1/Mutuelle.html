@@ -1,0 +1,53 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./css/espaceabonne.css">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+<div class="container">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Main Menu -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="./Connexion.html">Se connecter</a></li>
+        <li><a href="./index.html">Mon Compte</a></li>
+		<li><a href="./Universite.html">Universite</a></li>
+		<li><a href="./Langue.html">Langue</a></li>
+		<li><a href="./Logement.html">Logement</a></li>
+		<li><a href="./Preparation.html">Préparation</a></li>
+		<li class="active"><a href="./Mutuelle.html">Mutuelle</a></li>
+		<li><a href="./Connexion.html" onclick="Deconnexion()">Déconnection</a></li>
+      </ul>
+	  <script>
+		function Deconnexion() {
+			alert("Vous êtes bien deconnecté !");
+		}
+	</script>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+<div class="panel panel-default">
+	<div class="panel-heading">IINSCRIPTION A LA MUTUELLE</div>
+		<div class="panel-body">
+				<h4 class="text-center" style="text-decoration:underline;">Nom Mutuelle</h4><br />
+				
+				<p> Suspendisse ut lacinia sem. Praesent bibendum suscipit neque, vitae consequat nisi commodo et. Integer rhoncus dapibus nisl, quis maximus magna pharetra id. Nulla sit amet elit volutpat, sagittis neque vitae, dictum dolor. Ut finibus velit nec libero cursus, vel sollicitudin erat luctus. Morbi euismod ex quis leo pellentesque, sit amet tempus leo vehicula. Curabitur tellus dui, sodales eget ornare sit amet, molestie vel lacus. Mauris suscipit risus sollicitudin, rhoncus libero vitae, iaculis sapien. In fringilla augue eget mollis interdum. Donec erat quam, imperdiet consectetur malesuada ac, dictum id velit. Vivamus varius ultrices lectus, quis maximus dolor laoreet vel. </p>
+				<br /><p class="text-center"><a href="#" class="text-center">Lien vers la mutuelle</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Include js scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/espaceabonne.js"></script>
+</body>
+
+</html>

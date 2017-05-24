@@ -1,0 +1,33 @@
+/* Main menu */
+.nav-side-menu {
+  overflow: auto;
+}
+
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.nav-side-menu li {
+	width:75px;
+	height:75px;
+	background-color: #F9F9F9;
+	text-align: center;
+	margin:10%;
+	padding:2%;
+	font-size:11px;
+	font-weight: bold;
+}
+.nav-side-menu li a {
+	text-align: center;
+	text-decoration: none;
+	color: #cbcbcb;
+}
+.nav-side-menu li a i {
+	font-size:48px;
+}
+.nav-side-menu li:hover {
+  background-color: #4f5b69;
+}
+

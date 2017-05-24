@@ -1,0 +1,98 @@
+<html>
+<head>
+	<link rel="stylesheet" href="./css/espaceabonne.css">
+	<link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+<div class="container">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Main Menu -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="./Connexion.html">Se connecter</a></li>
+        <li><a href="./index.html">Mon Compte</a></li>
+		<li><a href="./Universite.html">Universite</a></li>
+		<li><a href="./Langue.html">Langue</a></li>
+		<li class="active"><a href="./Logement.html">Logement</a></li>
+		<li><a href="./Preparation.html">Préparation</a></li>
+		<li><a href="./Mutuelle.html">Mutuelle</a></li>
+		<li><a href="./Connexion.html" onclick="Deconnexion()">Déconnection</a></li>
+      </ul>
+	  <script>
+		function Deconnexion() {
+			alert("Vous êtes bien deconnecté !");
+		}
+	</script>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+<div class="panel panel-default">
+	<div class="panel-heading">CHOISIR UN LOGEMENT</div>
+		<div class="panel-body">
+				<h4  style="text-decoration:underline;"></h4>
+				<form>
+					<label class="col-sm-6 control-label">Universite :</label>
+					<select class="form-control">
+						<option>Universite 1</option>
+						<option>Universite 2</option>
+						<option>Universite 3</option>
+					</select>
+					<br /><label class="col-sm-6 control-label">Type de logment :</label>
+					<select class="form-control">
+						<option>Campus</option>
+						<option>Partenaire</option>
+					</select>
+					<br />
+					<div class="form-group">
+						<div class="col-md-6">
+							<button type="submit" class="btn btn-default">Rechercher</button>
+						</div>
+					</div>
+				</form>
+				<br /><hr /><br />
+			
+				<div class="list-group">
+				<div class="list-group-item">
+					<div class="row">
+						<div class="col-md-10">
+							<h4 class="list-group-item-heading">Partenaire1 - France</h4>
+							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at efficitur elit.</p>
+							<p>xx rue gambetta,Paris 75000, FRANCE</p>
+						</div>
+						<div class="col-md-2">
+							<p></p>
+							<button class="btn btn-default" type="submit">Voir</button>
+						</div>
+					</div>
+				</div>
+				<div class="list-group-item">
+					<div class="row">
+						<div class="col-md-10">
+							<h4 class="list-group-item-heading">Partenaire2 - France</h4>
+							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at efficitur elit.</p>
+							<p>xx rue gambetta,Paris 75000, FRANCE</p>
+						</div>
+						<div class="col-md-2">
+							<p></p>
+							<button class="btn btn-default" type="submit">Voir</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>  
+  
+<!-- Include js scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/espaceabonne.js"></script>
+</body>
+
+</html>
