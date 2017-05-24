@@ -45,49 +45,43 @@ class DefaultController extends Controller
 {
 	public function indexAction()
 	{
-
-		if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
-			throw new AccessDeniedException('This user does not have access to this section.');
-			//return $this->redirectToRoute('fos_user_security_login');
-		}
-		else {
-			return $this->redirectToRoute('esf_espace_abonne_monProfil');
-		}
-	}
-
-	
-	public function monprofilAction(Request $request)
-	{ 
-
-		if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
-			//throw new AccessDeniedException('This user does not have access to this section.');
-			return $this->redirectToRoute('fos_user_security_login');
-		}
-		else {
-			$user = $this->getUser();
-			$em = $this->getDoctrine()->getManager();
-
-			$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
-			$image = $em->getRepository('ESFEspaceAbonneBundle:EA_Image')->find($physique->getId());
-
-			$form = $this->createform(EA_PhysiqueType::class, $physique);
-			$form->handleRequest($request);
-
-			if ($form->isSubmitted() && $form->isValid()) {
-
-				$physique = $form->getData();
-				$em->persist($physique);
-				$em->flush();
-
-				$this->addFlash('notice','Modifcation bien enregistrée.');
-				return $this->redirectToRoute('esf_espace_abonne_monProfil');
+		try {
+			if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
+				throw new AccessDeniedException('Accès à cette page, le droit tu n\'as pas.');
+				return $this->redirectToRoute('fos_user_security_login');
 			}
+			else {
 
-			return $this->render('ESFEspaceAbonneBundle:Default:monprofil.html.twig', array(
-				'form' => $form->createView(),
-				'physique' => $physique,
-				));
-		}     
+				$user = $this->getUser();
+				$em = $this->getDoctrine()->getManager();
+
+				$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
+
+				$imageUser = $em->getRepository('ESFEspaceAbonneBundle:EA_Image')->findOneById($user->getPhysique()->getImage());
+
+				$form = $this->createform(EA_PhysiqueType::class, $physique);
+				$form->handleRequest($request);
+
+				if ($form->isSubmitted() && $form->isValid()) {
+
+					$physique = $form->getData();
+					$em->persist($physique);
+					$em->flush();
+
+					$this->addFlash('notice','Modifcation enregistrée avec succès !');
+				}
+
+				return $this->render('ESFEspaceAbonneBundle:Default:monprofil.html.twig', array(
+					'form' => $form->createView(),
+					'imageUser'=> $imageUser,
+					));		
+
+
+			}	
+		} catch (Exception $e) {
+			$this->addFlash('notice','J\ai glissé chef !.'. $e);
+			return $this->render('ESFEspaceAbonneBundle:Default:index.html.twig');		
+		}
 	}
 
 	public function mesparametresMDPAction(Request $request)
@@ -129,7 +123,7 @@ class DefaultController extends Controller
 				$url = $this->generateUrl('esf_espace_abonne_mesParametresMDP');
 				$response = new RedirectResponse($url);
 			}
-			
+
 			$dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
 			return $response;
@@ -243,7 +237,7 @@ class DefaultController extends Controller
 			$type = $eA_Demande_Inscription->getType();
 			$etat = $eA_Demande_Inscription->getEtat();
 		}
-		
+
 		$editForm = $this->createForm('ESF\EspaceAbonneBundle\Form\EA_Demande_InscriptionType', $eA_Demande_Inscription);
 		$editForm->handleRequest($request);
 
@@ -307,14 +301,14 @@ class DefaultController extends Controller
 	}
 
 	private function sendEmail($data){
-		
+
 		$message = \Swift_Message::newInstance()
 		->setSubject($data["subject"])
 		->setFrom('dudeego.contact@gmail.com')
 		->setTo($data["email"])
 		->setBody($data["message"])
 		;
-		
+
 		return $this->get('mailer')->send($message);
 	}
 
