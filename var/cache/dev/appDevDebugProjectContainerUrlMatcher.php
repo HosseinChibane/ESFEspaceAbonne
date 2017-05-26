@@ -105,51 +105,42 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // esf_esf_espace_abonne_homepage
+        // esf_espace_abonne_homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'esf_esf_espace_abonne_homepage');
+                return $this->redirect($pathinfo.'/', 'esf_espace_abonne_homepage');
             }
 
-            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esf_esf_espace_abonne_homepage',);
+            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::indexAction',  '_route' => 'esf_espace_abonne_homepage',);
         }
 
-        // esf_espace_abonne_home
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'esf_espace_abonne_home');
-            }
-
-            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::indexAction',  '_route' => 'esf_espace_abonne_home',);
-        }
-
-        if (0 === strpos($pathinfo, '/Default')) {
-            if (0 === strpos($pathinfo, '/Default/m')) {
+        if (0 === strpos($pathinfo, '/back')) {
+            if (0 === strpos($pathinfo, '/back/m')) {
                 // esf_espace_abonne_monProfil
-                if (rtrim($pathinfo, '/') === '/Default/monprofil') {
+                if (rtrim($pathinfo, '/') === '/back/monprofil') {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'esf_espace_abonne_monProfil');
                     }
 
-                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::monprofilAction',  '_route' => 'esf_espace_abonne_monProfil',);
+                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::monprofilAction',  '_route' => 'esf_espace_abonne_monProfil',);
                 }
 
-                if (0 === strpos($pathinfo, '/Default/mes')) {
-                    if (0 === strpos($pathinfo, '/Default/mesparametres')) {
+                if (0 === strpos($pathinfo, '/back/mes')) {
+                    if (0 === strpos($pathinfo, '/back/mesparametres')) {
                         // esf_espace_abonne_mesParametres
-                        if ($pathinfo === '/Default/mesparametres') {
-                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mesparametresAction',  '_route' => 'esf_espace_abonne_mesParametres',);
+                        if ($pathinfo === '/back/mesparametres') {
+                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mesparametresAction',  '_route' => 'esf_espace_abonne_mesParametres',);
                         }
 
-                        if (0 === strpos($pathinfo, '/Default/mesparametresM')) {
+                        if (0 === strpos($pathinfo, '/back/mesparametresM')) {
                             // esf_espace_abonne_mesParametresMDP
-                            if ($pathinfo === '/Default/mesparametresMDP') {
-                                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mesparametresMDPAction',  '_route' => 'esf_espace_abonne_mesParametresMDP',);
+                            if ($pathinfo === '/back/mesparametresMDP') {
+                                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mesparametresMDPAction',  '_route' => 'esf_espace_abonne_mesParametresMDP',);
                             }
 
                             // esf_espace_abonne_mesParametresMAIL
-                            if ($pathinfo === '/Default/mesparametresMAIL') {
-                                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mesparametresMAILAction',  '_route' => 'esf_espace_abonne_mesParametresMAIL',);
+                            if ($pathinfo === '/back/mesparametresMAIL') {
+                                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mesparametresMAILAction',  '_route' => 'esf_espace_abonne_mesParametresMAIL',);
                             }
 
                         }
@@ -157,8 +148,8 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     }
 
                     // esf_espace_abonne_mesDemandes
-                    if ($pathinfo === '/Default/mesdemandes') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mesdemandesAction',  '_route' => 'esf_espace_abonne_mesDemandes',);
+                    if ($pathinfo === '/back/mesdemandes') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mesdemandesAction',  '_route' => 'esf_espace_abonne_mesDemandes',);
                     }
 
                 }
@@ -166,103 +157,103 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // esf_espace_abonne_detailsDemandes
-            if (0 === strpos($pathinfo, '/Default/detailsdemandes') && preg_match('#^/Default/detailsdemandes/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esf_espace_abonne_detailsDemandes')), array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::detailsdemandesAction',));
+            if (0 === strpos($pathinfo, '/back/detailsdemandes') && preg_match('#^/back/detailsdemandes/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'esf_espace_abonne_detailsDemandes')), array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::detailsdemandesAction',));
             }
 
-            if (0 === strpos($pathinfo, '/Default/m')) {
+            if (0 === strpos($pathinfo, '/back/m')) {
                 // esf_espace_abonne_modifierDemandes
-                if (0 === strpos($pathinfo, '/Default/modifierdemandes') && preg_match('#^/Default/modifierdemandes/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/back/modifierdemandes') && preg_match('#^/back/modifierdemandes/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                     if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
                         $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                         goto not_esf_espace_abonne_modifierDemandes;
                     }
 
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'esf_espace_abonne_modifierDemandes')), array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::modifierdemandesAction',));
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'esf_espace_abonne_modifierDemandes')), array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::modifierdemandesAction',));
                 }
                 not_esf_espace_abonne_modifierDemandes:
 
                 // esf_espace_abonne_mesDocuments
-                if ($pathinfo === '/Default/mesdocuments') {
-                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mesdocumentsAction',  '_route' => 'esf_espace_abonne_mesDocuments',);
+                if ($pathinfo === '/back/mesdocuments') {
+                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mesdocumentsAction',  '_route' => 'esf_espace_abonne_mesDocuments',);
                 }
 
             }
 
             // esf_espace_abonne_aide
-            if ($pathinfo === '/Default/aide') {
-                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::aideAction',  '_route' => 'esf_espace_abonne_aide',);
+            if ($pathinfo === '/back/aide') {
+                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::aideAction',  '_route' => 'esf_espace_abonne_aide',);
             }
 
             // esf_espace_abonne_contact
-            if ($pathinfo === '/Default/contact') {
+            if ($pathinfo === '/back/contact') {
                 if (!in_array($this->context->getMethod(), array('POST', 'GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('POST', 'GET', 'HEAD'));
                     goto not_esf_espace_abonne_contact;
                 }
 
-                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::contactAction',  '_route' => 'esf_espace_abonne_contact',);
+                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::contactAction',  '_route' => 'esf_espace_abonne_contact',);
             }
             not_esf_espace_abonne_contact:
 
-            if (0 === strpos($pathinfo, '/Default/universite')) {
+            if (0 === strpos($pathinfo, '/back/universite')) {
                 // esf_espace_abonne_universiteStepsOne
-                if ($pathinfo === '/Default/universiteOne') {
-                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::universiteOneAction',  '_route' => 'esf_espace_abonne_universiteStepsOne',);
+                if ($pathinfo === '/back/universiteOne') {
+                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::universiteOneAction',  '_route' => 'esf_espace_abonne_universiteStepsOne',);
                 }
 
-                if (0 === strpos($pathinfo, '/Default/universiteT')) {
+                if (0 === strpos($pathinfo, '/back/universiteT')) {
                     // esf_espace_abonne_universiteStepsTwo
-                    if ($pathinfo === '/Default/universiteTwo') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::universiteTwoAction',  '_route' => 'esf_espace_abonne_universiteStepsTwo',);
+                    if ($pathinfo === '/back/universiteTwo') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::universiteTwoAction',  '_route' => 'esf_espace_abonne_universiteStepsTwo',);
                     }
 
                     // esf_espace_abonne_universiteStepsThree
-                    if ($pathinfo === '/Default/universiteThree') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::universiteTwoAction',  '_route' => 'esf_espace_abonne_universiteStepsThree',);
+                    if ($pathinfo === '/back/universiteThree') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::universiteTwoAction',  '_route' => 'esf_espace_abonne_universiteStepsThree',);
                     }
 
                 }
 
             }
 
-            if (0 === strpos($pathinfo, '/Default/l')) {
-                if (0 === strpos($pathinfo, '/Default/langue')) {
+            if (0 === strpos($pathinfo, '/back/l')) {
+                if (0 === strpos($pathinfo, '/back/langue')) {
                     // esf_espace_abonne_langueStepsOne
-                    if ($pathinfo === '/Default/langueOne') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::langueOneAction',  '_route' => 'esf_espace_abonne_langueStepsOne',);
+                    if ($pathinfo === '/back/langueOne') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::langueOneAction',  '_route' => 'esf_espace_abonne_langueStepsOne',);
                     }
 
-                    if (0 === strpos($pathinfo, '/Default/langueT')) {
+                    if (0 === strpos($pathinfo, '/back/langueT')) {
                         // esf_espace_abonne_langueStepsTwo
-                        if ($pathinfo === '/Default/langueTwo') {
-                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::langueTwoAction',  '_route' => 'esf_espace_abonne_langueStepsTwo',);
+                        if ($pathinfo === '/back/langueTwo') {
+                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::langueTwoAction',  '_route' => 'esf_espace_abonne_langueStepsTwo',);
                         }
 
                         // esf_espace_abonne_langueStepsThree
-                        if ($pathinfo === '/Default/langueThree') {
-                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::langueTwoAction',  '_route' => 'esf_espace_abonne_langueStepsThree',);
+                        if ($pathinfo === '/back/langueThree') {
+                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::langueTwoAction',  '_route' => 'esf_espace_abonne_langueStepsThree',);
                         }
 
                     }
 
                 }
 
-                if (0 === strpos($pathinfo, '/Default/logement')) {
+                if (0 === strpos($pathinfo, '/back/logement')) {
                     // esf_espace_abonne_logementStepsOne
-                    if ($pathinfo === '/Default/logementOne') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::logementOneAction',  '_route' => 'esf_espace_abonne_logementStepsOne',);
+                    if ($pathinfo === '/back/logementOne') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::logementOneAction',  '_route' => 'esf_espace_abonne_logementStepsOne',);
                     }
 
-                    if (0 === strpos($pathinfo, '/Default/logementT')) {
+                    if (0 === strpos($pathinfo, '/back/logementT')) {
                         // esf_espace_abonne_logementStepsTwo
-                        if ($pathinfo === '/Default/logementTwo') {
-                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::logementTwoAction',  '_route' => 'esf_espace_abonne_logementStepsTwo',);
+                        if ($pathinfo === '/back/logementTwo') {
+                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::logementTwoAction',  '_route' => 'esf_espace_abonne_logementStepsTwo',);
                         }
 
                         // esf_espace_abonne_logementStepsThree
-                        if ($pathinfo === '/Default/logementThree') {
-                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::logementTwoAction',  '_route' => 'esf_espace_abonne_logementStepsThree',);
+                        if ($pathinfo === '/back/logementThree') {
+                            return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::logementTwoAction',  '_route' => 'esf_espace_abonne_logementStepsThree',);
                         }
 
                     }
@@ -271,21 +262,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
             }
 
-            if (0 === strpos($pathinfo, '/Default/preparation')) {
+            if (0 === strpos($pathinfo, '/back/preparation')) {
                 // esf_espace_abonne_preparationStepsOne
-                if ($pathinfo === '/Default/preparationOne') {
-                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::preparationOneAction',  '_route' => 'esf_espace_abonne_preparationStepsOne',);
+                if ($pathinfo === '/back/preparationOne') {
+                    return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::preparationOneAction',  '_route' => 'esf_espace_abonne_preparationStepsOne',);
                 }
 
-                if (0 === strpos($pathinfo, '/Default/preparationT')) {
+                if (0 === strpos($pathinfo, '/back/preparationT')) {
                     // esf_espace_abonne_preparationStepsTwo
-                    if ($pathinfo === '/Default/preparationTwo') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::preparationTwoAction',  '_route' => 'esf_espace_abonne_preparationStepsTwo',);
+                    if ($pathinfo === '/back/preparationTwo') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::preparationTwoAction',  '_route' => 'esf_espace_abonne_preparationStepsTwo',);
                     }
 
                     // esf_espace_abonne_preparationStepsThree
-                    if ($pathinfo === '/Default/preparationThree') {
-                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::preparationTwoAction',  '_route' => 'esf_espace_abonne_preparationStepsThree',);
+                    if ($pathinfo === '/back/preparationThree') {
+                        return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::preparationTwoAction',  '_route' => 'esf_espace_abonne_preparationStepsThree',);
                     }
 
                 }
@@ -293,15 +284,10 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             // esf_espace_abonne_mutuelle
-            if ($pathinfo === '/Default/mutuelle') {
-                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\DefaultController::mutuelleAction',  '_route' => 'esf_espace_abonne_mutuelle',);
+            if ($pathinfo === '/back/mutuelle') {
+                return array (  '_controller' => 'ESF\\EspaceAbonneBundle\\Controller\\BackController::mutuelleAction',  '_route' => 'esf_espace_abonne_mutuelle',);
             }
 
-        }
-
-        // espace_admin_panel
-        if ($pathinfo === '/Admin/adminPanel') {
-            return array (  '_controller' => 'ESFEspaceAbonneBundle:Admin:adminPanel',  '_route' => 'espace_admin_panel',);
         }
 
         if (0 === strpos($pathinfo, '/log')) {
@@ -489,6 +475,31 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'FOS\\UserBundle\\Controller\\ChangePasswordController::changePasswordAction',  '_route' => 'fos_user_change_password',);
         }
         not_fos_user_change_password:
+
+        if (0 === strpos($pathinfo, '/media/cache/resolve')) {
+            // liip_imagine_filter_runtime
+            if (preg_match('#^/media/cache/resolve/(?P<filter>[A-z0-9_-]*)/rc/(?P<hash>[^/]++)/(?P<path>.+)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_liip_imagine_filter_runtime;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liip_imagine_filter_runtime')), array (  '_controller' => 'liip_imagine.controller:filterRuntimeAction',));
+            }
+            not_liip_imagine_filter_runtime:
+
+            // liip_imagine_filter
+            if (preg_match('#^/media/cache/resolve/(?P<filter>[A-z0-9_-]*)/(?P<path>.+)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_liip_imagine_filter;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'liip_imagine_filter')), array (  '_controller' => 'liip_imagine.controller:filterAction',));
+            }
+            not_liip_imagine_filter:
+
+        }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

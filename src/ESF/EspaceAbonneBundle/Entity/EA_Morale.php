@@ -13,12 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class EA_Morale
 {
     /**
-   * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Personne", cascade={"persist"})
+   * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Personne", cascade={"persist"}, cascade={"remove"})
    */
     private $personne;
 
      /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Langue", mappedBy="morale", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Langue", mappedBy="morale", cascade={"persist"}, cascade={"remove"})
      */
     private $langues;
     

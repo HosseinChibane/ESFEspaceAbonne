@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
+
 class EA_Document_InscriptionType extends AbstractType
 {
     /**
@@ -37,7 +38,7 @@ class EA_Document_InscriptionType extends AbstractType
             ))
         ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -1,10 +1,13 @@
 <?php
 
-namespace  ESF\EspaceAbonneBundle\Form;
+namespace ESF\EspaceAbonneBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
@@ -20,44 +23,59 @@ class InscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('type', ChoiceType::class, array(
+            'choices' => array(
+                'Campus' => 'Campus',
+                'Partenaire' => 'Partenaire'
+                ),
+            'required'    => true,
+            'placeholder' => 'Choisir un type de logement',
+            'empty_data'  => null))
+        
         ->add('languePartenaire', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Langue',
+            'class' => 'DUDEEGOPlatformBundle:EA_Langue',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.langue', 'ASC');
+                ->groupBy('u.id')
+                ->orderBy('u.langue', 'ASC')
+                ;
             },
             'choice_label' => 'langue',
             'required'    => false,
             'placeholder' => 'Choisir une langue',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
 
         ->add('langueUniversite', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Langue_Universite',
+            'class' => 'DUDEEGOPlatformBundle:T_Langue_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.langue', 'ASC');
+                ->groupBy('u.id')
+                ->orderBy('u.langue', 'ASC')
+                ;
             },
             'choice_label' => 'langue',
             'required'    => false,
             'placeholder' => 'Choisir une langue',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
 
         ->add('formation', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Formation_Universite',
+            'class' => 'DUDEEGOPlatformBundle:T_Formation_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.formation', 'ASC');
+                ->groupBy('u.id')
+                ->orderBy('u.formation', 'ASC')
+                ;
             },
             'choice_label' => 'formation',
             'required'    => false,
             'placeholder' => 'Choisir une formation',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
 
         ->add('nometablissement', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Universite',
+            'class' => 'DUDEEGOPlatformBundle:T_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.nometablissement', 'ASC');
@@ -65,11 +83,11 @@ class InscriptionType extends AbstractType
             'choice_label' => 'nometablissement',
             'required'    => false,
             'placeholder' => 'Choisir un établissement',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
 
         ->add('pays', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Personne',
+            'class' => 'DUDEEGOPlatformBundle:EA_Personne',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.pays', 'ASC');
@@ -77,11 +95,11 @@ class InscriptionType extends AbstractType
             'choice_label' => 'pays',
             'required'    => false,
             'placeholder' => 'Choisir un pays',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
         
         ->add('raisonsocial', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Morale',
+            'class' => 'DUDEEGOPlatformBundle:EA_Morale',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.raisonsocial', 'ASC');
@@ -89,7 +107,7 @@ class InscriptionType extends AbstractType
             'choice_label' => 'raisonsocial',
             'required'    => false,
             'placeholder' => 'Choisir un partenaire',
-            'empty_data'  => null,
+            'empty_data'  => '',
             ))
 
         ->add('typeLogement', ChoiceType::class, array(
@@ -99,8 +117,7 @@ class InscriptionType extends AbstractType
                 ),
             'required'    => false,
             'placeholder' => 'Choisir un type de logement',
-            'empty_data'  => null,
-            ))
+            'empty_data'  => ''))
 
         ->add('typePreparation', ChoiceType::class, array(
             'choices' => array(
@@ -110,8 +127,7 @@ class InscriptionType extends AbstractType
                 ),
             'required'    => false,
             'placeholder' => 'Choisir un type de logement',
-            'empty_data'  => null,
-            ))
+            'empty_data'  => ''))
 
         ->add('rechercher', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
@@ -122,7 +138,8 @@ class InscriptionType extends AbstractType
             ))
         ;
     }
-    
+
+
     /**
      * {@inheritdoc}
      */

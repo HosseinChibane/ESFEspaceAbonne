@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new AppBundle\AppBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
             new ESF\EspaceAbonneBundle\ESFEspaceAbonneBundle(),
         ];
 

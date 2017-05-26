@@ -507,4 +507,15 @@ class EA_Physique extends \ESF\EspaceAbonneBundle\Entity\EA_Physique implements 
         return parent::getDemandes();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function setDocuments(\ESF\EspaceAbonneBundle\Entity\EA_Document $documents = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDocuments', [$documents]);
+
+        return parent::setDocuments($documents);
+    }
+
 }

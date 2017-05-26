@@ -14,8 +14,8 @@ class T_Langue_Universite
 {
 
     /**
-   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", inversedBy="langues")
-   * @ORM\JoinColumn(nullable=false)
+   * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", inversedBy="langues")
+   * @ORM\JoinTable(name="t_langue_universite_t_formation_universite")
    */
     private $formation;
 
@@ -96,5 +96,37 @@ class T_Langue_Universite
     public function getFormation()
     {
         return $this->formation;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Formation_Universite $formation
+     *
+     * @return T_Langue_Universite
+     */
+    public function addFormation(\ESF\EspaceAbonneBundle\Entity\T_Formation_Universite $formation)
+    {
+        $this->formation[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Formation_Universite $formation
+     */
+    public function removeFormation(\ESF\EspaceAbonneBundle\Entity\T_Formation_Universite $formation)
+    {
+        $this->formation->removeElement($formation);
     }
 }

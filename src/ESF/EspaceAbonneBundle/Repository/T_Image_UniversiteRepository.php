@@ -10,4 +10,5 @@ namespace ESF\EspaceAbonneBundle\Repository;
  */
 class T_Image_UniversiteRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }

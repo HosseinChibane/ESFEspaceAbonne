@@ -10,7 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 
-
 class EA_DocumentType extends AbstractType
 {
     /**
@@ -26,8 +25,8 @@ class EA_DocumentType extends AbstractType
         ->add('PasseportFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('CarteIdentiteName', TextType::class, array(
@@ -37,8 +36,8 @@ class EA_DocumentType extends AbstractType
         ->add('CarteIdentiteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('BulletinNoteName', TextType::class, array(
@@ -48,8 +47,8 @@ class EA_DocumentType extends AbstractType
         ->add('BulletinNoteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('BacName', TextType::class, array(
@@ -59,8 +58,8 @@ class EA_DocumentType extends AbstractType
         ->add('BacFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('CredentialName', TextType::class, array(
@@ -70,8 +69,8 @@ class EA_DocumentType extends AbstractType
         ->add('CredentialFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('LettreRecommendationName', TextType::class, array(
@@ -81,8 +80,8 @@ class EA_DocumentType extends AbstractType
         ->add('LettreRecommendationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
         ->add('LettreMotivationName', TextType::class, array(
@@ -92,12 +91,11 @@ class EA_DocumentType extends AbstractType
         ->add('LettreMotivationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
-            'allow_delete' => true, // optional, default is true
-            'download_link' => true, // optional, default is true
+            'allow_delete' => false, // optional, default is true
+            'download_link' => false, // optional, default is true
             ])
 
-        //->add('updatedAt')
-        //->add('physique', EA_PhysiqueType::class)
+        ->add('updatedAt')
 
         ->add('upload', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),

@@ -10,4 +10,56 @@ namespace ESF\EspaceAbonneBundle\Repository;
  */
 class T_UniversiteRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAllUniversite()
+	{
+		$qb = $this
+		->createQueryBuilder('u')
+		->leftJoin('u.formations', 'for')
+		->leftJoin('for.langues', 'lan')
+		->leftJoin('u.adresse', 'adr')
+		->leftJoin('adr.ville', 'vil')
+		->leftJoin('vil.pays', 'pay')
+		;
+
+		return $qb->getQuery()->getResult();
+	}
+
+	public function getUniversiteWithSearchAND($formations,  $langues,  $villes,  $pays,  $nomuniversite)
+	{
+		$qb = $this
+		->createQueryBuilder('u')
+		->leftJoin('u.formations', 'for')
+		->leftJoin('for.langues', 'lan')
+		->leftJoin('u.adresse', 'adr')
+		->leftJoin('adr.ville', 'vil')
+		->leftJoin('vil.pays', 'pay')
+		->where('u.nometablissement LIKE :nomuniversite')
+		->setParameter('nomuniversite', '%'.$nomuniversite.'%')
+		->andwhere('for.formation LIKE :formations')
+		->setParameter('formations', '%'.$formations.'%')
+		->andwhere('lan.langue LIKE :langues')
+		->setParameter('langues', '%'.$langues.'%')
+		->andwhere('vil.commune LIKE :villes')
+		->setParameter('villes', '%'.$villes.'%')
+		->andwhere('pay.pays LIKE :pays')
+		->setParameter('pays', '%'.$pays.'%')
+		;
+
+		return $qb->getQuery()->getResult();
+	}
+
+	public function getDocumentIncription( $formation,  $langue, $nomuniversite)
+	{
+		$qb = $this
+		->createQueryBuilder('u')
+		->leftJoin('u.documents', 'doc')
+		->where('u.nometablissement = :nomuniversite')
+		->setParameter('nomuniversite', '%'.$nomuniversite.'%')		
+		;
+
+		return $qb->getQuery()->getResult();
+	}
+
+
+
 }

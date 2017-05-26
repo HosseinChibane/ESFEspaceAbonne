@@ -150,6 +150,43 @@ class appDevDebugProjectContainer extends Container
             'http_kernel' => 'getHttpKernelService',
             'kernel' => 'getKernelService',
             'kernel.class_cache.cache_warmer' => 'getKernel_ClassCache_CacheWarmerService',
+            'liip_imagine' => 'getLiipImagineService',
+            'liip_imagine.binary.loader.default' => 'getLiipImagine_Binary_Loader_DefaultService',
+            'liip_imagine.binary.loader.prototype.filesystem' => 'getLiipImagine_Binary_Loader_Prototype_FilesystemService',
+            'liip_imagine.binary.loader.prototype.stream' => 'getLiipImagine_Binary_Loader_Prototype_StreamService',
+            'liip_imagine.binary.mime_type_guesser' => 'getLiipImagine_Binary_MimeTypeGuesserService',
+            'liip_imagine.cache.manager' => 'getLiipImagine_Cache_ManagerService',
+            'liip_imagine.cache.resolver.default' => 'getLiipImagine_Cache_Resolver_DefaultService',
+            'liip_imagine.cache.resolver.no_cache_web_path' => 'getLiipImagine_Cache_Resolver_NoCacheWebPathService',
+            'liip_imagine.cache.signer' => 'getLiipImagine_Cache_SignerService',
+            'liip_imagine.controller' => 'getLiipImagine_ControllerService',
+            'liip_imagine.data.manager' => 'getLiipImagine_Data_ManagerService',
+            'liip_imagine.extension_guesser' => 'getLiipImagine_ExtensionGuesserService',
+            'liip_imagine.filter.configuration' => 'getLiipImagine_Filter_ConfigurationService',
+            'liip_imagine.filter.loader.auto_rotate' => 'getLiipImagine_Filter_Loader_AutoRotateService',
+            'liip_imagine.filter.loader.background' => 'getLiipImagine_Filter_Loader_BackgroundService',
+            'liip_imagine.filter.loader.crop' => 'getLiipImagine_Filter_Loader_CropService',
+            'liip_imagine.filter.loader.downscale' => 'getLiipImagine_Filter_Loader_DownscaleService',
+            'liip_imagine.filter.loader.flip' => 'getLiipImagine_Filter_Loader_FlipService',
+            'liip_imagine.filter.loader.grayscale' => 'getLiipImagine_Filter_Loader_GrayscaleService',
+            'liip_imagine.filter.loader.interlace' => 'getLiipImagine_Filter_Loader_InterlaceService',
+            'liip_imagine.filter.loader.paste' => 'getLiipImagine_Filter_Loader_PasteService',
+            'liip_imagine.filter.loader.relative_resize' => 'getLiipImagine_Filter_Loader_RelativeResizeService',
+            'liip_imagine.filter.loader.resize' => 'getLiipImagine_Filter_Loader_ResizeService',
+            'liip_imagine.filter.loader.rotate' => 'getLiipImagine_Filter_Loader_RotateService',
+            'liip_imagine.filter.loader.scale' => 'getLiipImagine_Filter_Loader_ScaleService',
+            'liip_imagine.filter.loader.strip' => 'getLiipImagine_Filter_Loader_StripService',
+            'liip_imagine.filter.loader.thumbnail' => 'getLiipImagine_Filter_Loader_ThumbnailService',
+            'liip_imagine.filter.loader.upscale' => 'getLiipImagine_Filter_Loader_UpscaleService',
+            'liip_imagine.filter.loader.watermark' => 'getLiipImagine_Filter_Loader_WatermarkService',
+            'liip_imagine.filter.manager' => 'getLiipImagine_Filter_ManagerService',
+            'liip_imagine.filter.post_processor.jpegoptim' => 'getLiipImagine_Filter_PostProcessor_JpegoptimService',
+            'liip_imagine.filter.post_processor.mozjpeg' => 'getLiipImagine_Filter_PostProcessor_MozjpegService',
+            'liip_imagine.filter.post_processor.optipng' => 'getLiipImagine_Filter_PostProcessor_OptipngService',
+            'liip_imagine.filter.post_processor.pngquant' => 'getLiipImagine_Filter_PostProcessor_PngquantService',
+            'liip_imagine.form.type.image' => 'getLiipImagine_Form_Type_ImageService',
+            'liip_imagine.mime_type_guesser' => 'getLiipImagine_MimeTypeGuesserService',
+            'liip_imagine.templating.helper' => 'getLiipImagine_Templating_HelperService',
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
             'monolog.activation_strategy.not_found' => 'getMonolog_ActivationStrategy_NotFoundService',
@@ -179,6 +216,7 @@ class appDevDebugProjectContainer extends Container
             'routing.loader' => 'getRouting_LoaderService',
             'security.authentication.guard_handler' => 'getSecurity_Authentication_GuardHandlerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
+            'security.authentication.rememberme.services.simplehash.main' => 'getSecurity_Authentication_Rememberme_Services_Simplehash_MainService',
             'security.authentication.session_strategy' => 'getSecurity_Authentication_SessionStrategyService',
             'security.authentication.trust_resolver' => 'getSecurity_Authentication_TrustResolverService',
             'security.authentication_utils' => 'getSecurity_AuthenticationUtilsService',
@@ -187,6 +225,7 @@ class appDevDebugProjectContainer extends Container
             'security.encoder_factory' => 'getSecurity_EncoderFactoryService',
             'security.firewall' => 'getSecurity_FirewallService',
             'security.firewall.map' => 'getSecurity_Firewall_MapService',
+            'security.firewall.map.context.dev' => 'getSecurity_Firewall_Map_Context_DevService',
             'security.firewall.map.context.main' => 'getSecurity_Firewall_Map_Context_MainService',
             'security.logout_url_generator' => 'getSecurity_LogoutUrlGeneratorService',
             'security.password_encoder' => 'getSecurity_PasswordEncoderService',
@@ -313,6 +352,7 @@ class appDevDebugProjectContainer extends Container
             'monolog.processor.psr_log_message' => true,
             'router.request_context' => true,
             'security.authentication.manager' => true,
+            'security.authentication.rememberme.services.simplehash.main' => true,
             'security.authentication.session_strategy' => true,
             'security.authentication.trust_resolver' => true,
             'security.firewall.map' => true,
@@ -449,7 +489,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('VtfBu4IQ1c', 0, 'd6KzwnCEDU9tSW6Wh1YonK', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('VtfBu4IQ1c', 0, '8vDKCeEeTbz3uIxii2UCuO', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -480,7 +520,7 @@ class appDevDebugProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[3].'\\app/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, ${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator.default')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer($this->get('validator.builder'), (__DIR__.'/validation.php'), \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('F7RtIr+Kkv', 0, 'd6KzwnCEDU9tSW6Wh1YonK', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE))), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 5 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, (__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 7 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 8 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, ${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator.default')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer($this->get('validator.builder'), (__DIR__.'/validation.php'), \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('F7RtIr+Kkv', 0, '8vDKCeEeTbz3uIxii2UCuO', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE))), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 5 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, (__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 7 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 8 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
 
     /**
@@ -778,7 +818,7 @@ class appDevDebugProjectContainer extends Container
     {
         if ($lazyLoad) {
 
-            return $this->services['doctrine.orm.default_entity_manager'] = new DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef39682d0653c1fe66286(
+            return $this->services['doctrine.orm.default_entity_manager'] = new DoctrineORMEntityManager_000000005edbc0a4000000000ac6c5ef57cdab36516ef39682d0653c1fe66286(
                 function (&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) {
                     $wrappedInstance = $this->getDoctrine_Orm_DefaultEntityManagerService(false);
 
@@ -980,7 +1020,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'Vich\\UploaderBundle\\Form\\Type\\VichFileType' => 'vich_uploader.form.type.file', 'Vich\\UploaderBundle\\Form\\Type\\VichImageType' => 'vich_uploader.form.type.image'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'form.type_extension.form.data_collector'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'Vich\\UploaderBundle\\Form\\Type\\VichFileType' => 'vich_uploader.form.type.file', 'Vich\\UploaderBundle\\Form\\Type\\VichImageType' => 'vich_uploader.form.type.image', 'Liip\\ImagineBundle\\Form\\Type\\ImageType' => 'liip_imagine.form.type.image'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'form.type_extension.form.data_collector'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -1824,7 +1864,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFosUser_Security_LoginManagerService()
     {
-        return $this->services['fos_user.security.login_manager'] = new \FOS\UserBundle\Security\LoginManager($this->get('security.token_storage'), ${($_ = isset($this->services['security.user_checker']) ? $this->services['security.user_checker'] : $this->getSecurity_UserCheckerService()) && false ?: '_'}, ${($_ = isset($this->services['security.authentication.session_strategy']) ? $this->services['security.authentication.session_strategy'] : $this->getSecurity_Authentication_SessionStrategyService()) && false ?: '_'}, $this->get('request_stack'), NULL);
+        return $this->services['fos_user.security.login_manager'] = new \FOS\UserBundle\Security\LoginManager($this->get('security.token_storage'), ${($_ = isset($this->services['security.user_checker']) ? $this->services['security.user_checker'] : $this->getSecurity_UserCheckerService()) && false ?: '_'}, ${($_ = isset($this->services['security.authentication.session_strategy']) ? $this->services['security.authentication.session_strategy'] : $this->getSecurity_Authentication_SessionStrategyService()) && false ?: '_'}, $this->get('request_stack'), ${($_ = isset($this->services['security.authentication.rememberme.services.simplehash.main']) ? $this->services['security.authentication.rememberme.services.simplehash.main'] : $this->getSecurity_Authentication_Rememberme_Services_Simplehash_MainService()) && false ?: '_'});
     }
 
     /**
@@ -2031,6 +2071,523 @@ class appDevDebugProjectContainer extends Container
     protected function getKernel_ClassCache_CacheWarmerService()
     {
         return $this->services['kernel.class_cache.cache_warmer'] = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer(array(0 => 'Symfony\\Component\\HttpFoundation\\ParameterBag', 1 => 'Symfony\\Component\\HttpFoundation\\HeaderBag', 2 => 'Symfony\\Component\\HttpFoundation\\FileBag', 3 => 'Symfony\\Component\\HttpFoundation\\ServerBag', 4 => 'Symfony\\Component\\HttpFoundation\\Request', 5 => 'Symfony\\Component\\HttpKernel\\Kernel', 6 => 'Symfony\\Component\\ClassLoader\\ClassCollectionLoader', 7 => 'Symfony\\Component\\ClassLoader\\ApcClassLoader'));
+    }
+
+    /**
+     * Gets the 'liip_imagine' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Imagine\Gd\Imagine A Imagine\Gd\Imagine instance
+     */
+    protected function getLiipImagineService()
+    {
+        $this->services['liip_imagine'] = $instance = new \Imagine\Gd\Imagine();
+
+        $instance->setMetadataReader(new \Imagine\Image\Metadata\ExifMetadataReader());
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'liip_imagine.binary.loader.default' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Binary\Loader\FileSystemLoader A Liip\ImagineBundle\Binary\Loader\FileSystemLoader instance
+     */
+    protected function getLiipImagine_Binary_Loader_DefaultService()
+    {
+        return $this->services['liip_imagine.binary.loader.default'] = new \Liip\ImagineBundle\Binary\Loader\FileSystemLoader($this->get('liip_imagine.mime_type_guesser'), $this->get('liip_imagine.extension_guesser'), array(0 => ($this->targetDirs[3].'\\app/../web')), new \Liip\ImagineBundle\Binary\Locator\FileSystemLocator());
+    }
+
+    /**
+     * Gets the 'liip_imagine.binary.loader.prototype.filesystem' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Binary\Loader\FileSystemLoader A Liip\ImagineBundle\Binary\Loader\FileSystemLoader instance
+     */
+    protected function getLiipImagine_Binary_Loader_Prototype_FilesystemService()
+    {
+        return $this->services['liip_imagine.binary.loader.prototype.filesystem'] = new \Liip\ImagineBundle\Binary\Loader\FileSystemLoader($this->get('liip_imagine.mime_type_guesser'), $this->get('liip_imagine.extension_guesser'), '', '');
+    }
+
+    /**
+     * Gets the 'liip_imagine.binary.loader.prototype.stream' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Binary\Loader\StreamLoader A Liip\ImagineBundle\Binary\Loader\StreamLoader instance
+     */
+    protected function getLiipImagine_Binary_Loader_Prototype_StreamService()
+    {
+        return $this->services['liip_imagine.binary.loader.prototype.stream'] = new \Liip\ImagineBundle\Binary\Loader\StreamLoader('', '');
+    }
+
+    /**
+     * Gets the 'liip_imagine.binary.mime_type_guesser' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Binary\SimpleMimeTypeGuesser A Liip\ImagineBundle\Binary\SimpleMimeTypeGuesser instance
+     */
+    protected function getLiipImagine_Binary_MimeTypeGuesserService()
+    {
+        return $this->services['liip_imagine.binary.mime_type_guesser'] = new \Liip\ImagineBundle\Binary\SimpleMimeTypeGuesser($this->get('liip_imagine.mime_type_guesser'));
+    }
+
+    /**
+     * Gets the 'liip_imagine.cache.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Cache\CacheManager A Liip\ImagineBundle\Imagine\Cache\CacheManager instance
+     */
+    protected function getLiipImagine_Cache_ManagerService()
+    {
+        $this->services['liip_imagine.cache.manager'] = $instance = new \Liip\ImagineBundle\Imagine\Cache\CacheManager($this->get('liip_imagine.filter.configuration'), $this->get('router'), $this->get('liip_imagine.cache.signer'), $this->get('debug.event_dispatcher'), 'default');
+
+        $instance->addResolver('default', $this->get('liip_imagine.cache.resolver.default'));
+        $instance->addResolver('no_cache', $this->get('liip_imagine.cache.resolver.no_cache_web_path'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'liip_imagine.cache.resolver.default' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Cache\Resolver\WebPathResolver A Liip\ImagineBundle\Imagine\Cache\Resolver\WebPathResolver instance
+     */
+    protected function getLiipImagine_Cache_Resolver_DefaultService()
+    {
+        return $this->services['liip_imagine.cache.resolver.default'] = new \Liip\ImagineBundle\Imagine\Cache\Resolver\WebPathResolver($this->get('filesystem'), ${($_ = isset($this->services['router.request_context']) ? $this->services['router.request_context'] : $this->getRouter_RequestContextService()) && false ?: '_'}, ($this->targetDirs[3].'\\app/../web'), 'media/cache');
+    }
+
+    /**
+     * Gets the 'liip_imagine.cache.resolver.no_cache_web_path' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Cache\Resolver\NoCacheWebPathResolver A Liip\ImagineBundle\Imagine\Cache\Resolver\NoCacheWebPathResolver instance
+     */
+    protected function getLiipImagine_Cache_Resolver_NoCacheWebPathService()
+    {
+        return $this->services['liip_imagine.cache.resolver.no_cache_web_path'] = new \Liip\ImagineBundle\Imagine\Cache\Resolver\NoCacheWebPathResolver(${($_ = isset($this->services['router.request_context']) ? $this->services['router.request_context'] : $this->getRouter_RequestContextService()) && false ?: '_'});
+    }
+
+    /**
+     * Gets the 'liip_imagine.cache.signer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Cache\Signer A Liip\ImagineBundle\Imagine\Cache\Signer instance
+     */
+    protected function getLiipImagine_Cache_SignerService()
+    {
+        return $this->services['liip_imagine.cache.signer'] = new \Liip\ImagineBundle\Imagine\Cache\Signer('ThisTokenIsNotSoSecretChangeIt');
+    }
+
+    /**
+     * Gets the 'liip_imagine.controller' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Controller\ImagineController A Liip\ImagineBundle\Controller\ImagineController instance
+     */
+    protected function getLiipImagine_ControllerService()
+    {
+        return $this->services['liip_imagine.controller'] = new \Liip\ImagineBundle\Controller\ImagineController($this->get('liip_imagine.data.manager'), $this->get('liip_imagine.filter.manager'), $this->get('liip_imagine.cache.manager'), $this->get('liip_imagine.cache.signer'), $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+    }
+
+    /**
+     * Gets the 'liip_imagine.data.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Data\DataManager A Liip\ImagineBundle\Imagine\Data\DataManager instance
+     */
+    protected function getLiipImagine_Data_ManagerService()
+    {
+        $this->services['liip_imagine.data.manager'] = $instance = new \Liip\ImagineBundle\Imagine\Data\DataManager($this->get('liip_imagine.binary.mime_type_guesser'), $this->get('liip_imagine.extension_guesser'), $this->get('liip_imagine.filter.configuration'), 'default', NULL);
+
+        $instance->addLoader('default', $this->get('liip_imagine.binary.loader.default'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'liip_imagine.extension_guesser' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface A Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface instance
+     */
+    protected function getLiipImagine_ExtensionGuesserService()
+    {
+        return $this->services['liip_imagine.extension_guesser'] = \Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser::getInstance();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.configuration' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\FilterConfiguration A Liip\ImagineBundle\Imagine\Filter\FilterConfiguration instance
+     */
+    protected function getLiipImagine_Filter_ConfigurationService()
+    {
+        return $this->services['liip_imagine.filter.configuration'] = new \Liip\ImagineBundle\Imagine\Filter\FilterConfiguration(array('cache' => array('quality' => 100, 'jpeg_quality' => NULL, 'png_compression_level' => NULL, 'png_compression_filter' => NULL, 'format' => NULL, 'animated' => false, 'cache' => NULL, 'data_loader' => NULL, 'default_image' => NULL, 'filters' => array(), 'post_processors' => array()), 'my_thumb' => array('quality' => 100, 'filters' => array('thumbnail' => array('size' => array(0 => 260, 1 => 260), 'mode' => 'outbound')), 'jpeg_quality' => NULL, 'png_compression_level' => NULL, 'png_compression_filter' => NULL, 'format' => NULL, 'animated' => false, 'cache' => NULL, 'data_loader' => NULL, 'default_image' => NULL, 'post_processors' => array())));
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.auto_rotate' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\AutoRotateFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\AutoRotateFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_AutoRotateService()
+    {
+        return $this->services['liip_imagine.filter.loader.auto_rotate'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\AutoRotateFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.background' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\BackgroundFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\BackgroundFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_BackgroundService()
+    {
+        return $this->services['liip_imagine.filter.loader.background'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\BackgroundFilterLoader($this->get('liip_imagine'));
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.crop' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\CropFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\CropFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_CropService()
+    {
+        return $this->services['liip_imagine.filter.loader.crop'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\CropFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.downscale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\DownscaleFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\DownscaleFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_DownscaleService()
+    {
+        return $this->services['liip_imagine.filter.loader.downscale'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\DownscaleFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.flip' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\FlipFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\FlipFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_FlipService()
+    {
+        return $this->services['liip_imagine.filter.loader.flip'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\FlipFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.grayscale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\GrayscaleFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\GrayscaleFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_GrayscaleService()
+    {
+        return $this->services['liip_imagine.filter.loader.grayscale'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\GrayscaleFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.interlace' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\InterlaceFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\InterlaceFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_InterlaceService()
+    {
+        return $this->services['liip_imagine.filter.loader.interlace'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\InterlaceFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.paste' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\PasteFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\PasteFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_PasteService()
+    {
+        return $this->services['liip_imagine.filter.loader.paste'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\PasteFilterLoader($this->get('liip_imagine'), ($this->targetDirs[3].'\\app'));
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.relative_resize' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\RelativeResizeFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\RelativeResizeFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_RelativeResizeService()
+    {
+        return $this->services['liip_imagine.filter.loader.relative_resize'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\RelativeResizeFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.resize' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\ResizeFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\ResizeFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_ResizeService()
+    {
+        return $this->services['liip_imagine.filter.loader.resize'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\ResizeFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.rotate' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\RotateFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\RotateFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_RotateService()
+    {
+        return $this->services['liip_imagine.filter.loader.rotate'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\RotateFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.scale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\ScaleFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\ScaleFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_ScaleService()
+    {
+        return $this->services['liip_imagine.filter.loader.scale'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\ScaleFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.strip' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\StripFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\StripFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_StripService()
+    {
+        return $this->services['liip_imagine.filter.loader.strip'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\StripFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.thumbnail' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\ThumbnailFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\ThumbnailFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_ThumbnailService()
+    {
+        return $this->services['liip_imagine.filter.loader.thumbnail'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\ThumbnailFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.upscale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\UpscaleFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\UpscaleFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_UpscaleService()
+    {
+        return $this->services['liip_imagine.filter.loader.upscale'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\UpscaleFilterLoader();
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.loader.watermark' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\Loader\WatermarkFilterLoader A Liip\ImagineBundle\Imagine\Filter\Loader\WatermarkFilterLoader instance
+     */
+    protected function getLiipImagine_Filter_Loader_WatermarkService()
+    {
+        return $this->services['liip_imagine.filter.loader.watermark'] = new \Liip\ImagineBundle\Imagine\Filter\Loader\WatermarkFilterLoader($this->get('liip_imagine'), ($this->targetDirs[3].'\\app'));
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\FilterManager A Liip\ImagineBundle\Imagine\Filter\FilterManager instance
+     */
+    protected function getLiipImagine_Filter_ManagerService()
+    {
+        $this->services['liip_imagine.filter.manager'] = $instance = new \Liip\ImagineBundle\Imagine\Filter\FilterManager($this->get('liip_imagine.filter.configuration'), $this->get('liip_imagine'), $this->get('liip_imagine.binary.mime_type_guesser'));
+
+        $instance->addLoader('relative_resize', $this->get('liip_imagine.filter.loader.relative_resize'));
+        $instance->addLoader('resize', $this->get('liip_imagine.filter.loader.resize'));
+        $instance->addLoader('thumbnail', $this->get('liip_imagine.filter.loader.thumbnail'));
+        $instance->addLoader('crop', $this->get('liip_imagine.filter.loader.crop'));
+        $instance->addLoader('grayscale', $this->get('liip_imagine.filter.loader.grayscale'));
+        $instance->addLoader('paste', $this->get('liip_imagine.filter.loader.paste'));
+        $instance->addLoader('watermark', $this->get('liip_imagine.filter.loader.watermark'));
+        $instance->addLoader('background', $this->get('liip_imagine.filter.loader.background'));
+        $instance->addLoader('strip', $this->get('liip_imagine.filter.loader.strip'));
+        $instance->addLoader('scale', $this->get('liip_imagine.filter.loader.scale'));
+        $instance->addLoader('upscale', $this->get('liip_imagine.filter.loader.upscale'));
+        $instance->addLoader('downscale', $this->get('liip_imagine.filter.loader.downscale'));
+        $instance->addLoader('auto_rotate', $this->get('liip_imagine.filter.loader.auto_rotate'));
+        $instance->addLoader('rotate', $this->get('liip_imagine.filter.loader.rotate'));
+        $instance->addLoader('flip', $this->get('liip_imagine.filter.loader.flip'));
+        $instance->addLoader('interlace', $this->get('liip_imagine.filter.loader.interlace'));
+        $instance->addPostProcessor('jpegoptim', $this->get('liip_imagine.filter.post_processor.jpegoptim'));
+        $instance->addPostProcessor('optipng', $this->get('liip_imagine.filter.post_processor.optipng'));
+        $instance->addPostProcessor('pngquant', $this->get('liip_imagine.filter.post_processor.pngquant'));
+        $instance->addPostProcessor('mozjpeg', $this->get('liip_imagine.filter.post_processor.mozjpeg'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.post_processor.jpegoptim' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\PostProcessor\JpegOptimPostProcessor A Liip\ImagineBundle\Imagine\Filter\PostProcessor\JpegOptimPostProcessor instance
+     */
+    protected function getLiipImagine_Filter_PostProcessor_JpegoptimService()
+    {
+        return $this->services['liip_imagine.filter.post_processor.jpegoptim'] = new \Liip\ImagineBundle\Imagine\Filter\PostProcessor\JpegOptimPostProcessor('/usr/bin/jpegoptim', true, NULL, true, NULL);
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.post_processor.mozjpeg' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\PostProcessor\MozJpegPostProcessor A Liip\ImagineBundle\Imagine\Filter\PostProcessor\MozJpegPostProcessor instance
+     */
+    protected function getLiipImagine_Filter_PostProcessor_MozjpegService()
+    {
+        return $this->services['liip_imagine.filter.post_processor.mozjpeg'] = new \Liip\ImagineBundle\Imagine\Filter\PostProcessor\MozJpegPostProcessor('/opt/mozjpeg/bin/cjpeg');
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.post_processor.optipng' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\PostProcessor\OptiPngPostProcessor A Liip\ImagineBundle\Imagine\Filter\PostProcessor\OptiPngPostProcessor instance
+     */
+    protected function getLiipImagine_Filter_PostProcessor_OptipngService()
+    {
+        return $this->services['liip_imagine.filter.post_processor.optipng'] = new \Liip\ImagineBundle\Imagine\Filter\PostProcessor\OptiPngPostProcessor('/usr/bin/optipng', 7, true, NULL);
+    }
+
+    /**
+     * Gets the 'liip_imagine.filter.post_processor.pngquant' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Imagine\Filter\PostProcessor\PngquantPostProcessor A Liip\ImagineBundle\Imagine\Filter\PostProcessor\PngquantPostProcessor instance
+     */
+    protected function getLiipImagine_Filter_PostProcessor_PngquantService()
+    {
+        return $this->services['liip_imagine.filter.post_processor.pngquant'] = new \Liip\ImagineBundle\Imagine\Filter\PostProcessor\PngquantPostProcessor('/usr/bin/pngquant');
+    }
+
+    /**
+     * Gets the 'liip_imagine.form.type.image' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Form\Type\ImageType A Liip\ImagineBundle\Form\Type\ImageType instance
+     */
+    protected function getLiipImagine_Form_Type_ImageService()
+    {
+        return $this->services['liip_imagine.form.type.image'] = new \Liip\ImagineBundle\Form\Type\ImageType();
+    }
+
+    /**
+     * Gets the 'liip_imagine.mime_type_guesser' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface A Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface instance
+     */
+    protected function getLiipImagine_MimeTypeGuesserService()
+    {
+        return $this->services['liip_imagine.mime_type_guesser'] = \Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser::getInstance();
+    }
+
+    /**
+     * Gets the 'liip_imagine.templating.helper' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Liip\ImagineBundle\Templating\Helper\ImagineHelper A Liip\ImagineBundle\Templating\Helper\ImagineHelper instance
+     */
+    protected function getLiipImagine_Templating_HelperService()
+    {
+        return $this->services['liip_imagine.templating.helper'] = new \Liip\ImagineBundle\Templating\Helper\ImagineHelper($this->get('liip_imagine.cache.manager'));
     }
 
     /**
@@ -2559,6 +3116,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'security.firewall.map.context.dev' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     */
+    protected function getSecurity_Firewall_Map_Context_DevService()
+    {
+        return $this->services['security.firewall.map.context.dev'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL, new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('dev', 'security.user_checker', 'security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d', false, '', '', '', '', '', '', array()));
+    }
+
+    /**
      * Gets the 'security.firewall.map.context.main' service.
      *
      * This service is shared.
@@ -2573,36 +3143,42 @@ class appDevDebugProjectContainer extends Container
         $c = $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $d = ${($_ = isset($this->services['security.authentication.trust_resolver']) ? $this->services['security.authentication.trust_resolver'] : $this->getSecurity_Authentication_TrustResolverService()) && false ?: '_'};
         $e = $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE);
-        $f = $this->get('http_kernel');
-        $g = ${($_ = isset($this->services['security.authentication.manager']) ? $this->services['security.authentication.manager'] : $this->getSecurity_Authentication_ManagerService()) && false ?: '_'};
+        $f = ${($_ = isset($this->services['security.authentication.rememberme.services.simplehash.main']) ? $this->services['security.authentication.rememberme.services.simplehash.main'] : $this->getSecurity_Authentication_Rememberme_Services_Simplehash_MainService()) && false ?: '_'};
+        $g = $this->get('http_kernel');
+        $h = ${($_ = isset($this->services['security.authentication.manager']) ? $this->services['security.authentication.manager'] : $this->getSecurity_Authentication_ManagerService()) && false ?: '_'};
+        $i = ${($_ = isset($this->services['security.authentication.session_strategy']) ? $this->services['security.authentication.session_strategy'] : $this->getSecurity_Authentication_SessionStrategyService()) && false ?: '_'};
 
-        $h = new \Symfony\Component\HttpFoundation\RequestMatcher('^/login$');
+        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/login$');
 
-        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/register');
+        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/register');
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/resetting');
+        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/resetting');
 
-        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/');
+        $m = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/');
 
-        $l = new \Symfony\Component\Security\Http\AccessMap();
-        $l->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $l->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $l->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $l->add($k, array(0 => 'ROLE_ADMIN'), NULL);
+        $n = new \Symfony\Component\Security\Http\AccessMap();
+        $n->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $n->add($k, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $n->add($l, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $n->add($m, array(0 => 'ROLE_ADMIN'), NULL);
 
-        $m = new \Symfony\Component\Security\Http\HttpUtils($e, $e);
+        $o = new \Symfony\Component\Security\Http\HttpUtils($e, $e);
 
-        $n = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $m, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($m, '/'), array('csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'logout', 'logout_path' => '/logout'));
-        $n->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $p = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $o, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($o, '/'), array('csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'logout', 'logout_path' => '/logout'));
+        $p->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $p->addHandler($f);
 
-        $o = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($m, array());
-        $o->setOptions(array('always_use_default_target_path' => false, 'default_target_path' => '/', 'login_path' => '/login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $o->setProviderKey('main');
+        $q = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($o, array());
+        $q->setOptions(array('login_path' => 'fos_user_security_login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $q->setProviderKey('main');
 
-        $p = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $m, array(), $a);
-        $p->setOptions(array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'));
+        $r = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($g, $o, array(), $a);
+        $r->setOptions(array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'));
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => ${($_ = isset($this->services['fos_user.user_provider.username']) ? $this->services['fos_user.user_provider.username'] : $this->getFosUser_UserProvider_UsernameService()) && false ?: '_'}), 'main', $a, $c, $d), 2 => $n, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, ${($_ = isset($this->services['security.authentication.session_strategy']) ? $this->services['security.authentication.session_strategy'] : $this->getSecurity_Authentication_SessionStrategyService()) && false ?: '_'}, $m, 'main', $o, $p, array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, $this->get('security.csrf.token_manager')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '591d3a67b33078.88791681', $a, $g), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $l, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $d, $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $m, '/login', false), NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db', true, false, 'fos_user.user_provider.username', 'main', 'security.authentication.form_entry_point.main', NULL, NULL, array(0 => 'logout', 1 => 'form_login', 2 => 'anonymous')));
+        $s = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $h, $i, $o, 'main', $q, $r, array('check_path' => 'fos_user_security_check', 'require_previous_session' => false, 'use_forward' => false, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, $this->get('security.csrf.token_manager'));
+        $s->setRememberMeServices($f);
+
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($n, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => ${($_ = isset($this->services['fos_user.user_provider.username']) ? $this->services['fos_user.user_provider.username'] : $this->getFosUser_UserProvider_UsernameService()) && false ?: '_'}), 'main', $a, $c, $d), 2 => $p, 3 => $s, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $f, $h, $a, $c, true, $i), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5927e43105a686.42485463', $a, $h), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $n, $h)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $d, $o, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($g, $o, 'fos_user_security_login', false), NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db', true, false, 'security.user.provider.concrete.fos_userbundle', 'main', 'security.authentication.form_entry_point.main', NULL, NULL, array(0 => 'logout', 1 => 'form_login', 2 => 'remember_me', 3 => 'anonymous')));
     }
 
     /**
@@ -3550,6 +4126,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(array(0 => $this, 1 => 'twig.form.renderer')));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension(new \Vich\UploaderBundle\Twig\Extension\UploaderExtension($this->get('vich_uploader.templating.helper.uploader_helper')));
+        $instance->addExtension(new \Liip\ImagineBundle\Templating\ImagineExtension($this->get('liip_imagine.cache.manager')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\DumpExtension($this->get('var_dumper.cloner'), $d));
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension($e));
         $instance->addGlobal('app', $f);
@@ -3608,7 +4185,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwig_Form_RendererService()
     {
-        return $this->services['twig.form.renderer'] = new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'bootstrap_3_layout.html.twig', 2 => 'VichUploaderBundle:Form:fields.html.twig'), $this->get('twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['twig.form.renderer'] = new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'bootstrap_3_layout.html.twig', 2 => 'VichUploaderBundle:Form:fields.html.twig', 3 => 'LiipImagineBundle:Form:form_div_layout.html.twig'), $this->get('twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -3631,6 +4208,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'\\app/Resources/FOSUserBundle/views'), 'FOSUser');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/views'), 'FOSUser');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/views'), 'VichUploader');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\liip\\imagine-bundle/Resources/views'), 'LiipImagine');
         $instance->addPath(($this->targetDirs[3].'\\src\\ESF\\EspaceAbonneBundle/Resources/views'), 'ESFEspaceAbonne');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle/Resources/views'), 'Debug');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views'), 'WebProfiler');
@@ -4079,7 +4657,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('F-1aqGH-EY', 0, 'd6KzwnCEDU9tSW6Wh1YonK', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('F-1aqGH-EY', 0, '8vDKCeEeTbz3uIxii2UCuO', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -4292,11 +4870,30 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider(${($_ = isset($this->services['fos_user.user_provider.username']) ? $this->services['fos_user.user_provider.username'] : $this->getFosUser_UserProvider_UsernameService()) && false ?: '_'}, ${($_ = isset($this->services['security.user_checker']) ? $this->services['security.user_checker'] : $this->getSecurity_UserCheckerService()) && false ?: '_'}, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('591d3a67b33078.88791681')), true);
+        $a = ${($_ = isset($this->services['security.user_checker']) ? $this->services['security.user_checker'] : $this->getSecurity_UserCheckerService()) && false ?: '_'};
+
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider(${($_ = isset($this->services['fos_user.user_provider.username']) ? $this->services['fos_user.user_provider.username'] : $this->getFosUser_UserProvider_UsernameService()) && false ?: '_'}, $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5927e43105a686.42485463')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'security.authentication.rememberme.services.simplehash.main' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices A Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices instance
+     */
+    protected function getSecurity_Authentication_Rememberme_Services_Simplehash_MainService()
+    {
+        return $this->services['security.authentication.rememberme.services.simplehash.main'] = new \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices(array(0 => ${($_ = isset($this->services['fos_user.user_provider.username']) ? $this->services['fos_user.user_provider.username'] : $this->getFosUser_UserProvider_UsernameService()) && false ?: '_'}), 'ThisTokenIsNotSoSecretChangeIt', 'main', array('lifetime' => 604800, 'name' => 'REMEMBERME', 'path' => '/', 'domain' => NULL, 'secure' => false, 'httponly' => true, 'always_remember_me' => false, 'remember_me_parameter' => '_remember_me'), $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -4347,7 +4944,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Firewall_MapService()
     {
-        return $this->services['security.firewall.map'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.main' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/')));
+        return $this->services['security.firewall.map'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.main' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/')));
     }
 
     /**
@@ -4385,7 +4982,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_ADMIN')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
     }
 
     /**
@@ -4633,10 +5230,10 @@ class appDevDebugProjectContainer extends Container
                     'path' => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle'),
                     'namespace' => 'Vich\\UploaderBundle',
                 ),
-                'AppBundle' => array(
+                'LiipImagineBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\src\\AppBundle'),
-                    'namespace' => 'AppBundle',
+                    'path' => ($this->targetDirs[3].'\\vendor\\liip\\imagine-bundle'),
+                    'namespace' => 'Liip\\ImagineBundle',
                 ),
                 'ESFEspaceAbonneBundle' => array(
                     'parent' => NULL,
@@ -4769,7 +5366,7 @@ class appDevDebugProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'VichUploaderBundle' => 'Vich\\UploaderBundle\\VichUploaderBundle',
-                'AppBundle' => 'AppBundle\\AppBundle',
+                'LiipImagineBundle' => 'Liip\\ImagineBundle\\LiipImagineBundle',
                 'ESFEspaceAbonneBundle' => 'ESF\\EspaceAbonneBundle\\ESFEspaceAbonneBundle',
                 'DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
@@ -4848,7 +5445,9 @@ class appDevDebugProjectContainer extends Container
                     0 => 'ROLE_USER',
                 ),
                 'ROLE_SUPER_ADMIN' => array(
-                    0 => 'ROLE_ADMIN',
+                    0 => 'ROLE_USER',
+                    1 => 'ROLE_ADMIN',
+                    2 => 'ROLE_ALLOWED_TO_SWITCH',
                 ),
             ),
             'security.access.denied_url' => NULL,
@@ -4861,6 +5460,7 @@ class appDevDebugProjectContainer extends Container
                 0 => 'form_div_layout.html.twig',
                 1 => 'bootstrap_3_layout.html.twig',
                 2 => 'VichUploaderBundle:Form:fields.html.twig',
+                3 => 'LiipImagineBundle:Form:form_div_layout.html.twig',
             ),
             'monolog.use_microseconds' => true,
             'monolog.swift_mailer.handlers' => array(
@@ -5082,6 +5682,109 @@ class appDevDebugProjectContainer extends Container
             ),
             'vich_uploader.default_filename_attribute_suffix' => '_name',
             'vich_uploader.file_injector.class' => 'Vich\\UploaderBundle\\Injector\\FileInjector',
+            'liip_imagine.filter.configuration.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\FilterConfiguration',
+            'liip_imagine.filter.manager.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\FilterManager',
+            'liip_imagine.data.manager.class' => 'Liip\\ImagineBundle\\Imagine\\Data\\DataManager',
+            'liip_imagine.cache.manager.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\CacheManager',
+            'liip_imagine.cache.signer.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Signer',
+            'liip_imagine.binary.mime_type_guesser.class' => 'Liip\\ImagineBundle\\Binary\\SimpleMimeTypeGuesser',
+            'liip_imagine.controller.class' => 'Liip\\ImagineBundle\\Controller\\ImagineController',
+            'liip_imagine.twig.extension.class' => 'Liip\\ImagineBundle\\Templating\\ImagineExtension',
+            'liip_imagine.templating.helper.class' => 'Liip\\ImagineBundle\\Templating\\Helper\\ImagineHelper',
+            'liip_imagine.gd.class' => 'Imagine\\Gd\\Imagine',
+            'liip_imagine.imagick.class' => 'Imagine\\Imagick\\Imagine',
+            'liip_imagine.gmagick.class' => 'Imagine\\Gmagick\\Imagine',
+            'liip_imagine.filter.loader.relative_resize.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\RelativeResizeFilterLoader',
+            'liip_imagine.filter.loader.resize.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\ResizeFilterLoader',
+            'liip_imagine.filter.loader.thumbnail.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\ThumbnailFilterLoader',
+            'liip_imagine.filter.loader.crop.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\CropFilterLoader',
+            'liip_imagine.filter.loader.grayscale.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\GrayscaleFilterLoader',
+            'liip_imagine.filter.loader.paste.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\PasteFilterLoader',
+            'liip_imagine.filter.loader.watermark.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\WatermarkFilterLoader',
+            'liip_imagine.filter.loader.strip.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\StripFilterLoader',
+            'liip_imagine.filter.loader.background.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\BackgroundFilterLoader',
+            'liip_imagine.filter.loader.scale.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\ScaleFilterLoader',
+            'liip_imagine.filter.loader.upscale.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\UpscaleFilterLoader',
+            'liip_imagine.filter.loader.downscale.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\DownscaleFilterLoader',
+            'liip_imagine.filter.loader.auto_rotate.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\AutoRotateFilterLoader',
+            'liip_imagine.filter.loader.rotate.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\RotateFilterLoader',
+            'liip_imagine.filter.loader.flip.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\FlipFilterLoader',
+            'liip_imagine.filter.loader.interlace.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\Loader\\InterlaceFilterLoader',
+            'liip_imagine.binary.loader.filesystem.class' => 'Liip\\ImagineBundle\\Binary\\Loader\\FileSystemLoader',
+            'liip_imagine.binary.loader.stream.class' => 'Liip\\ImagineBundle\\Binary\\Loader\\StreamLoader',
+            'liip_imagine.binary.loader.flysystem.class' => 'Liip\\ImagineBundle\\Binary\\Loader\\FlysystemLoader',
+            'liip_imagine.binary.locator.filesystem.class' => 'Liip\\ImagineBundle\\Binary\\Locator\\FileSystemLocator',
+            'liip_imagine.binary.locator.filesystem_insecure.class' => 'Liip\\ImagineBundle\\Binary\\Locator\\FileSystemInsecureLocator',
+            'liip_imagine.cache.resolver.web_path.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\WebPathResolver',
+            'liip_imagine.cache.resolver.no_cache_web_path.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\NoCacheWebPathResolver',
+            'liip_imagine.cache.resolver.aws_s3.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\AwsS3Resolver',
+            'liip_imagine.cache.resolver.cache.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\CacheResolver',
+            'liip_imagine.cache.resolver.flysystem.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\FlysystemResolver',
+            'liip_imagine.cache.resolver.proxy.class' => 'Liip\\ImagineBundle\\Imagine\\Cache\\Resolver\\ProxyResolver',
+            'liip_imagine.form.type.image.class' => 'Liip\\ImagineBundle\\Form\\Type\\ImageType',
+            'liip_imagine.meta_data.reader.class' => 'Imagine\\Image\\Metadata\\ExifMetadataReader',
+            'liip_imagine.filter.post_processor.jpegoptim.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\PostProcessor\\JpegOptimPostProcessor',
+            'liip_imagine.jpegoptim.binary' => '/usr/bin/jpegoptim',
+            'liip_imagine.jpegoptim.stripall' => true,
+            'liip_imagine.jpegoptim.max' => NULL,
+            'liip_imagine.jpegoptim.progressive' => true,
+            'liip_imagine.jpegoptim.tempdir' => NULL,
+            'liip_imagine.filter.post_processor.optipng.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\PostProcessor\\OptiPngPostProcessor',
+            'liip_imagine.optipng.binary' => '/usr/bin/optipng',
+            'liip_imagine.optipng.level' => 7,
+            'liip_imagine.optipng.stripall' => true,
+            'liip_imagine.optipng.tempdir' => NULL,
+            'liip_imagine.filter.post_processor.pngquant.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\PostProcessor\\PngquantPostProcessor',
+            'liip_imagine.pngquant.binary' => '/usr/bin/pngquant',
+            'liip_imagine.filter.post_processor.mozjpeg.class' => 'Liip\\ImagineBundle\\Imagine\\Filter\\PostProcessor\\MozJpegPostProcessor',
+            'liip_imagine.mozjpeg.binary' => '/opt/mozjpeg/bin/cjpeg',
+            'liip_imagine.cache.resolver.default' => 'default',
+            'liip_imagine.default_image' => NULL,
+            'liip_imagine.filter_sets' => array(
+                'cache' => array(
+                    'quality' => 100,
+                    'jpeg_quality' => NULL,
+                    'png_compression_level' => NULL,
+                    'png_compression_filter' => NULL,
+                    'format' => NULL,
+                    'animated' => false,
+                    'cache' => NULL,
+                    'data_loader' => NULL,
+                    'default_image' => NULL,
+                    'filters' => array(
+
+                    ),
+                    'post_processors' => array(
+
+                    ),
+                ),
+                'my_thumb' => array(
+                    'quality' => 100,
+                    'filters' => array(
+                        'thumbnail' => array(
+                            'size' => array(
+                                0 => 260,
+                                1 => 260,
+                            ),
+                            'mode' => 'outbound',
+                        ),
+                    ),
+                    'jpeg_quality' => NULL,
+                    'png_compression_level' => NULL,
+                    'png_compression_filter' => NULL,
+                    'format' => NULL,
+                    'animated' => false,
+                    'cache' => NULL,
+                    'data_loader' => NULL,
+                    'default_image' => NULL,
+                    'post_processors' => array(
+
+                    ),
+                ),
+            ),
+            'liip_imagine.binary.loader.default' => 'default',
+            'liip_imagine.controller.filter_action' => 'liip_imagine.controller:filterAction',
+            'liip_imagine.controller.filter_runtime_action' => 'liip_imagine.controller:filterRuntimeAction',
             'web_profiler.debug_toolbar.position' => 'bottom',
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.mode' => 2,
@@ -5158,23 +5861,23 @@ class appDevDebugProjectContainer extends Container
     }
 }
 
-class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef39682d0653c1fe66286 extends \Doctrine\ORM\EntityManager implements \ProxyManager\Proxy\VirtualProxyInterface
+class DoctrineORMEntityManager_000000005edbc0a4000000000ac6c5ef57cdab36516ef39682d0653c1fe66286 extends \Doctrine\ORM\EntityManager implements \ProxyManager\Proxy\VirtualProxyInterface
 {
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $valueHolder591d3a69032e2721997056 = null;
+    private $valueHolder5927e431d8ca7620093558 = null;
 
     /**
      * @var \Closure|null initializer responsible for generating the wrapped object
      */
-    private $initializer591d3a69032f4948691381 = null;
+    private $initializer5927e431d8cc6462240396 = null;
 
     /**
      * @var bool[] map of public properties of the parent class
      */
-    private static $publicProperties591d3a69032b0922989044 = array(
+    private static $publicProperties5927e431d8c62035899390 = array(
         
     );
 
@@ -5183,9 +5886,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getConnection()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getConnection', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getConnection', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getConnection();
+        return $this->valueHolder5927e431d8ca7620093558->getConnection();
     }
 
     /**
@@ -5193,9 +5896,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getMetadataFactory()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getMetadataFactory', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getMetadataFactory', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getMetadataFactory();
+        return $this->valueHolder5927e431d8ca7620093558->getMetadataFactory();
     }
 
     /**
@@ -5203,9 +5906,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getExpressionBuilder()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getExpressionBuilder', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getExpressionBuilder', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getExpressionBuilder();
+        return $this->valueHolder5927e431d8ca7620093558->getExpressionBuilder();
     }
 
     /**
@@ -5213,9 +5916,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function beginTransaction()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'beginTransaction', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'beginTransaction', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->beginTransaction();
+        return $this->valueHolder5927e431d8ca7620093558->beginTransaction();
     }
 
     /**
@@ -5223,9 +5926,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getCache()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getCache', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getCache', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getCache();
+        return $this->valueHolder5927e431d8ca7620093558->getCache();
     }
 
     /**
@@ -5233,9 +5936,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function transactional($func)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'transactional', array('func' => $func), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'transactional', array('func' => $func), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->transactional($func);
+        return $this->valueHolder5927e431d8ca7620093558->transactional($func);
     }
 
     /**
@@ -5243,9 +5946,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function commit()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'commit', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'commit', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->commit();
+        return $this->valueHolder5927e431d8ca7620093558->commit();
     }
 
     /**
@@ -5253,9 +5956,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function rollback()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'rollback', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'rollback', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->rollback();
+        return $this->valueHolder5927e431d8ca7620093558->rollback();
     }
 
     /**
@@ -5263,9 +5966,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getClassMetadata($className)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getClassMetadata', array('className' => $className), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getClassMetadata', array('className' => $className), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getClassMetadata($className);
+        return $this->valueHolder5927e431d8ca7620093558->getClassMetadata($className);
     }
 
     /**
@@ -5273,9 +5976,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function createQuery($dql = '')
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'createQuery', array('dql' => $dql), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'createQuery', array('dql' => $dql), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->createQuery($dql);
+        return $this->valueHolder5927e431d8ca7620093558->createQuery($dql);
     }
 
     /**
@@ -5283,9 +5986,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function createNamedQuery($name)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'createNamedQuery', array('name' => $name), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'createNamedQuery', array('name' => $name), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->createNamedQuery($name);
+        return $this->valueHolder5927e431d8ca7620093558->createNamedQuery($name);
     }
 
     /**
@@ -5293,9 +5996,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function createNativeQuery($sql, \Doctrine\ORM\Query\ResultSetMapping $rsm)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'createNativeQuery', array('sql' => $sql, 'rsm' => $rsm), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'createNativeQuery', array('sql' => $sql, 'rsm' => $rsm), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->createNativeQuery($sql, $rsm);
+        return $this->valueHolder5927e431d8ca7620093558->createNativeQuery($sql, $rsm);
     }
 
     /**
@@ -5303,9 +6006,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function createNamedNativeQuery($name)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'createNamedNativeQuery', array('name' => $name), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'createNamedNativeQuery', array('name' => $name), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->createNamedNativeQuery($name);
+        return $this->valueHolder5927e431d8ca7620093558->createNamedNativeQuery($name);
     }
 
     /**
@@ -5313,9 +6016,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function createQueryBuilder()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'createQueryBuilder', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'createQueryBuilder', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->createQueryBuilder();
+        return $this->valueHolder5927e431d8ca7620093558->createQueryBuilder();
     }
 
     /**
@@ -5323,9 +6026,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function flush($entity = null)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'flush', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'flush', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->flush($entity);
+        return $this->valueHolder5927e431d8ca7620093558->flush($entity);
     }
 
     /**
@@ -5333,9 +6036,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function find($entityName, $id, $lockMode = null, $lockVersion = null)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'find', array('entityName' => $entityName, 'id' => $id, 'lockMode' => $lockMode, 'lockVersion' => $lockVersion), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'find', array('entityName' => $entityName, 'id' => $id, 'lockMode' => $lockMode, 'lockVersion' => $lockVersion), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->find($entityName, $id, $lockMode, $lockVersion);
+        return $this->valueHolder5927e431d8ca7620093558->find($entityName, $id, $lockMode, $lockVersion);
     }
 
     /**
@@ -5343,9 +6046,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getReference($entityName, $id)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getReference', array('entityName' => $entityName, 'id' => $id), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getReference', array('entityName' => $entityName, 'id' => $id), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getReference($entityName, $id);
+        return $this->valueHolder5927e431d8ca7620093558->getReference($entityName, $id);
     }
 
     /**
@@ -5353,9 +6056,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getPartialReference($entityName, $identifier)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getPartialReference', array('entityName' => $entityName, 'identifier' => $identifier), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getPartialReference', array('entityName' => $entityName, 'identifier' => $identifier), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getPartialReference($entityName, $identifier);
+        return $this->valueHolder5927e431d8ca7620093558->getPartialReference($entityName, $identifier);
     }
 
     /**
@@ -5363,9 +6066,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function clear($entityName = null)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'clear', array('entityName' => $entityName), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'clear', array('entityName' => $entityName), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->clear($entityName);
+        return $this->valueHolder5927e431d8ca7620093558->clear($entityName);
     }
 
     /**
@@ -5373,9 +6076,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function close()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'close', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'close', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->close();
+        return $this->valueHolder5927e431d8ca7620093558->close();
     }
 
     /**
@@ -5383,9 +6086,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function persist($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'persist', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'persist', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->persist($entity);
+        return $this->valueHolder5927e431d8ca7620093558->persist($entity);
     }
 
     /**
@@ -5393,9 +6096,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function remove($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'remove', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'remove', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->remove($entity);
+        return $this->valueHolder5927e431d8ca7620093558->remove($entity);
     }
 
     /**
@@ -5403,9 +6106,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function refresh($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'refresh', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'refresh', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->refresh($entity);
+        return $this->valueHolder5927e431d8ca7620093558->refresh($entity);
     }
 
     /**
@@ -5413,9 +6116,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function detach($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'detach', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'detach', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->detach($entity);
+        return $this->valueHolder5927e431d8ca7620093558->detach($entity);
     }
 
     /**
@@ -5423,9 +6126,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function merge($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'merge', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'merge', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->merge($entity);
+        return $this->valueHolder5927e431d8ca7620093558->merge($entity);
     }
 
     /**
@@ -5433,9 +6136,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function copy($entity, $deep = false)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'copy', array('entity' => $entity, 'deep' => $deep), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'copy', array('entity' => $entity, 'deep' => $deep), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->copy($entity, $deep);
+        return $this->valueHolder5927e431d8ca7620093558->copy($entity, $deep);
     }
 
     /**
@@ -5443,9 +6146,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function lock($entity, $lockMode, $lockVersion = null)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'lock', array('entity' => $entity, 'lockMode' => $lockMode, 'lockVersion' => $lockVersion), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'lock', array('entity' => $entity, 'lockMode' => $lockMode, 'lockVersion' => $lockVersion), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->lock($entity, $lockMode, $lockVersion);
+        return $this->valueHolder5927e431d8ca7620093558->lock($entity, $lockMode, $lockVersion);
     }
 
     /**
@@ -5453,9 +6156,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getRepository($entityName)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getRepository', array('entityName' => $entityName), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getRepository', array('entityName' => $entityName), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getRepository($entityName);
+        return $this->valueHolder5927e431d8ca7620093558->getRepository($entityName);
     }
 
     /**
@@ -5463,9 +6166,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function contains($entity)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'contains', array('entity' => $entity), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'contains', array('entity' => $entity), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->contains($entity);
+        return $this->valueHolder5927e431d8ca7620093558->contains($entity);
     }
 
     /**
@@ -5473,9 +6176,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getEventManager()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getEventManager', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getEventManager', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getEventManager();
+        return $this->valueHolder5927e431d8ca7620093558->getEventManager();
     }
 
     /**
@@ -5483,9 +6186,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getConfiguration()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getConfiguration', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getConfiguration', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getConfiguration();
+        return $this->valueHolder5927e431d8ca7620093558->getConfiguration();
     }
 
     /**
@@ -5493,9 +6196,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function isOpen()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'isOpen', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'isOpen', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->isOpen();
+        return $this->valueHolder5927e431d8ca7620093558->isOpen();
     }
 
     /**
@@ -5503,9 +6206,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getUnitOfWork()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getUnitOfWork', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getUnitOfWork', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getUnitOfWork();
+        return $this->valueHolder5927e431d8ca7620093558->getUnitOfWork();
     }
 
     /**
@@ -5513,9 +6216,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getHydrator($hydrationMode)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getHydrator', array('hydrationMode' => $hydrationMode), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getHydrator', array('hydrationMode' => $hydrationMode), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getHydrator($hydrationMode);
+        return $this->valueHolder5927e431d8ca7620093558->getHydrator($hydrationMode);
     }
 
     /**
@@ -5523,9 +6226,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function newHydrator($hydrationMode)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'newHydrator', array('hydrationMode' => $hydrationMode), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'newHydrator', array('hydrationMode' => $hydrationMode), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->newHydrator($hydrationMode);
+        return $this->valueHolder5927e431d8ca7620093558->newHydrator($hydrationMode);
     }
 
     /**
@@ -5533,9 +6236,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getProxyFactory()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getProxyFactory', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getProxyFactory', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getProxyFactory();
+        return $this->valueHolder5927e431d8ca7620093558->getProxyFactory();
     }
 
     /**
@@ -5543,9 +6246,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function initializeObject($obj)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'initializeObject', array('obj' => $obj), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'initializeObject', array('obj' => $obj), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->initializeObject($obj);
+        return $this->valueHolder5927e431d8ca7620093558->initializeObject($obj);
     }
 
     /**
@@ -5553,9 +6256,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getFilters()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'getFilters', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'getFilters', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->getFilters();
+        return $this->valueHolder5927e431d8ca7620093558->getFilters();
     }
 
     /**
@@ -5563,9 +6266,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function isFiltersStateClean()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'isFiltersStateClean', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'isFiltersStateClean', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->isFiltersStateClean();
+        return $this->valueHolder5927e431d8ca7620093558->isFiltersStateClean();
     }
 
     /**
@@ -5573,9 +6276,9 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function hasFilters()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'hasFilters', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'hasFilters', array(), $this->initializer5927e431d8cc6462240396);
 
-        return $this->valueHolder591d3a69032e2721997056->hasFilters();
+        return $this->valueHolder5927e431d8ca7620093558->hasFilters();
     }
 
     /**
@@ -5585,7 +6288,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function __construct($initializer)
     {
-        $this->initializer591d3a69032f4948691381 = $initializer;
+        $this->initializer5927e431d8cc6462240396 = $initializer;
     }
 
     /**
@@ -5593,16 +6296,16 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function & __get($name)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__get', array('name' => $name), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__get', array('name' => $name), $this->initializer5927e431d8cc6462240396);
 
-        if (isset(self::$publicProperties591d3a69032b0922989044[$name])) {
-            return $this->valueHolder591d3a69032e2721997056->$name;
+        if (isset(self::$publicProperties5927e431d8c62035899390[$name])) {
+            return $this->valueHolder5927e431d8ca7620093558->$name;
         }
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder591d3a69032e2721997056;
+            $targetObject = $this->valueHolder5927e431d8ca7620093558;
 
             $backtrace = debug_backtrace(false);
             trigger_error('Undefined property: ' . get_parent_class($this) . '::$' . $name . ' in ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'], \E_USER_NOTICE);
@@ -5610,7 +6313,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
             return;
         }
 
-        $targetObject = $this->valueHolder591d3a69032e2721997056;
+        $targetObject = $this->valueHolder5927e431d8ca7620093558;
         $accessor = function & () use ($targetObject, $name) {
             return $targetObject->$name;
         };
@@ -5628,18 +6331,18 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function __set($name, $value)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__set', array('name' => $name, 'value' => $value), $this->initializer5927e431d8cc6462240396);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder591d3a69032e2721997056;
+            $targetObject = $this->valueHolder5927e431d8ca7620093558;
 
             return $targetObject->$name = $value;;
             return;
         }
 
-        $targetObject = $this->valueHolder591d3a69032e2721997056;
+        $targetObject = $this->valueHolder5927e431d8ca7620093558;
         $accessor = function & () use ($targetObject, $name, $value) {
             return $targetObject->$name = $value;
         };
@@ -5656,18 +6359,18 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function __isset($name)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__isset', array('name' => $name), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__isset', array('name' => $name), $this->initializer5927e431d8cc6462240396);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder591d3a69032e2721997056;
+            $targetObject = $this->valueHolder5927e431d8ca7620093558;
 
             return isset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder591d3a69032e2721997056;
+        $targetObject = $this->valueHolder5927e431d8ca7620093558;
         $accessor = function () use ($targetObject, $name) {
             return isset($targetObject->$name);
         };
@@ -5684,18 +6387,18 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function __unset($name)
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__unset', array('name' => $name), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__unset', array('name' => $name), $this->initializer5927e431d8cc6462240396);
 
         $realInstanceReflection = new \ReflectionClass(get_parent_class($this));
 
         if (! $realInstanceReflection->hasProperty($name)) {
-            $targetObject = $this->valueHolder591d3a69032e2721997056;
+            $targetObject = $this->valueHolder5927e431d8ca7620093558;
 
             unset($targetObject->$name);;
             return;
         }
 
-        $targetObject = $this->valueHolder591d3a69032e2721997056;
+        $targetObject = $this->valueHolder5927e431d8ca7620093558;
         $accessor = function () use ($targetObject, $name) {
             unset($targetObject->$name);
         };
@@ -5709,16 +6412,16 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
 
     public function __clone()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__clone', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__clone', array(), $this->initializer5927e431d8cc6462240396);
 
-        $this->valueHolder591d3a69032e2721997056 = clone $this->valueHolder591d3a69032e2721997056;
+        $this->valueHolder5927e431d8ca7620093558 = clone $this->valueHolder5927e431d8ca7620093558;
     }
 
     public function __sleep()
     {
-        $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, '__sleep', array(), $this->initializer591d3a69032f4948691381);
+        $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, '__sleep', array(), $this->initializer5927e431d8cc6462240396);
 
-        return array('valueHolder591d3a69032e2721997056');
+        return array('valueHolder5927e431d8ca7620093558');
     }
 
     public function __wakeup()
@@ -5730,7 +6433,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function setProxyInitializer(\Closure $initializer = null)
     {
-        $this->initializer591d3a69032f4948691381 = $initializer;
+        $this->initializer5927e431d8cc6462240396 = $initializer;
     }
 
     /**
@@ -5738,7 +6441,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getProxyInitializer()
     {
-        return $this->initializer591d3a69032f4948691381;
+        return $this->initializer5927e431d8cc6462240396;
     }
 
     /**
@@ -5746,7 +6449,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function initializeProxy()
     {
-        return $this->initializer591d3a69032f4948691381 && $this->initializer591d3a69032f4948691381->__invoke($this->valueHolder591d3a69032e2721997056, $this, 'initializeProxy', array(), $this->initializer591d3a69032f4948691381);
+        return $this->initializer5927e431d8cc6462240396 && $this->initializer5927e431d8cc6462240396->__invoke($this->valueHolder5927e431d8ca7620093558, $this, 'initializeProxy', array(), $this->initializer5927e431d8cc6462240396);
     }
 
     /**
@@ -5754,7 +6457,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function isProxyInitialized()
     {
-        return null !== $this->valueHolder591d3a69032e2721997056;
+        return null !== $this->valueHolder5927e431d8ca7620093558;
     }
 
     /**
@@ -5762,7 +6465,7 @@ class DoctrineORMEntityManager_00000000739e4b71000000000a442bf357cdab36516ef3968
      */
     public function getWrappedValueHolderValue()
     {
-        return $this->valueHolder591d3a69032e2721997056;
+        return $this->valueHolder5927e431d8ca7620093558;
     }
 
 

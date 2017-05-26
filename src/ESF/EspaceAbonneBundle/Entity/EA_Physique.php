@@ -24,7 +24,7 @@ class EA_Physique
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", mappedBy="physique", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", cascade={"persist"})
      */
     private $documents;
 
@@ -425,5 +425,19 @@ class EA_Physique
     public function getDemandes()
     {
         return $this->demandes;
+    }
+
+    /**
+     * Set documents
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $documents
+     *
+     * @return EA_Physique
+     */
+    public function setDocuments(\ESF\EspaceAbonneBundle\Entity\EA_Document $documents = null)
+    {
+        $this->documents = $documents;
+
+        return $this;
     }
 }

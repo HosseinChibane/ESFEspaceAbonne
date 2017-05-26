@@ -1,93 +1,84 @@
-esf_esf_espace_abonne_homepage:
+esf_espace_abonne_homepage:
     path:     /
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:index }
-
-esf_espace_abonne_home:
-    path:      /
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:index }
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:index }
 
 esf_espace_abonne_monProfil:
-    path:      /Default/monprofil/
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:monprofil }
+    path:      /back/monprofil/
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:monprofil }
 
 esf_espace_abonne_mesParametres:
-    path:      /Default/mesparametres
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametres }
+    path:      /back/mesparametres
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mesparametres }
 esf_espace_abonne_mesParametresMDP:
-    path:      /Default/mesparametresMDP
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametresMDP }
+    path:      /back/mesparametresMDP
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mesparametresMDP }
 esf_espace_abonne_mesParametresMAIL:
-    path:      /Default/mesparametresMAIL
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesparametresMAIL }
+    path:      /back/mesparametresMAIL
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mesparametresMAIL }
 
 esf_espace_abonne_mesDemandes:
-    path:      /Default/mesdemandes
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesdemandes }
+    path:      /back/mesdemandes
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mesdemandes }
 esf_espace_abonne_detailsDemandes:
-    path:      /Default/detailsdemandes/{id}
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:detailsdemandes }
+    path:      /back/detailsdemandes/{id}
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:detailsdemandes }
 esf_espace_abonne_modifierDemandes:
-    path:      /Default/modifierdemandes/{id}
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:modifierdemandes }
+    path:      /back/modifierdemandes/{id}
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:modifierdemandes }
     methods: GET|POST
 
 esf_espace_abonne_mesDocuments:
-    path:      /Default/mesdocuments
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mesdocuments }
+    path:      /back/mesdocuments
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mesdocuments }
 esf_espace_abonne_aide:
-    path:      /Default/aide
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:aide } 
+    path:      /back/aide
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:aide } 
 esf_espace_abonne_contact:
-    path:      /Default/contact
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:contact }
+    path:      /back/contact
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:contact }
     methods: POST|GET 
 
 esf_espace_abonne_universiteStepsOne:
-    path:      /Default/universiteOne
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteOne } 
+    path:      /back/universiteOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteOne } 
 esf_espace_abonne_universiteStepsTwo:
-    path:      /Default/universiteTwo
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteTwo } 
+    path:      /back/universiteTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteTwo } 
 esf_espace_abonne_universiteStepsThree:
-    path:      /Default/universiteThree
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:universiteTwo } 
+    path:      /back/universiteThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteTwo } 
 
 esf_espace_abonne_langueStepsOne:
-    path:      /Default/langueOne
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueOne } 
+    path:      /back/langueOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:langueOne } 
 esf_espace_abonne_langueStepsTwo:
-    path:      /Default/langueTwo
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueTwo } 
+    path:      /back/langueTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:langueTwo } 
 esf_espace_abonne_langueStepsThree:
-    path:      /Default/langueThree
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:langueTwo } 
+    path:      /back/langueThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:langueTwo } 
 
 esf_espace_abonne_logementStepsOne:
-    path:      /Default/logementOne
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementOne }    
+    path:      /back/logementOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:logementOne }    
 esf_espace_abonne_logementStepsTwo:
-    path:      /Default/logementTwo
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementTwo } 
+    path:      /back/logementTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:logementTwo } 
 esf_espace_abonne_logementStepsThree:
-    path:      /Default/logementThree
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:logementTwo } 
+    path:      /back/logementThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:logementTwo } 
 
 esf_espace_abonne_preparationStepsOne:
-    path:      /Default/preparationOne
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationOne }    
+    path:      /back/preparationOne
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:preparationOne }    
 esf_espace_abonne_preparationStepsTwo:
-    path:      /Default/preparationTwo
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationTwo } 
+    path:      /back/preparationTwo
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:preparationTwo } 
 esf_espace_abonne_preparationStepsThree:
-    path:      /Default/preparationThree
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:preparationTwo } 
-
-  
+    path:      /back/preparationThree
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:preparationTwo } 
 
 esf_espace_abonne_mutuelle:
-    path:      /Default/mutuelle
-    defaults: { _controller: ESFEspaceAbonneBundle:Default:mutuelle }       
+    path:      /back/mutuelle
+    defaults: { _controller: ESFEspaceAbonneBundle:Back:mutuelle }       
 
-espace_admin_panel:
-    path:      /Admin/adminPanel
-    defaults: { _controller: ESFEspaceAbonneBundle:Admin:adminPanel }  
