@@ -1,4 +1,3 @@
-{#{% extends "DUDEEGOPlatformBundle::layout.html.twig" %}#}
 {% extends ":backend:sidebar.html.twig" %}
 
 {% block title %}
@@ -87,14 +86,15 @@
 
             </div>
         </div>
-
-        <div class="col-md-4">
+        {% if imageUser is defined %}  
+          <div class="col-md-4">
             <div class="form-group">
-            <img src="{{ vich_uploader_asset(imageUser, 'imageFile' )  | imagine_filter('my_thumb') }}" alt="{{ imageUser.imageName }}" />
-           </div>
-       </div>
-
-       <div class="col-md-4">
+                {# | imagine_filter('my_thumb') #}
+                <img src="{{ vich_uploader_asset(imageUser, 'imageFile' )   }}" alt="{{ imageUser.imageName }}" />
+            </div>
+        </div>
+    {% endif %}
+    <div class="col-md-4">
         <div class="form-group">
             <div class="vich-image">
                 {{ form_widget(form.image.imageFile.file) }}

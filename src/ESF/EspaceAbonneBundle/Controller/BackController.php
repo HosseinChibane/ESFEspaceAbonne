@@ -444,6 +444,7 @@ class BackController extends Controller
 					$user = $this->getUser();
 					$em = $this->getDoctrine()->getManager();
 					$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
+					
 					$eA_Demande_Inscription->setPhysique($physique);
 					$eA_Demande_Inscription->setType('universite');
 					$eA_Demande_Inscription->setEtat('creation');

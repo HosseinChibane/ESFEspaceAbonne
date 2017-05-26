@@ -17,7 +17,7 @@ class T_Langue_UniversiteType extends AbstractType
     {
         $builder
         ->add('langue', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Langue_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Langue_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.langue', 'ASC');

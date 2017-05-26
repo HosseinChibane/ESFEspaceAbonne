@@ -27,7 +27,7 @@ class Search_UniversiteType extends AbstractType
             'empty_data'  => ''))
 
         ->add('formations', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Formation_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Formation_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.formation', 'ASC');
@@ -39,7 +39,7 @@ class Search_UniversiteType extends AbstractType
             ))
 
         ->add('langues', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Langue_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Langue_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.langue', 'ASC');
@@ -51,7 +51,7 @@ class Search_UniversiteType extends AbstractType
             ))
 
         ->add('villes', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Ville_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Ville_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.commune', 'ASC');
@@ -63,7 +63,7 @@ class Search_UniversiteType extends AbstractType
             ))
 
         ->add('pays', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Pays_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Pays_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.pays', 'ASC');

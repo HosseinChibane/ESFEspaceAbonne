@@ -21,7 +21,7 @@ class T_UniversiteType extends AbstractType
     {
         $builder
         ->add('nometablissement', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.nometablissement', 'ASC');

@@ -19,7 +19,7 @@ class T_Formation_UniversiteType extends AbstractType
     {
         $builder
         ->add('formation', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Formation_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Formation_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.formation', 'ASC');

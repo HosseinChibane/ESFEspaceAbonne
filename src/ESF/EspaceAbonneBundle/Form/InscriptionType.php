@@ -33,7 +33,7 @@ class InscriptionType extends AbstractType
             'empty_data'  => null))
         
         ->add('languePartenaire', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:EA_Langue',
+            'class' => 'ESFEspaceAbonneBundle:EA_Langue',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->groupBy('u.id')
@@ -47,7 +47,7 @@ class InscriptionType extends AbstractType
             ))
 
         ->add('langueUniversite', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Langue_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Langue_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->groupBy('u.id')
@@ -61,7 +61,7 @@ class InscriptionType extends AbstractType
             ))
 
         ->add('formation', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Formation_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Formation_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->groupBy('u.id')
@@ -75,7 +75,7 @@ class InscriptionType extends AbstractType
             ))
 
         ->add('nometablissement', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:T_Universite',
+            'class' => 'ESFEspaceAbonneBundle:T_Universite',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.nometablissement', 'ASC');
@@ -87,7 +87,7 @@ class InscriptionType extends AbstractType
             ))
 
         ->add('pays', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:EA_Personne',
+            'class' => 'ESFEspaceAbonneBundle:EA_Personne',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.pays', 'ASC');
@@ -99,7 +99,7 @@ class InscriptionType extends AbstractType
             ))
         
         ->add('raisonsocial', EntityType::class, array(
-            'class' => 'DUDEEGOPlatformBundle:EA_Morale',
+            'class' => 'ESFEspaceAbonneBundle:EA_Morale',
             'query_builder' => function (EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.raisonsocial', 'ASC');
