@@ -14,7 +14,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        //->add('physique')
+        ->add('physique', EA_PhysiqueType::class)
         ;
     }
     

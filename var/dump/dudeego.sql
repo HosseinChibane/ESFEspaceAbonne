@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 29 Mai 2017 à 09:58
+-- Généré le :  Mar 30 Mai 2017 à 10:10
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -31,7 +31,9 @@ CREATE TABLE `e_a__demande__inscription` (
   `physique_id` int(11) NOT NULL,
   `documentinscription_id` int(11) DEFAULT NULL,
   `etat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `etablissement` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `partenaire` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -57,7 +59,9 @@ CREATE TABLE `e_a__document` (
 --
 
 INSERT INTO `e_a__document` (`id`, `passeport_name`, `updated_at`, `carte_identite_name`, `bulletin_note_name`, `bac_name`, `credential_name`, `lettre_recommendation_name`, `lettre_motivation_name`) VALUES
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,7 +120,9 @@ CREATE TABLE `e_a__image` (
 --
 
 INSERT INTO `e_a__image` (`id`, `image_name`, `image_size`, `updated_at`) VALUES
-(6, NULL, NULL, NULL);
+(6, NULL, NULL, NULL),
+(7, NULL, NULL, NULL),
+(9, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -177,8 +183,10 @@ CREATE TABLE `e_a__personne` (
 --
 
 INSERT INTO `e_a__personne` (`id`, `numero`, `rue`, `codepostal`, `ville`, `pays`, `gsm`, `telephone`, `courriel`) VALUES
-(6, 25, 'Rue de Maubeuge', '75009', 'Paris', 'France', NULL, '01.53.20.44.28', 'info@ava.fr'),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user@user.fr');
+(6, 25, 'Rue de Maubeuge', '75009', 'Paris', 'France', NULL, '01.53.20.44.28', ''),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+(9, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -202,7 +210,9 @@ CREATE TABLE `e_a__physique` (
 --
 
 INSERT INTO `e_a__physique` (`id`, `personne_id`, `nom`, `prenom`, `datenaissance`, `numerocarteid`, `image_id`, `documents_id`) VALUES
-(3, 7, 'Nom', 'Prénom', NULL, NULL, 6, 7);
+(3, 7, 'Nom', 'Prénom', '2017-05-30 00:00:00', 'azerty', 6, 7),
+(4, 8, 'Doe', 'Jane', NULL, NULL, 7, 8),
+(5, 9, 'Doe', 'Jane', '2017-05-30 00:00:00', 'azerty', 9, 10);
 
 -- --------------------------------------------------------
 
@@ -231,7 +241,9 @@ CREATE TABLE `fos_user` (
 --
 
 INSERT INTO `fos_user` (`id`, `physique_id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`) VALUES
-(3, 3, 'user', 'user', 'user@user.fr', 'user@user.fr', 1, NULL, '$2y$13$Hakfr7qxBEAdTA7TDPkBOekP/cejO/KS7pd/r4BeZPmEDHxnTAiIu', '2017-05-29 09:57:20', NULL, NULL, 'a:0:{}');
+(3, 3, 'user', 'user', 'user@user.fr', 'user@user.fr', 1, NULL, '$2y$13$Hakfr7qxBEAdTA7TDPkBOekP/cejO/KS7pd/r4BeZPmEDHxnTAiIu', '2017-05-30 10:08:55', '9DlmuAy9n3ge1KYR_boJTAG84d3HWgu7ZlgWMnwUXDc', '2017-05-29 17:37:44', 'a:0:{}'),
+(4, 4, 'test', 'test', 'test@rien.fr', 'test@rien.fr', 1, NULL, '$2y$13$PcAcRI8RRlNCICM8G5KyUOVZmGt5UrO8oOD1CqxQHklF1ID7NJpd.', '2017-05-30 08:03:20', NULL, NULL, 'a:0:{}'),
+(5, 5, 'teste', 'teste', 'test@test.fr', 'test@test.fr', 1, NULL, '$2y$13$FkN4IQVLc.aqufqGgXJsMOrWaxCIf48YYdfHgRn20fshKbdBaGNRy', '2017-05-30 08:11:51', NULL, NULL, 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -926,7 +938,7 @@ ALTER TABLE `e_a__demande__inscription`
 -- AUTO_INCREMENT pour la table `e_a__document`
 --
 ALTER TABLE `e_a__document`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `e_a__document__inscription`
 --
@@ -941,7 +953,7 @@ ALTER TABLE `e_a__f_a_q`
 -- AUTO_INCREMENT pour la table `e_a__image`
 --
 ALTER TABLE `e_a__image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `e_a__langue`
 --
@@ -956,17 +968,17 @@ ALTER TABLE `e_a__morale`
 -- AUTO_INCREMENT pour la table `e_a__personne`
 --
 ALTER TABLE `e_a__personne`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `e_a__physique`
 --
 ALTER TABLE `e_a__physique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `fos_user`
 --
 ALTER TABLE `fos_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `t__adresse__universite`
 --

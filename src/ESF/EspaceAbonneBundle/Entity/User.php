@@ -1,5 +1,5 @@
 <?php
-
+//, fetch="EAGER"
 namespace ESF\EspaceAbonneBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;

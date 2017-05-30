@@ -46,6 +46,22 @@ class EA_Demande_Inscription
      */
     private $etat;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etablissement", type="string", length=255, nullable=true)
+     */
+    private $etablissement;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="partenaire", type="string", length=255, nullable=true)
+     */
+    private $partenaire;
+
     public function __toString()
     {
         return $this->getType();
@@ -155,5 +171,53 @@ class EA_Demande_Inscription
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set etablissement
+     *
+     * @param string $etablissement
+     *
+     * @return EA_Demande_Inscription
+     */
+    public function setEtablissement($etablissement)
+    {
+        $this->etablissement = $etablissement;
+
+        return $this;
+    }
+
+    /**
+     * Get etablissement
+     *
+     * @return string
+     */
+    public function getEtablissement()
+    {
+        return $this->etablissement;
+    }
+
+    /**
+     * Set partenaire
+     *
+     * @param string $partenaire
+     *
+     * @return EA_Demande_Inscription
+     */
+    public function setPartenaire($partenaire)
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Get partenaire
+     *
+     * @return string
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
     }
 }

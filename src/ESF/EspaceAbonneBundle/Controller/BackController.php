@@ -80,17 +80,15 @@ class BackController extends Controller
 				$user = $this->getUser();
 				$em = $this->getDoctrine()->getManager();
 
-				$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
-
 				$imageUser = $em->getRepository('ESFEspaceAbonneBundle:EA_Image')->findOneById($user->getPhysique()->getImage());
 
-				$form = $this->createform(EA_PhysiqueType::class, $physique);
+				$form = $this->createform(UserType::class, $user);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					$physique = $form->getData();
-					$em->persist($physique);
+					$user = $form->getData();
+					$em->persist($user);
 					$em->flush();
 
 					$this->addFlash('notice','Modifcation enregistrée avec succès !');
@@ -106,7 +104,6 @@ class BackController extends Controller
 			return $this->render('ESFEspaceAbonneBundle:Back:index.html.twig');		
 		}    
 	}
-
 
 	public function mesparametresMDPAction(Request $request)
 	{    
@@ -402,21 +399,19 @@ class BackController extends Controller
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
-					if ($form->get('nometablissement')->getData() !== null) {
-
+					if ($form->get('langue')->getData() !== null && $form->get('formation')->getData() !== null && $form->get('nometablissement')->getData() !== null) {
+						
 						$formation = $form->get('formation')->getData()->getFormation();
 						$langue = $form->get('langue')->getData()->getLangue();
 						$nometablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
-						$universiteId = $form->get('nometablissement')->getData()->getId();
 
 						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
-						->getDocumentIncription($universiteId);
+						->getDocumentIncription($form->get('nometablissement')->getData()->getId());
 
 						return $this->render('ESFEspaceAbonneBundle:Back:universiteTwo.html.twig', array(
-							'form' => $form->createView(),
 							'document' => $document,
 							));	
-					}
+					}					
 				}
 				return $this->render('ESFEspaceAbonneBundle:Back:universiteOne.html.twig', array(
 					'form' => $form->createView(),
@@ -442,12 +437,11 @@ class BackController extends Controller
 				if ($form->isSubmitted() && $form->isValid()) {
 
 					$user = $this->getUser();
-					$em = $this->getDoctrine()->getManager();
-					$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
-					
-					$eA_Demande_Inscription->setPhysique($physique);
+					$eA_Demande_Inscription->setPhysique($user->getPhysique());
 					$eA_Demande_Inscription->setType('universite');
 					$eA_Demande_Inscription->setEtat('creation');
+					$eA_Demande_Inscription->setEtablissement();
+					$eA_Demande_Inscription->setPartenaire('null');
 
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($eA_Demande_Inscription);

@@ -49,7 +49,6 @@ class RegistrationController extends BaseController
 
   if ($form->isSubmitted()) {
     if ($form->isValid()) {
-
      $event = new FormEvent($form, $request);
      $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
@@ -59,7 +58,6 @@ class RegistrationController extends BaseController
                  * Add new functionality (e.g. log the registration) *
                  *****************************************************/
                 $physique = $form->getData();
-                dump($physique);exit();
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($physique);
                 $em->flush();

@@ -3,6 +3,7 @@
 namespace ESF\EspaceAbonneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * EA_Personne
@@ -72,6 +73,11 @@ class EA_Personne
     private $telephone;
 
     /**
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
+     *
      * @var string
      *
      * @ORM\Column(name="courriel", type="string", length=255, nullable=true)

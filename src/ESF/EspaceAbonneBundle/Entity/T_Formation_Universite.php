@@ -141,8 +141,9 @@ class T_Formation_Universite
      */
     public function __construct()
     {
-        $this->langues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+       $this->universite = new \Doctrine\Common\Collections\ArrayCollection();
+       //$this->langues = new \Doctrine\Common\Collections\ArrayCollection();
+   }
 
     /**
      * Add langue
@@ -190,6 +191,40 @@ class T_Formation_Universite
         $this->universite = $universite;
 
         return $this;
+    }
+
+    /**
+     * Add universite
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Universite $universite
+     *
+     * @return T_Formation_Universite
+     */
+    public function addUniversite(\ESF\EspaceAbonneBundle\Entity\T_Universite $universite)
+    {
+        $this->universite[] = $universite;
+
+        return $this;
+    }
+
+    /**
+     * Remove universite
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Universite $universite
+     */
+    public function removeUniversite(\ESF\EspaceAbonneBundle\Entity\T_Universite $universite)
+    {
+        $this->universite->removeElement($universite);
+    }
+
+    /**
+     * Get universite
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUniversite()
+    {
+        return $this->universite;
     }
 
     /**
@@ -360,39 +395,7 @@ class T_Formation_Universite
         return $this->concours;
     }
 
-    /**
-     * Add universite
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\T_Universite $universite
-     *
-     * @return T_Formation_Universite
-     */
-    public function addUniversite(\ESF\EspaceAbonneBundle\Entity\T_Universite $universite)
-    {
-        $this->universite[] = $universite;
-
-        return $this;
-    }
-
-    /**
-     * Remove universite
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\T_Universite $universite
-     */
-    public function removeUniversite(\ESF\EspaceAbonneBundle\Entity\T_Universite $universite)
-    {
-        $this->universite->removeElement($universite);
-    }
-
-    /**
-     * Get universite
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUniversite()
-    {
-        return $this->universite;
-    }
+    
 
     /**
      * Set niveau

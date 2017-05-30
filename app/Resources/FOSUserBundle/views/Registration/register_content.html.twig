@@ -43,10 +43,10 @@
 								{{ form_label(form.username, 'Nom d\'utilisateur') }}
 								{{ form_widget(form.username) }}
 
-								{{ form_label(form.physique.personne.courriel, 'Email') }}
-								{{ form_widget(form.physique.personne.courriel) }}
+								{#{{ form_label(form.physique.personne.courriel, 'Email') }}
+								{{ form_widget(form.physique.personne.courriel) }}#}
 
-								{{ form_label(form.email, 'Confirmer votre email') }}
+								{{ form_label(form.email, 'Email') }}
 								{{ form_widget(form.email) }}
 
 								{{ form_label(form.plainPassword.first, 'Mot de passe') }}
@@ -59,7 +59,7 @@
 								{{ form_widget(form._token) }}
 								<br>
 								<div class="form-group">
-									<input class="btn btn-primary" type="submit" value="{{ 'registration.submit'|trans }}">
+									<input class="btn btn-lg btn-primary btn-block" type="submit" value="{{ 'registration.submit'|trans }}">
 								</div>
 							</div>								
 						</div>

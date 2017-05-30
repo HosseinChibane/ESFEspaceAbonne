@@ -13,11 +13,13 @@
 
 {% block Content %} 
     <div class="form-group">
+
         {% for flash_message in app.session.flashBag.get('notice') %}
             <div class="alert alert-success" role="alert">
                 <strong> {{ flash_message }} </strong> 
             </div>
         {% endfor %}
+
         <!-- Mon profil -->
         {{ form_start(form) }}
 
@@ -30,29 +32,29 @@
         <div class="col-md-4">
             <div class="form-group">
 
-                {{ form_label(form.nom, 'Nom') }}
-                {{ form_errors(form.nom) }}
-                {{ form_widget(form.nom) }}
+                {{ form_label(form.physique.nom, 'Nom') }}
+                {{ form_errors(form.physique.nom) }}
+                {{ form_widget(form.physique.nom) }}
 
-                {{ form_label(form.datenaissance, 'Date de naissance') }}
-                {{ form_errors(form.datenaissance) }}
-                {{ form_widget(form.datenaissance) }}
+                {{ form_label(form.physique.datenaissance, 'Date de naissance') }}
+                {{ form_errors(form.physique.datenaissance) }}
+                {{ form_widget(form.physique.datenaissance) }}
 
-                {{ form_label(form.personne.numero, 'Numéro de la rue') }}
-                {{ form_errors(form.personne.numero) }}
-                {{ form_widget(form.personne.numero) }}
+                {{ form_label(form.physique.personne.numero, 'Numéro de la rue') }}
+                {{ form_errors(form.physique.personne.numero) }}
+                {{ form_widget(form.physique.personne.numero) }}
 
-                {{ form_label(form.personne.codepostal, 'Code Postal') }}
-                {{ form_errors(form.personne.codepostal) }}
-                {{ form_widget(form.personne.codepostal) }}
+                {{ form_label(form.physique.personne.codepostal, 'Code Postal') }}
+                {{ form_errors(form.physique.personne.codepostal) }}
+                {{ form_widget(form.physique.personne.codepostal) }}
 
-                {{ form_label(form.personne.pays, 'Pays') }}
-                {{ form_errors(form.personne.pays) }}
-                {{ form_widget(form.personne.pays) }}
+                {{ form_label(form.physique.personne.pays, 'Pays') }}
+                {{ form_errors(form.physique.personne.pays) }}
+                {{ form_widget(form.physique.personne.pays) }}
 
-                {{ form_label(form.personne.telephone, 'Téléphone fixe') }}
-                {{ form_errors(form.personne.telephone) }}
-                {{ form_widget(form.personne.telephone) }}
+                {{ form_label(form.physique.personne.telephone, 'Téléphone fixe') }}
+                {{ form_errors(form.physique.personne.telephone) }}
+                {{ form_widget(form.physique.personne.telephone) }}
 
             </div>
         </div>
@@ -60,29 +62,29 @@
         <div class="col-md-4">
             <div class="form-group">
 
-                {{ form_label(form.prenom, 'Prénom') }}
-                {{ form_errors(form.prenom) }}
-                {{ form_widget(form.prenom) }}
+                {{ form_label(form.physique.prenom, 'Prénom') }}
+                {{ form_errors(form.physique.prenom) }}
+                {{ form_widget(form.physique.prenom) }}
 
-                {{ form_label(form.numerocarteid, 'Numéro de carte d\'identité') }}
-                {{ form_errors(form.numerocarteid) }}
-                {{ form_widget(form.numerocarteid) }}
+                {{ form_label(form.physique.numerocarteid, 'Numéro de carte d\'identité') }}
+                {{ form_errors(form.physique.numerocarteid) }}
+                {{ form_widget(form.physique.numerocarteid) }}
 
-                {{ form_label(form.personne.rue, 'Nom de la rue') }}
-                {{ form_errors(form.personne.rue) }}
-                {{ form_widget(form.personne.rue) }}
+                {{ form_label(form.physique.personne.rue, 'Nom de la rue') }}
+                {{ form_errors(form.physique.personne.rue) }}
+                {{ form_widget(form.physique.personne.rue) }}
 
-                {{ form_label(form.personne.ville, 'Ville') }}
-                {{ form_errors(form.personne.ville) }}
-                {{ form_widget(form.personne.ville) }}
+                {{ form_label(form.physique.personne.ville, 'Ville') }}
+                {{ form_errors(form.physique.personne.ville) }}
+                {{ form_widget(form.physique.personne.ville) }}
 
-                {{ form_label(form.personne.courriel, 'Email') }}
-                {{ form_errors(form.personne.courriel) }}
-                {{ form_widget(form.personne.courriel) }}
+                {{ form_label(form.physique.personne.courriel, 'Email') }}
+                {{ form_errors(form.physique.personne.courriel) }}
+                {{ form_widget(form.physique.personne.courriel) }}
 
-                {{ form_label(form.personne.gsm, 'Portable') }}
-                {{ form_errors(form.personne.gsm) }}
-                {{ form_widget(form.personne.gsm) }}
+                {{ form_label(form.physique.personne.gsm, 'Portable') }}
+                {{ form_errors(form.physique.personne.gsm) }}
+                {{ form_widget(form.physique.personne.gsm) }}
 
             </div>
         </div>
@@ -97,7 +99,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <div class="vich-image">
-                {{ form_widget(form.image.imageFile.file) }}
+                {{ form_widget(form.physique.image.imageFile.file) }}
             </div>
         </div>
     </div>
@@ -105,7 +107,7 @@
         <div class="col-md-10">
             {# TOKEN #}
             {{ form_widget(form._token) }}
-            {{ form_widget(form.enregistrer) }}
+            {{ form_widget(form.physique.enregistrer) }}
         </div>
     </div>
 </div>

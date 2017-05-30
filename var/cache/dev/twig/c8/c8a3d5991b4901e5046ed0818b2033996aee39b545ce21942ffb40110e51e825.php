@@ -15,11 +15,11 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_77e10374ae95a87f71bd2eee2a210829cf5a83c842fef657e133e21b6d9f937c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_77e10374ae95a87f71bd2eee2a210829cf5a83c842fef657e133e21b6d9f937c->enter($__internal_77e10374ae95a87f71bd2eee2a210829cf5a83c842fef657e133e21b6d9f937c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Registration/register_content.html.twig"));
+        $__internal_3b802f9da9b94e228eb5326cfa09b807028e0bc6f86087c4c7561b2fe9b18cd2 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_3b802f9da9b94e228eb5326cfa09b807028e0bc6f86087c4c7561b2fe9b18cd2->enter($__internal_3b802f9da9b94e228eb5326cfa09b807028e0bc6f86087c4c7561b2fe9b18cd2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Registration/register_content.html.twig"));
 
-        $__internal_98659decf9eae8d1fcc988e391dec68511c498dc00653a0f08cacc29c18c424a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_98659decf9eae8d1fcc988e391dec68511c498dc00653a0f08cacc29c18c424a->enter($__internal_98659decf9eae8d1fcc988e391dec68511c498dc00653a0f08cacc29c18c424a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Registration/register_content.html.twig"));
+        $__internal_2eddccde5bda812502d9db88512a22d8ca11deb21fc354df7b9547fe67c16cad = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2eddccde5bda812502d9db88512a22d8ca11deb21fc354df7b9547fe67c16cad->enter($__internal_2eddccde5bda812502d9db88512a22d8ca11deb21fc354df7b9547fe67c16cad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Registration/register_content.html.twig"));
 
         // line 2
         echo "\t<!-- Page Content -->
@@ -96,17 +96,11 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
         echo "
 
 \t\t\t\t\t\t\t\t";
-        // line 46
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "personne", array()), "courriel", array()), 'label', array("label" => "Email"));
+        // line 48
         echo "
-\t\t\t\t\t\t\t\t";
-        // line 47
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "personne", array()), "courriel", array()), 'widget');
-        echo "
-
 \t\t\t\t\t\t\t\t";
         // line 49
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'label', array("label" => "Confirmer votre email"));
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'label', array("label" => "Email"));
         echo "
 \t\t\t\t\t\t\t\t";
         // line 50
@@ -138,7 +132,7 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
         echo "
 \t\t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" type=\"submit\" value=\"";
+\t\t\t\t\t\t\t\t\t<input class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" value=\"";
         // line 62
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("registration.submit", array(), "FOSUserBundle"), "html", null, true);
         echo "\">
@@ -159,10 +153,10 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
 
 \t";
         
-        $__internal_77e10374ae95a87f71bd2eee2a210829cf5a83c842fef657e133e21b6d9f937c->leave($__internal_77e10374ae95a87f71bd2eee2a210829cf5a83c842fef657e133e21b6d9f937c_prof);
+        $__internal_3b802f9da9b94e228eb5326cfa09b807028e0bc6f86087c4c7561b2fe9b18cd2->leave($__internal_3b802f9da9b94e228eb5326cfa09b807028e0bc6f86087c4c7561b2fe9b18cd2_prof);
 
         
-        $__internal_98659decf9eae8d1fcc988e391dec68511c498dc00653a0f08cacc29c18c424a->leave($__internal_98659decf9eae8d1fcc988e391dec68511c498dc00653a0f08cacc29c18c424a_prof);
+        $__internal_2eddccde5bda812502d9db88512a22d8ca11deb21fc354df7b9547fe67c16cad->leave($__internal_2eddccde5bda812502d9db88512a22d8ca11deb21fc354df7b9547fe67c16cad_prof);
 
     }
 
@@ -178,7 +172,7 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
 
     public function getDebugInfo()
     {
-        return array (  150 => 66,  143 => 62,  136 => 59,  131 => 56,  127 => 55,  122 => 53,  118 => 52,  113 => 50,  109 => 49,  104 => 47,  100 => 46,  95 => 44,  91 => 43,  86 => 41,  82 => 40,  77 => 38,  73 => 37,  66 => 32,  60 => 29,  57 => 28,  54 => 27,  49 => 24,  25 => 2,);
+        return array (  144 => 66,  137 => 62,  130 => 59,  125 => 56,  121 => 55,  116 => 53,  112 => 52,  107 => 50,  103 => 49,  100 => 48,  95 => 44,  91 => 43,  86 => 41,  82 => 40,  77 => 38,  73 => 37,  66 => 32,  60 => 29,  57 => 28,  54 => 27,  49 => 24,  25 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -236,10 +230,10 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
 \t\t\t\t\t\t\t\t{{ form_label(form.username, 'Nom d\\'utilisateur') }}
 \t\t\t\t\t\t\t\t{{ form_widget(form.username) }}
 
-\t\t\t\t\t\t\t\t{{ form_label(form.physique.personne.courriel, 'Email') }}
-\t\t\t\t\t\t\t\t{{ form_widget(form.physique.personne.courriel) }}
+\t\t\t\t\t\t\t\t{#{{ form_label(form.physique.personne.courriel, 'Email') }}
+\t\t\t\t\t\t\t\t{{ form_widget(form.physique.personne.courriel) }}#}
 
-\t\t\t\t\t\t\t\t{{ form_label(form.email, 'Confirmer votre email') }}
+\t\t\t\t\t\t\t\t{{ form_label(form.email, 'Email') }}
 \t\t\t\t\t\t\t\t{{ form_widget(form.email) }}
 
 \t\t\t\t\t\t\t\t{{ form_label(form.plainPassword.first, 'Mot de passe') }}
@@ -252,7 +246,7 @@ class __TwigTemplate_7971b56756737eaa0bc6c243ef58c9005f897dd107d82073645643dc25e
 \t\t\t\t\t\t\t\t{{ form_widget(form._token) }}
 \t\t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t\t\t<div class=\"form-group\">
-\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" type=\"submit\" value=\"{{ 'registration.submit'|trans }}\">
+\t\t\t\t\t\t\t\t\t<input class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" value=\"{{ 'registration.submit'|trans }}\">
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t</div>
