@@ -25,7 +25,11 @@ use ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription;
 use ESF\EspaceAbonneBundle\Form\EA_Document_InscriptionType;
 use ESF\EspaceAbonneBundle\Entity\EA_Document;
 use ESF\EspaceAbonneBundle\Form\EA_DocumentType;
+
+#Inscription 
 use ESF\EspaceAbonneBundle\Form\InscriptionUniversiteType;
+use ESF\EspaceAbonneBundle\Form\InscriptionLangueType;
+
 use ESF\EspaceAbonneBundle\Entity\T_Universite;
 use ESF\EspaceAbonneBundle\Form\T_UniversiteType;
 use ESF\EspaceAbonneBundle\Entity\T_Formation_Universite;
@@ -224,18 +228,16 @@ class BackController extends Controller
 			else {
 
 				$user = $this->getUser();
-				$em = $this->getDoctrine()->getManager();
+				$form = $this->createform(UserType::class, $user);
 
-				$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());		
-
-				$form = $this->createform(EA_PhysiqueType::class, $physique);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					$physique = $form->getData();
-					//$physique->$documents->setUpdatedAt(new \DateTime('now'));
-					$em->persist($physique);
+					$user = $form->getData();
+					//dump($user);exit();
+					$em = $this->getDoctrine()->getManager();
+					$em->persist($user);
 					$em->flush();
 
 					$this->addFlash('notice','Documents bien enregistrée.');
@@ -244,7 +246,6 @@ class BackController extends Controller
 
 				return $this->render('ESFEspaceAbonneBundle:Back:mesdocuments.html.twig', array(
 					'form' => $form->createView(),
-					'physique' => $physique,
 					));
 			}
 		} catch (Exception $e) {
@@ -304,6 +305,10 @@ class BackController extends Controller
 				if (isset($eA_Demande_Inscription)) {
 					$type = $eA_Demande_Inscription->getType();
 					$etat = $eA_Demande_Inscription->getEtat();
+					$etablissement = $eA_Demande_Inscription->getEtablissement();
+					$formation = $eA_Demande_Inscription->getFormation();
+					$langue = $eA_Demande_Inscription->getLangue();
+					$partenaire = $eA_Demande_Inscription->getPartenaire();
 				}
 
 				$editForm = $this->createForm(EA_Demande_InscriptionType::class, $eA_Demande_Inscription);
@@ -313,8 +318,14 @@ class BackController extends Controller
 
 					$eA_Demande_Inscription->setType($type);
 					$eA_Demande_Inscription->setEtat($etat);
+					$eA_Demande_Inscription->setEtablissement($etablissement);
+					$eA_Demande_Inscription->setFormation($formation);
+					$eA_Demande_Inscription->setLangue($langue);
+					$eA_Demande_Inscription->setPartenaire($partenaire);
 
-					$this->getDoctrine()->getManager()->flush();
+					$em = $this->getDoctrine()->getManager();
+					$em->persist($eA_Demande_Inscription);
+					$em->flush();
 
 					$this->addFlash('notice','Modifcation bien enregistrée.');
 					return $this->redirectToRoute('esf_espace_abonne_modifierDemandes', array('id' => $eA_Demande_Inscription->getId()));
@@ -322,7 +333,7 @@ class BackController extends Controller
 
 				return $this->render('ESFEspaceAbonneBundle:Back:modifierdemandes.html.twig', array(
 					'eA_Demande_Inscription' => $eA_Demande_Inscription,
-					'edit_form' => $editForm->createView(),
+					'editForm' => $editForm->createView(),
 					));
 			}
 		} catch (Exception $e) {
@@ -400,16 +411,30 @@ class BackController extends Controller
 
 				if ($form->isSubmitted() && $form->isValid()) {
 					if ($form->get('langue')->getData() !== null && $form->get('formation')->getData() !== null && $form->get('nometablissement')->getData() !== null) {
-						
+
 						$formation = $form->get('formation')->getData()->getFormation();
 						$langue = $form->get('langue')->getData()->getLangue();
-						$nometablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
+						$nomEtablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
+						
+						$eA_Demande_Inscription = new EA_Demande_Inscription();
+						$eA_Demande_Inscription->setPhysique($user->getPhysique());
+						$eA_Demande_Inscription->setType('Universite');
+						$eA_Demande_Inscription->setEtat('Creation');
+						$eA_Demande_Inscription->setEtablissement($nomEtablissement);
+						$eA_Demande_Inscription->setFormation($formation);
+						$eA_Demande_Inscription->setLangue($langue);
 
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($eA_Demande_Inscription);
+						$em->flush();
+
+						$idEtablissement = $form->get('nometablissement')->getData()->getId();
 						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
-						->getDocumentIncription($form->get('nometablissement')->getData()->getId());
+						->getDocumentIncription($idEtablissement);
 
 						return $this->render('ESFEspaceAbonneBundle:Back:universiteTwo.html.twig', array(
 							'document' => $document,
+							'eA_Demande_Inscription' => $eA_Demande_Inscription,
 							));	
 					}					
 				}
@@ -423,30 +448,40 @@ class BackController extends Controller
 		}
 	}
 
-	public function universiteTwoAction(Request $request)
+	public function universiteTwoAction(Request $request, EA_Demande_Inscription $eA_Demande_Inscription)
 	{    
 		try {
 			if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
 				throw new AccessDeniedException('Accès à cette page, le droit tu n\'as pas.');
 			}
 			else {
-				$eA_Demande_Inscription = new EA_Demande_Inscription();
+				if (isset($eA_Demande_Inscription)) {
+					$type = $eA_Demande_Inscription->getType();
+					$etat = $eA_Demande_Inscription->getEtat();
+					$etablissement = $eA_Demande_Inscription->getEtablissement();
+					$formation = $eA_Demande_Inscription->getFormation();
+					$langue = $eA_Demande_Inscription->getLangue();
+					$partenaire = $eA_Demande_Inscription->getPartenaire();
+				}
+
 				$form = $this->createForm(EA_Demande_InscriptionType::class, $eA_Demande_Inscription);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					$user = $this->getUser();
-					$eA_Demande_Inscription->setPhysique($user->getPhysique());
-					$eA_Demande_Inscription->setType('universite');
-					$eA_Demande_Inscription->setEtat('creation');
-					$eA_Demande_Inscription->setEtablissement();
-					$eA_Demande_Inscription->setPartenaire('null');
+					$eA_Demande_Inscription->setType($type);
+					$eA_Demande_Inscription->setEtat($etat);
+					$eA_Demande_Inscription->setEtablissement($etablissement);
+					$eA_Demande_Inscription->setFormation($formation);
+					$eA_Demande_Inscription->setLangue($langue);
+					$eA_Demande_Inscription->setPartenaire($partenaire);
 
+					$document = $form->getData();
 					$em = $this->getDoctrine()->getManager();
-					$em->persist($eA_Demande_Inscription);
+					$em->persist($document);
 					$em->flush();
 
+					$user = $this->getUser();
 					$email = $user->getEmail();
 					$utilisateur = $user->getUserName();
 					$typeInscription = $eA_Demande_Inscription->getType();
@@ -480,18 +515,22 @@ class BackController extends Controller
 				throw new AccessDeniedException('Accès à cette page, le droit tu n\'as pas.');
 			}
 			else {
+
 				$user = $this->getUser();
 				$em = $this->getDoctrine()->getManager();
+				$form = $this->createform(InscriptionLangueType::class);
 
-				$form = $this->createform(InscriptionType::class);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
-					if ($form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
 
+					if ($form->get('langue')->getData()->getRaisonSocial() !== null && $form->get('pays')->getData()->getRaisonSocial() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
+
+						$langue = $form->get('langue')->getData()->getRaisonSocial();
+						$pays = $form->get('pays')->getData()->getRaisonSocial();
 						$raisonsocial = $form->get('raisonsocial')->getData()->getRaisonSocial();
+						
 						$raisonSocialId = $form->get('raisonsocial')->getData()->getId();
-
 						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
 						->getDocumentIncription($raisonSocialId);
 

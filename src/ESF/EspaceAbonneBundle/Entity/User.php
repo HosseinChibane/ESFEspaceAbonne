@@ -1,5 +1,5 @@
 <?php
-//, fetch="EAGER"
+
 namespace ESF\EspaceAbonneBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
@@ -20,7 +20,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Physique", cascade={"persist"})
+   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Physique", cascade={"all"}, fetch="EAGER")
    * @ORM\JoinColumn(nullable=false)
    */
     private $physique;

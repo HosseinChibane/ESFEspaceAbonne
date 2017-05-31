@@ -19,7 +19,7 @@ class EA_Demande_Inscription
     private $physique;
 
   /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription", cascade={"all"})
      */
     private $documentinscription;
 
@@ -54,7 +54,20 @@ class EA_Demande_Inscription
      */
     private $etablissement;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formation", type="string", length=255, nullable=true)
+     */
+    private $formation;
 
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="langue", type="string", length=255, nullable=true)
+     */
+    private $langue;
+    
     /**
      * @var string
      *
@@ -219,5 +232,53 @@ class EA_Demande_Inscription
     public function getPartenaire()
     {
         return $this->partenaire;
+    }
+
+    /**
+     * Set formation
+     *
+     * @param string $formation
+     *
+     * @return EA_Demande_Inscription
+     */
+    public function setFormation($formation)
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Get formation
+     *
+     * @return string
+     */
+    public function getFormation()
+    {
+        return $this->formation;
+    }
+
+    /**
+     * Set langue
+     *
+     * @param string $langue
+     *
+     * @return EA_Demande_Inscription
+     */
+    public function setLangue($langue)
+    {
+        $this->langue = $langue;
+
+        return $this;
+    }
+
+    /**
+     * Get langue
+     *
+     * @return string
+     */
+    public function getLangue()
+    {
+        return $this->langue;
     }
 }

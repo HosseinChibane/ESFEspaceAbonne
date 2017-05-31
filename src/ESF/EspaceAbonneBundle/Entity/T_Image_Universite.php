@@ -18,7 +18,7 @@ class T_Image_Universite
 {
      /**
      * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Universite", inversedBy="images")
-     * @ORM\JoinColumn(name="universite_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $universite;
 

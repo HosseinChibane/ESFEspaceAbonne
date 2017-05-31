@@ -31,7 +31,7 @@
                 {{ form_label(form.formation, 'Formation') }}
                 {{ form_errors(form.formation) }}
                 {{ form_widget(form.formation) }}
-
+                
                 {{ form_label(form.nometablissement, 'Université') }}
                 {{ form_errors(form.nometablissement) }}
                 {{ form_widget(form.nometablissement) }}
@@ -45,8 +45,8 @@
                     </div>
                 </div>
             </div>
-            {# Token CSRF 
-            {{ form_widget(form._token) }} #}
+            {# Token CSRF  #}
+            {{ form_widget(form._token) }}
             {# , {'render_rest': false} #}
             {{ form_end(form) }}
         </div>
@@ -70,6 +70,7 @@
                     $('#esf_espaceabonnebundle_t_universite_formation').replaceWith(
                         $(html).find('#esf_espaceabonnebundle_t_universite_formation')
                         );
+                    console.log(JSON.stringify(data));
 
                     var $formation = $('#esf_espaceabonnebundle_t_universite_formation');
 
@@ -88,9 +89,18 @@
                                 $('#esf_espaceabonnebundle_t_universite_nometablissement').replaceWith(
                                     $(html).find('#esf_espaceabonnebundle_t_universite_nometablissement')
                                     );
+                                console.log(JSON.stringify(data));
+                            },
+                            error: function(exception) {
+                                alert('Exeption: ' + exception);
+                                console.log(JSON.stringify(data));
                             }
                         });
                     });
+                },
+                error: function(exception) {
+                    alert('Exeption: ' + exception);
+                    console.log(JSON.stringify(data));
                 }
             });
         });

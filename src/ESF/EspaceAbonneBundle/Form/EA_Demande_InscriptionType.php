@@ -19,6 +19,10 @@ class EA_Demande_InscriptionType extends AbstractType
         $builder
         ->add('type', TextType::class)
         ->add('etat', TextType::class)
+        ->add('etablissement', TextType::class)
+        ->add('formation', TextType::class)
+        ->add('langue', TextType::class)
+        ->add('partenaire', TextType::class)
         ->add('physique', EA_PhysiqueType::class)
         ->add('documentinscription', EA_Document_InscriptionType::class)
         ;

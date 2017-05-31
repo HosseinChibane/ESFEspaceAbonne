@@ -38,18 +38,11 @@ class EA_Image
      *     maxSize="200k",
      *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
      * )
-     * @Vich\UploadableField(mapping="users_images", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="users_images", fileNameProperty="imageName")
      * 
      * @var File
      */
     private $imageFile;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     *
-     * @var integer
-     */
-    private $imageSize;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -115,26 +108,6 @@ class EA_Image
         return $this->imageName;
     }
     
-    /**
-     * @param integer $imageSize
-     *
-     * @return EA_Image
-     */
-    public function setImageSize($imageSize)
-    {
-        $this->imagesize = $imageSize;
-        
-        return $this;
-    }
-
-    /**
-     * @return integer|null
-     */
-    public function getImageSize()
-    {
-        return $this->imageSize;
-    }
-
     /**
      * Get id
      *

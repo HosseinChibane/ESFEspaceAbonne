@@ -23,29 +23,29 @@ class __TwigTemplate_cdb7837c160af7985d330c56d275072d3b3f068a19f42769ee0b557db48
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a7d1dcf0a3004955dbcaab42351cbda170be034a926dcec73157de347731ad72 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a7d1dcf0a3004955dbcaab42351cbda170be034a926dcec73157de347731ad72->enter($__internal_a7d1dcf0a3004955dbcaab42351cbda170be034a926dcec73157de347731ad72_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:Back:mesdocuments.html.twig"));
+        $__internal_bee770067946f51bc12a0bf48c0b26b7d208e4f4c2db78ed391ea9e23fa0c6d3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_bee770067946f51bc12a0bf48c0b26b7d208e4f4c2db78ed391ea9e23fa0c6d3->enter($__internal_bee770067946f51bc12a0bf48c0b26b7d208e4f4c2db78ed391ea9e23fa0c6d3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:Back:mesdocuments.html.twig"));
 
-        $__internal_6129349aa3b8ba9c87a3c2e21b7e01ae5af5b17e98688e4b622127513996cfee = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6129349aa3b8ba9c87a3c2e21b7e01ae5af5b17e98688e4b622127513996cfee->enter($__internal_6129349aa3b8ba9c87a3c2e21b7e01ae5af5b17e98688e4b622127513996cfee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:Back:mesdocuments.html.twig"));
+        $__internal_f2c338d828c30366cc27e23249aa9a27c574bb1afef325d7b10fd9c5ae2fc357 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f2c338d828c30366cc27e23249aa9a27c574bb1afef325d7b10fd9c5ae2fc357->enter($__internal_f2c338d828c30366cc27e23249aa9a27c574bb1afef325d7b10fd9c5ae2fc357_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:Back:mesdocuments.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_a7d1dcf0a3004955dbcaab42351cbda170be034a926dcec73157de347731ad72->leave($__internal_a7d1dcf0a3004955dbcaab42351cbda170be034a926dcec73157de347731ad72_prof);
+        $__internal_bee770067946f51bc12a0bf48c0b26b7d208e4f4c2db78ed391ea9e23fa0c6d3->leave($__internal_bee770067946f51bc12a0bf48c0b26b7d208e4f4c2db78ed391ea9e23fa0c6d3_prof);
 
         
-        $__internal_6129349aa3b8ba9c87a3c2e21b7e01ae5af5b17e98688e4b622127513996cfee->leave($__internal_6129349aa3b8ba9c87a3c2e21b7e01ae5af5b17e98688e4b622127513996cfee_prof);
+        $__internal_f2c338d828c30366cc27e23249aa9a27c574bb1afef325d7b10fd9c5ae2fc357->leave($__internal_f2c338d828c30366cc27e23249aa9a27c574bb1afef325d7b10fd9c5ae2fc357_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_bef8338cdbceb19a845dc2fa0b4f4009279bedbb92561014a663ba5323a205a5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_bef8338cdbceb19a845dc2fa0b4f4009279bedbb92561014a663ba5323a205a5->enter($__internal_bef8338cdbceb19a845dc2fa0b4f4009279bedbb92561014a663ba5323a205a5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_23d529e2e88c23aa25c420682492cf4f70ed48e8f3a2bba5e3729c9e51bbff90 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_23d529e2e88c23aa25c420682492cf4f70ed48e8f3a2bba5e3729c9e51bbff90->enter($__internal_23d529e2e88c23aa25c420682492cf4f70ed48e8f3a2bba5e3729c9e51bbff90_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_ac3568b233e255af637bd0d5dffb40ae239a20db51323f64d1f23326c3af3e10 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ac3568b233e255af637bd0d5dffb40ae239a20db51323f64d1f23326c3af3e10->enter($__internal_ac3568b233e255af637bd0d5dffb40ae239a20db51323f64d1f23326c3af3e10_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_eeb9a4e0a72739048d7d590fef38cf9f6aa7d73655e41daad9758167a9d8415c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_eeb9a4e0a72739048d7d590fef38cf9f6aa7d73655e41daad9758167a9d8415c->enter($__internal_eeb9a4e0a72739048d7d590fef38cf9f6aa7d73655e41daad9758167a9d8415c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    Mes Documents - ";
@@ -53,21 +53,21 @@ class __TwigTemplate_cdb7837c160af7985d330c56d275072d3b3f068a19f42769ee0b557db48
         echo "
 ";
         
-        $__internal_ac3568b233e255af637bd0d5dffb40ae239a20db51323f64d1f23326c3af3e10->leave($__internal_ac3568b233e255af637bd0d5dffb40ae239a20db51323f64d1f23326c3af3e10_prof);
+        $__internal_eeb9a4e0a72739048d7d590fef38cf9f6aa7d73655e41daad9758167a9d8415c->leave($__internal_eeb9a4e0a72739048d7d590fef38cf9f6aa7d73655e41daad9758167a9d8415c_prof);
 
         
-        $__internal_bef8338cdbceb19a845dc2fa0b4f4009279bedbb92561014a663ba5323a205a5->leave($__internal_bef8338cdbceb19a845dc2fa0b4f4009279bedbb92561014a663ba5323a205a5_prof);
+        $__internal_23d529e2e88c23aa25c420682492cf4f70ed48e8f3a2bba5e3729c9e51bbff90->leave($__internal_23d529e2e88c23aa25c420682492cf4f70ed48e8f3a2bba5e3729c9e51bbff90_prof);
 
     }
 
     // line 7
     public function block_breadcrumb($context, array $blocks = array())
     {
-        $__internal_9c2ef90c251240eed1d3de1bb9476965052a1fedb3e1450a0330fc6585f95e31 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9c2ef90c251240eed1d3de1bb9476965052a1fedb3e1450a0330fc6585f95e31->enter($__internal_9c2ef90c251240eed1d3de1bb9476965052a1fedb3e1450a0330fc6585f95e31_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_83e599026c0a5f16ac1723d49a364ca542782e12fc5e004a080ec13531ff4913 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_83e599026c0a5f16ac1723d49a364ca542782e12fc5e004a080ec13531ff4913->enter($__internal_83e599026c0a5f16ac1723d49a364ca542782e12fc5e004a080ec13531ff4913_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
-        $__internal_b99be2b762221f1fc1070ebe81a734d92cf965f94e2959697d94982c54477ea9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b99be2b762221f1fc1070ebe81a734d92cf965f94e2959697d94982c54477ea9->enter($__internal_b99be2b762221f1fc1070ebe81a734d92cf965f94e2959697d94982c54477ea9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_61a6aba9ee76b928d778182d8a12f81fcd470f255748ae4e90c66177f3bdb9a0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_61a6aba9ee76b928d778182d8a12f81fcd470f255748ae4e90c66177f3bdb9a0->enter($__internal_61a6aba9ee76b928d778182d8a12f81fcd470f255748ae4e90c66177f3bdb9a0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
         // line 8
         echo "    <ol class=\"breadcrumb\">
@@ -79,198 +79,116 @@ class __TwigTemplate_cdb7837c160af7985d330c56d275072d3b3f068a19f42769ee0b557db48
     </ol>
 ";
         
-        $__internal_b99be2b762221f1fc1070ebe81a734d92cf965f94e2959697d94982c54477ea9->leave($__internal_b99be2b762221f1fc1070ebe81a734d92cf965f94e2959697d94982c54477ea9_prof);
+        $__internal_61a6aba9ee76b928d778182d8a12f81fcd470f255748ae4e90c66177f3bdb9a0->leave($__internal_61a6aba9ee76b928d778182d8a12f81fcd470f255748ae4e90c66177f3bdb9a0_prof);
 
         
-        $__internal_9c2ef90c251240eed1d3de1bb9476965052a1fedb3e1450a0330fc6585f95e31->leave($__internal_9c2ef90c251240eed1d3de1bb9476965052a1fedb3e1450a0330fc6585f95e31_prof);
+        $__internal_83e599026c0a5f16ac1723d49a364ca542782e12fc5e004a080ec13531ff4913->leave($__internal_83e599026c0a5f16ac1723d49a364ca542782e12fc5e004a080ec13531ff4913_prof);
 
     }
 
     // line 14
     public function block_Content($context, array $blocks = array())
     {
-        $__internal_fd7892b29b4ae11bab9b367b9eb4a379eb17b7ad3f39661bd6ea55db99549bd4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_fd7892b29b4ae11bab9b367b9eb4a379eb17b7ad3f39661bd6ea55db99549bd4->enter($__internal_fd7892b29b4ae11bab9b367b9eb4a379eb17b7ad3f39661bd6ea55db99549bd4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_d038c04d6955827d68a62ccf40adafe0c3f9b1e05cd5636a0911c1371b614318 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d038c04d6955827d68a62ccf40adafe0c3f9b1e05cd5636a0911c1371b614318->enter($__internal_d038c04d6955827d68a62ccf40adafe0c3f9b1e05cd5636a0911c1371b614318_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
-        $__internal_1d920cbdd6b22c11e6c94a413377c0493c5f03f4e376bec87e6ebf457368f7bc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1d920cbdd6b22c11e6c94a413377c0493c5f03f4e376bec87e6ebf457368f7bc->enter($__internal_1d920cbdd6b22c11e6c94a413377c0493c5f03f4e376bec87e6ebf457368f7bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_0c3c8f99f284f7bdb4dea34452eeaff204eb98a765ab2fee4ffdce9885bd9e45 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0c3c8f99f284f7bdb4dea34452eeaff204eb98a765ab2fee4ffdce9885bd9e45->enter($__internal_0c3c8f99f284f7bdb4dea34452eeaff204eb98a765ab2fee4ffdce9885bd9e45_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
         echo " 
 
-    <!-- Mes Documents -->
-    ";
-        // line 17
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
-        echo "
-
-    ";
-        // line 19
-        if ( !$this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "vars", array()), "valid", array())) {
-            // line 20
-            echo "        <div class=\"alert alert-error\">
-            ";
-            // line 21
-            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'errors');
-            echo "
-        </div>
-    ";
-        }
-        // line 24
-        echo "    <div class=\"row\">
-        <div class=\"col-md-12\">
-            <div class=\"alert alert-info\">
-                <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
-            </div>         
-        </div>
-        <div class=\"col-md-6\">             
-            <div class=\"form-group\">
-                ";
-        // line 32
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "PasseportName", array()), 'label', array("label" => "Passeport"));
-        echo "
-                ";
-        // line 33
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "PasseportName", array()), 'widget');
-        echo "
-                ";
-        // line 34
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "PasseportFile", array()), 'widget');
-        echo "
-
-                ";
-        // line 36
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CarteIdentiteName", array()), 'label', array("label" => "Carte Identite"));
-        echo "
-                ";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CarteIdentiteName", array()), 'widget');
-        echo "
-                ";
-        // line 38
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CarteIdentiteFile", array()), 'widget');
-        echo "
-
-                ";
-        // line 40
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BacName", array()), 'label', array("label" => "Baccalaureat"));
-        echo "
-                ";
-        // line 41
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BacName", array()), 'widget');
-        echo "
-                ";
-        // line 42
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BacFile", array()), 'widget');
-        echo "
-
-                ";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CredentialName", array()), 'label', array("label" => "Crédential / Autre équivalence"));
-        echo "
-                ";
-        // line 45
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CredentialName", array()), 'widget');
-        echo "
-                ";
-        // line 46
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "CredentialFile", array()), 'widget');
-        echo "
-            </div>
-        </div>
-        <div class=\"col-md-6\">          
-            <div class=\"form-group\">
-                ";
-        // line 51
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BulletinNoteName", array()), 'label', array("label" => "Bulletin de Note"));
-        echo "
-                ";
-        // line 52
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BulletinNoteName", array()), 'widget');
-        echo "                
-                ";
-        // line 53
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "BulletinNoteFile", array()), 'widget');
-        echo "
-
-                ";
-        // line 55
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreRecommendationName", array()), 'label', array("label" => "Lettres de Recommendation"));
-        echo "
-                ";
-        // line 56
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreRecommendationName", array()), 'widget');
-        echo "
-                ";
-        // line 57
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreRecommendationFile", array()), 'widget');
-        echo " 
-
-                ";
-        // line 59
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreMotivationName", array()), 'label', array("label" => "Lettre de Motivation"));
-        echo "
-                ";
-        // line 60
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreMotivationName", array()), 'widget');
-        echo "
-                ";
-        // line 61
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "LettreMotivationFile", array()), 'widget');
-        echo "  
-            </div>
-        </div>
-        ";
-        // line 65
-        echo "        ";
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "_token", array()), 'widget');
-        echo "
-        <div class=\"row\">
-            <div class=\"col-md-12\">
-                <div class=\"form-group\">
-                    ";
-        // line 69
+   ";
+        // line 16
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute(($context["app"] ?? $this->getContext($context, "app")), "session", array()), "flashBag", array()), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flash_message"]) {
-            // line 70
-            echo "                        <div class=\"flash-notice\">
-                            ";
-            // line 71
+            // line 17
+            echo "    <div class=\"alert alert-success\" role=\"alert\" id=\"success-alert\">
+     <button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>
+     <strong> ";
+            // line 19
             echo twig_escape_filter($this->env, $context["flash_message"], "html", null, true);
-            echo "
-                        </div>
-                    ";
+            echo " </strong> 
+ </div>
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flash_message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 74
-        echo "                    ";
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "documents", array()), "upload", array()), 'widget');
+        // line 22
         echo "
-                </div>
-            </div>
-        </div>
-        <div style=\"display:none;\">
-            ";
-        // line 79
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'rest');
+<!-- Mes Documents -->
+";
+        // line 24
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start');
         echo "
-        </div>
 
+";
+        // line 26
+        if ( !$this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "vars", array()), "valid", array())) {
+            // line 27
+            echo "    <div class=\"alert alert-error\">
         ";
-        // line 82
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
+            // line 28
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'errors');
+            echo "
+    </div>
+";
+        }
+        // line 31
+        echo "
+<div class=\"row\">
+    <div class=\"col-md-12\">
+
+        <div class=\"alert alert-info\">
+            <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
+        </div>         
+    </div>
+
+    <div class=\"col-md-6\">             
+        <div class=\"form-group\">
+            ";
+        // line 42
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), 'row');
+        echo "
+            ";
+        // line 58
+        echo "        </div>
+    </div>
+    <div class=\"col-md-6\">          
+        <div class=\"form-group\">
+            ";
+        // line 73
+        echo "        </div>
+    </div>
+
+    ";
+        // line 77
+        echo "    ";
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "_token", array()), 'widget');
         echo "
 
+    <div class=\"row\">
+        <div class=\"col-md-12\">
+            <div class=\"form-group\">
+                ";
+        // line 83
+        echo "            </div>
+        </div>
     </div>
+    ";
+        // line 86
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end', array("render_rest" => false));
+        echo "
+
+</div>
 </div>
 ";
         
-        $__internal_1d920cbdd6b22c11e6c94a413377c0493c5f03f4e376bec87e6ebf457368f7bc->leave($__internal_1d920cbdd6b22c11e6c94a413377c0493c5f03f4e376bec87e6ebf457368f7bc_prof);
+        $__internal_0c3c8f99f284f7bdb4dea34452eeaff204eb98a765ab2fee4ffdce9885bd9e45->leave($__internal_0c3c8f99f284f7bdb4dea34452eeaff204eb98a765ab2fee4ffdce9885bd9e45_prof);
 
         
-        $__internal_fd7892b29b4ae11bab9b367b9eb4a379eb17b7ad3f39661bd6ea55db99549bd4->leave($__internal_fd7892b29b4ae11bab9b367b9eb4a379eb17b7ad3f39661bd6ea55db99549bd4_prof);
+        $__internal_d038c04d6955827d68a62ccf40adafe0c3f9b1e05cd5636a0911c1371b614318->leave($__internal_d038c04d6955827d68a62ccf40adafe0c3f9b1e05cd5636a0911c1371b614318_prof);
 
     }
 
@@ -286,7 +204,7 @@ class __TwigTemplate_cdb7837c160af7985d330c56d275072d3b3f068a19f42769ee0b557db48
 
     public function getDebugInfo()
     {
-        return array (  263 => 82,  257 => 79,  248 => 74,  239 => 71,  236 => 70,  232 => 69,  224 => 65,  218 => 61,  214 => 60,  210 => 59,  205 => 57,  201 => 56,  197 => 55,  192 => 53,  188 => 52,  184 => 51,  176 => 46,  172 => 45,  168 => 44,  163 => 42,  159 => 41,  155 => 40,  150 => 38,  146 => 37,  142 => 36,  137 => 34,  133 => 33,  129 => 32,  119 => 24,  113 => 21,  110 => 20,  108 => 19,  103 => 17,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  181 => 86,  176 => 83,  167 => 77,  162 => 73,  156 => 58,  152 => 42,  139 => 31,  133 => 28,  130 => 27,  128 => 26,  123 => 24,  119 => 22,  110 => 19,  106 => 17,  102 => 16,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -314,75 +232,79 @@ class __TwigTemplate_cdb7837c160af7985d330c56d275072d3b3f068a19f42769ee0b557db48
 
 {% block Content %} 
 
-    <!-- Mes Documents -->
-    {{ form_start(form) }}
+   {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class=\"alert alert-success\" role=\"alert\" id=\"success-alert\">
+     <button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>
+     <strong> {{ flash_message }} </strong> 
+ </div>
+{% endfor %}
 
-    {% if not form.vars.valid %}
-        <div class=\"alert alert-error\">
-            {{ form_errors(form) }}
+<!-- Mes Documents -->
+{{ form_start(form) }}
+
+{% if not form.physique.vars.valid %}
+    <div class=\"alert alert-error\">
+        {{ form_errors(form) }}
+    </div>
+{% endif %}
+
+<div class=\"row\">
+    <div class=\"col-md-12\">
+
+        <div class=\"alert alert-info\">
+            <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
+        </div>         
+    </div>
+
+    <div class=\"col-md-6\">             
+        <div class=\"form-group\">
+            {{ form_row(form.physique.documents) }}
+            {#{{ form_label(form.physique.documents.PasseportName, 'Passeport') }}
+            {{ form_widget(form.physique.documents.PasseportName) }}
+            {{ form_widget(form.physique.documents.PasseportFile) }}
+
+            {{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}
+            {{ form_widget(form.physique.documents.CarteIdentiteName) }}
+            {{ form_widget(form.physique.documents.CarteIdentiteFile) }}
+
+            {{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}
+            {{ form_widget(form.physique.documents.BacName) }}
+            {{ form_widget(form.physique.documents.BacFile) }}
+
+            {{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}
+            {{ form_widget(form.physique.documents.CredentialName) }}
+            {{ form_widget(form.physique.documents.CredentialFile) }}#}
         </div>
-    {% endif %}
+    </div>
+    <div class=\"col-md-6\">          
+        <div class=\"form-group\">
+            {#{{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}
+            {{ form_widget(form.physique.documents.BulletinNoteName) }}                
+            {{ form_widget(form.physique.documents.BulletinNoteFile) }}
+
+            {{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}
+            {{ form_widget(form.physique.documents.LettreRecommendationName) }}
+            {{ form_widget(form.physique.documents.LettreRecommendationFile) }} 
+
+            {{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}
+            {{ form_widget(form.physique.documents.LettreMotivationName) }}
+            {{ form_widget(form.physique.documents.LettreMotivationFile) }}  #}
+        </div>
+    </div>
+
+    {# Token CSRF #}
+    {{ form_widget(form._token) }}
+
     <div class=\"row\">
         <div class=\"col-md-12\">
-            <div class=\"alert alert-info\">
-                <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
-            </div>         
-        </div>
-        <div class=\"col-md-6\">             
             <div class=\"form-group\">
-                {{ form_label(form.documents.PasseportName, 'Passeport') }}
-                {{ form_widget(form.documents.PasseportName) }}
-                {{ form_widget(form.documents.PasseportFile) }}
-
-                {{ form_label(form.documents.CarteIdentiteName, 'Carte Identite') }}
-                {{ form_widget(form.documents.CarteIdentiteName) }}
-                {{ form_widget(form.documents.CarteIdentiteFile) }}
-
-                {{ form_label(form.documents.BacName, 'Baccalaureat') }}
-                {{ form_widget(form.documents.BacName) }}
-                {{ form_widget(form.documents.BacFile) }}
-
-                {{ form_label(form.documents.CredentialName, 'Crédential / Autre équivalence') }}
-                {{ form_widget(form.documents.CredentialName) }}
-                {{ form_widget(form.documents.CredentialFile) }}
+                {#{{ form_widget(form.physique.documents.upload) }}#}
             </div>
         </div>
-        <div class=\"col-md-6\">          
-            <div class=\"form-group\">
-                {{ form_label(form.documents.BulletinNoteName, 'Bulletin de Note') }}
-                {{ form_widget(form.documents.BulletinNoteName) }}                
-                {{ form_widget(form.documents.BulletinNoteFile) }}
-
-                {{ form_label(form.documents.LettreRecommendationName, 'Lettres de Recommendation') }}
-                {{ form_widget(form.documents.LettreRecommendationName) }}
-                {{ form_widget(form.documents.LettreRecommendationFile) }} 
-
-                {{ form_label(form.documents.LettreMotivationName, 'Lettre de Motivation') }}
-                {{ form_widget(form.documents.LettreMotivationName) }}
-                {{ form_widget(form.documents.LettreMotivationFile) }}  
-            </div>
-        </div>
-        {# Token CSRF #}
-        {{ form_widget(form._token) }}
-        <div class=\"row\">
-            <div class=\"col-md-12\">
-                <div class=\"form-group\">
-                    {% for flash_message in app.session.flashBag.get('notice') %}
-                        <div class=\"flash-notice\">
-                            {{ flash_message }}
-                        </div>
-                    {% endfor %}
-                    {{ form_widget(form.documents.upload) }}
-                </div>
-            </div>
-        </div>
-        <div style=\"display:none;\">
-            {{form_rest(form)}}
-        </div>
-
-        {{ form_end(form) }}
-
     </div>
+    {{ form_end(form, {'render_rest': false} ) }}
+
+</div>
 </div>
 {% endblock %}
 

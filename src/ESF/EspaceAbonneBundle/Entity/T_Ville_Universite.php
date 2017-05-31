@@ -14,7 +14,7 @@ class T_Ville_Universite
 {
 
     /**
-   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Pays_Universite", inversedBy="villes", cascade={"persist"})
+   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Pays_Universite", inversedBy="villes", cascade={"all"})
    * @ORM\JoinColumn(nullable=false)
    */
     private $pays;

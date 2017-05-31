@@ -22,29 +22,29 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_723bdb9df30d144937fcc9a570cf14828bce47fb91e122c89273d0f689e58e30 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_723bdb9df30d144937fcc9a570cf14828bce47fb91e122c89273d0f689e58e30->enter($__internal_723bdb9df30d144937fcc9a570cf14828bce47fb91e122c89273d0f689e58e30_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:universiteTwo.html.twig"));
+        $__internal_c793573675fe605a275c52566bdc3fc64bff368e11e00556d436055389423fae = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c793573675fe605a275c52566bdc3fc64bff368e11e00556d436055389423fae->enter($__internal_c793573675fe605a275c52566bdc3fc64bff368e11e00556d436055389423fae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:universiteTwo.html.twig"));
 
-        $__internal_d0d9dd2e0a5e0413380a38fc620f90a5504a4286a13bc2b3496e84143c1b6e0b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d0d9dd2e0a5e0413380a38fc620f90a5504a4286a13bc2b3496e84143c1b6e0b->enter($__internal_d0d9dd2e0a5e0413380a38fc620f90a5504a4286a13bc2b3496e84143c1b6e0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:universiteTwo.html.twig"));
+        $__internal_b680ba434475e1a69593a93e77c9c0fa3310c69aa3525c2108ef230fd938fe09 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b680ba434475e1a69593a93e77c9c0fa3310c69aa3525c2108ef230fd938fe09->enter($__internal_b680ba434475e1a69593a93e77c9c0fa3310c69aa3525c2108ef230fd938fe09_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:universiteTwo.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_723bdb9df30d144937fcc9a570cf14828bce47fb91e122c89273d0f689e58e30->leave($__internal_723bdb9df30d144937fcc9a570cf14828bce47fb91e122c89273d0f689e58e30_prof);
+        $__internal_c793573675fe605a275c52566bdc3fc64bff368e11e00556d436055389423fae->leave($__internal_c793573675fe605a275c52566bdc3fc64bff368e11e00556d436055389423fae_prof);
 
         
-        $__internal_d0d9dd2e0a5e0413380a38fc620f90a5504a4286a13bc2b3496e84143c1b6e0b->leave($__internal_d0d9dd2e0a5e0413380a38fc620f90a5504a4286a13bc2b3496e84143c1b6e0b_prof);
+        $__internal_b680ba434475e1a69593a93e77c9c0fa3310c69aa3525c2108ef230fd938fe09->leave($__internal_b680ba434475e1a69593a93e77c9c0fa3310c69aa3525c2108ef230fd938fe09_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_3bff5ac56567dac0d58db478f19b38769216e25418b2aed70cc3d494dd121d7c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_3bff5ac56567dac0d58db478f19b38769216e25418b2aed70cc3d494dd121d7c->enter($__internal_3bff5ac56567dac0d58db478f19b38769216e25418b2aed70cc3d494dd121d7c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_0eb809bfd512b7cae5d62f02e2ac0f275589ac9196ab92486d643eeb104ffeb3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0eb809bfd512b7cae5d62f02e2ac0f275589ac9196ab92486d643eeb104ffeb3->enter($__internal_0eb809bfd512b7cae5d62f02e2ac0f275589ac9196ab92486d643eeb104ffeb3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_92d06121341b5ecfccac73b96fe3813ccedbd130e10424c49313db74ed3117c3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_92d06121341b5ecfccac73b96fe3813ccedbd130e10424c49313db74ed3117c3->enter($__internal_92d06121341b5ecfccac73b96fe3813ccedbd130e10424c49313db74ed3117c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_b2432b6c4a2ed44beac1df0c6788fb0c9b75798a4b4544bee02ac23c0ac98c1b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b2432b6c4a2ed44beac1df0c6788fb0c9b75798a4b4544bee02ac23c0ac98c1b->enter($__internal_b2432b6c4a2ed44beac1df0c6788fb0c9b75798a4b4544bee02ac23c0ac98c1b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    Inscription Université - ";
@@ -52,21 +52,21 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
         echo "
 ";
         
-        $__internal_92d06121341b5ecfccac73b96fe3813ccedbd130e10424c49313db74ed3117c3->leave($__internal_92d06121341b5ecfccac73b96fe3813ccedbd130e10424c49313db74ed3117c3_prof);
+        $__internal_b2432b6c4a2ed44beac1df0c6788fb0c9b75798a4b4544bee02ac23c0ac98c1b->leave($__internal_b2432b6c4a2ed44beac1df0c6788fb0c9b75798a4b4544bee02ac23c0ac98c1b_prof);
 
         
-        $__internal_3bff5ac56567dac0d58db478f19b38769216e25418b2aed70cc3d494dd121d7c->leave($__internal_3bff5ac56567dac0d58db478f19b38769216e25418b2aed70cc3d494dd121d7c_prof);
+        $__internal_0eb809bfd512b7cae5d62f02e2ac0f275589ac9196ab92486d643eeb104ffeb3->leave($__internal_0eb809bfd512b7cae5d62f02e2ac0f275589ac9196ab92486d643eeb104ffeb3_prof);
 
     }
 
     // line 7
     public function block_Content($context, array $blocks = array())
     {
-        $__internal_b1a2fcfc8fbaf91c4b28054c3e540838b82883b870c558454b9ccc27a218ce79 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b1a2fcfc8fbaf91c4b28054c3e540838b82883b870c558454b9ccc27a218ce79->enter($__internal_b1a2fcfc8fbaf91c4b28054c3e540838b82883b870c558454b9ccc27a218ce79_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_883d008e6858f82a45db37afcef719d07eb45386bc52d672b41d4336acf11939 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_883d008e6858f82a45db37afcef719d07eb45386bc52d672b41d4336acf11939->enter($__internal_883d008e6858f82a45db37afcef719d07eb45386bc52d672b41d4336acf11939_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
-        $__internal_343d9773f89f6f053aade6384f00812834eea4b215ec1ed93b4b57000dc8ee21 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_343d9773f89f6f053aade6384f00812834eea4b215ec1ed93b4b57000dc8ee21->enter($__internal_343d9773f89f6f053aade6384f00812834eea4b215ec1ed93b4b57000dc8ee21_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_15855060c17bf2a3196e7f3c17fbb10dd7075a5780cebea22112d06d0086ba67 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_15855060c17bf2a3196e7f3c17fbb10dd7075a5780cebea22112d06d0086ba67->enter($__internal_15855060c17bf2a3196e7f3c17fbb10dd7075a5780cebea22112d06d0086ba67_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
         echo " 
     <div class=\"row\">
@@ -76,7 +76,19 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
         if (array_key_exists("document", $context)) {
             echo "        
                 <h2>Etape 2</h2>
-                <p>veuillez télécharger le(s) PDF ci-dessous et imprimer le PDF afin de nous le renvoyer remplit.</p>      
+                <div class=\"panel panel-default\">
+                    <div class=\"panel-body\">                                        
+                       Rappel : Inscription à \"";
+            // line 14
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "etablissement", array()), "html", null, true);
+            echo "\" pour suivre la formation de \"";
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "formation", array()), "html", null, true);
+            echo "\", en  \"";
+            echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "langue", array()), "html", null, true);
+            echo "\".
+                    </div>
+                </div>              
+                <p>Veuillez télécharger le(s) PDF ci-dessous et le(s) imprimer afin de nous le(s) renvoyer.</p>      
                 <table id=\"documentInsciption\" class=\"table table-striped table-bordered nowrap\" cellspacing=\"0\" width=\"100%\">
                     <thead>
                         <tr>
@@ -86,19 +98,19 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
                     </thead>
                     <tbody>
                         ";
-            // line 21
+            // line 26
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["document"] ?? $this->getContext($context, "document")));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                // line 22
+                // line 27
                 echo "                            <tr>
                                 <td>";
-                // line 23
+                // line 28
                 echo twig_escape_filter($this->env, $this->getAttribute($context["item"], "pdfName", array()), "html", null, true);
                 echo "</td>
                                 <td>
                                     <a class=\"btn btn-primary view-pdf\" href=\"";
-                // line 25
+                // line 30
                 echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("universites/pdf/" . $this->getAttribute($context["item"], "pdfName", array())) . ".pdf")), "html", null, true);
                 echo "\" target=\"_blank\">Télécharger</a>
                                 </td>
@@ -108,20 +120,20 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 29
+            // line 34
             echo "                    </tbody>
                 </table>    
                 <a class=\"btn btn-danger\" href=\"";
-            // line 31
+            // line 36
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_universiteStepsOne");
             echo "\">Precedent</a>
                 <a class=\"btn btn-primary\" href=\"";
-            // line 32
-            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_universiteStepsTwo");
+            // line 37
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_universiteStepsTwo", array("id" => $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "id", array()))), "html", null, true);
             echo "\">Suivant</a>
             ";
         }
-        // line 34
+        // line 39
         echo "        </div>
     </div>
 
@@ -138,10 +150,10 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
     </script>
 ";
         
-        $__internal_343d9773f89f6f053aade6384f00812834eea4b215ec1ed93b4b57000dc8ee21->leave($__internal_343d9773f89f6f053aade6384f00812834eea4b215ec1ed93b4b57000dc8ee21_prof);
+        $__internal_15855060c17bf2a3196e7f3c17fbb10dd7075a5780cebea22112d06d0086ba67->leave($__internal_15855060c17bf2a3196e7f3c17fbb10dd7075a5780cebea22112d06d0086ba67_prof);
 
         
-        $__internal_b1a2fcfc8fbaf91c4b28054c3e540838b82883b870c558454b9ccc27a218ce79->leave($__internal_b1a2fcfc8fbaf91c4b28054c3e540838b82883b870c558454b9ccc27a218ce79_prof);
+        $__internal_883d008e6858f82a45db37afcef719d07eb45386bc52d672b41d4336acf11939->leave($__internal_883d008e6858f82a45db37afcef719d07eb45386bc52d672b41d4336acf11939_prof);
 
     }
 
@@ -157,7 +169,7 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
 
     public function getDebugInfo()
     {
-        return array (  125 => 34,  120 => 32,  116 => 31,  112 => 29,  102 => 25,  97 => 23,  94 => 22,  90 => 21,  76 => 10,  63 => 7,  50 => 4,  41 => 3,  11 => 1,);
+        return array (  137 => 39,  132 => 37,  128 => 36,  124 => 34,  114 => 30,  109 => 28,  106 => 27,  102 => 26,  83 => 14,  76 => 10,  63 => 7,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -181,7 +193,12 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
         <div class=\"col-md-12\">
             {% if document is defined %}        
                 <h2>Etape 2</h2>
-                <p>veuillez télécharger le(s) PDF ci-dessous et imprimer le PDF afin de nous le renvoyer remplit.</p>      
+                <div class=\"panel panel-default\">
+                    <div class=\"panel-body\">                                        
+                       Rappel : Inscription à \"{{ eA_Demande_Inscription.etablissement }}\" pour suivre la formation de \"{{ eA_Demande_Inscription.formation }}\", en  \"{{ eA_Demande_Inscription.langue }}\".
+                    </div>
+                </div>              
+                <p>Veuillez télécharger le(s) PDF ci-dessous et le(s) imprimer afin de nous le(s) renvoyer.</p>      
                 <table id=\"documentInsciption\" class=\"table table-striped table-bordered nowrap\" cellspacing=\"0\" width=\"100%\">
                     <thead>
                         <tr>
@@ -201,7 +218,7 @@ class __TwigTemplate_11348eb3a26d5431126e4d84307ac27a7bcaf6bdd28dc9d6a820b323a86
                     </tbody>
                 </table>    
                 <a class=\"btn btn-danger\" href=\"{{ path('esf_espace_abonne_universiteStepsOne') }}\">Precedent</a>
-                <a class=\"btn btn-primary\" href=\"{{ path('esf_espace_abonne_universiteStepsTwo') }}\">Suivant</a>
+                <a class=\"btn btn-primary\" href=\"{{ path('esf_espace_abonne_universiteStepsTwo', { 'id' : eA_Demande_Inscription.id }) }}\">Suivant</a>
             {% endif %}
         </div>
     </div>

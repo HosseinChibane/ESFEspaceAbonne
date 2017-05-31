@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block breadcrumb %}
-    <ol class="breadcrumb">
-        <li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
-        <li class="active">Inscription</li>
-    </ol>
+	<ol class="breadcrumb">
+		<li><a href="{{ path('esf_espace_abonne_monProfil') }}">Home</a></li>
+		<li class="active">Inscription</li>
+	</ol>
 {% endblock %}
 
 {% block Content %} 
@@ -17,15 +17,17 @@
 			<h2>Etape 1</h2>
 			<p>Veuillez sélectionner les champs ci-dessous et rechercher afin de passer à l'étape suivante.</p>
 			{{ form_start(form) }}
+			
 			{% if not form.vars.valid %}
 				<div class="alert alert-error">
 					{{ form_errors(form) }}
 				</div>
 			{% endif %}
+
 			<div class="form-group">
-				{{ form_label(form.languePartenaire, 'Langue') }}
-				{{ form_errors(form.languePartenaire) }}
-				{{ form_widget(form.languePartenaire) }}
+				{{ form_label(form.langue, 'Langue') }}
+				{{ form_errors(form.langue) }}
+				{{ form_widget(form.langue) }}
 
 				{{ form_label(form.pays, 'Pays') }}
 				{{ form_errors(form.pays) }}
@@ -49,4 +51,34 @@
 			{{ form_end(form,{'render_rest': false}) }}
 		</div>
 	</div>
+
+
+	<script>
+		var $langue = $('#esf_espaceabonnebundle_t_universite_langue');
+
+		$langue.change(function() {
+			var $form = $(this).closest('form');
+			var data = {};
+			data[$langue.attr('name')] = $langue.val();
+			$.ajax({
+				beforeSend: function(){
+					$("#esf_espaceabonnebundle_t_universite_raisonsocial").html('<option value="" selected="selected">Chargement en cours...</option>');
+				},
+				url : $form.attr('action'),
+				type: $form.attr('method'),
+				data : data,
+				success: function(html) {
+					$('#esf_espaceabonnebundle_t_universite_raisonsocial').replaceWith(
+						$(html).find('#esf_espaceabonnebundle_t_universite_raisonsocial')
+						);
+					console.log(JSON.stringify(data));
+				},
+				error: function(exception) {
+					alert('Exception: '+ exception);
+					console.log(JSON.stringify(data));
+				}
+			});
+		});
+
+	</script>
 {% endblock %}

@@ -2,6 +2,9 @@
 
 namespace ESF\EspaceAbonneBundle\Form;
 
+use ESF\EspaceAbonneBundle\Form\DataTransformer\FormationToNumberTransformer;
+use Doctrine\Common\Persistence\ObjectManager;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,6 +28,13 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class InscriptionUniversiteType extends AbstractType
 {
 
+  private $transformer;
+
+  public function __construct(FormationToNumberTransformer $transformer = null)
+  {
+    $this->transformer = $transformer;
+  }
+
     /**
      * {@inheritdoc}
      */
@@ -32,39 +42,18 @@ class InscriptionUniversiteType extends AbstractType
     {
         $builder
         ->add('langue', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Langue_Universite',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('l')
-                ->orderBy('l.langue', 'ASC');
-            },
-            'choice_label' => 'langue',
-            'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des langues',
-            'empty_data'  => null,
+            'class'       => 'ESFEspaceAbonneBundle:T_Langue_Universite',
+            'placeholder' => 'Sélectionner une langue de formation',
             ))
 
         ->add('formation', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Formation_Universite',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('f')
-                ->orderBy('f.formation', 'ASC');
-            },
-            'choice_label' => 'formation',
-            'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des formations',
-            'empty_data'  => null,
+            'class'       => 'ESFEspaceAbonneBundle:T_Formation_Universite',
+            'placeholder' => 'Sélectionner une formation',
             ))
 
         ->add('nometablissement', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:T_Universite',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                ->orderBy('u.nometablissement', 'ASC');
-            },
-            'choice_label' => 'nometablissement',
-            'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des etablissements',
-            'empty_data'  => null,
+            'class'       => 'ESFEspaceAbonneBundle:T_Universite',
+            'placeholder' => 'Sélectionner un établissement de formation',
             ))
 
         ->add('rechercher', SubmitType::class, array(
@@ -74,6 +63,8 @@ class InscriptionUniversiteType extends AbstractType
         ->add('reinitialiser', ResetType::class, array(
             'attr' => array('class' => 'btn btn-danger'),
             ));
+
+        //$builder->get('formation')->addModelTransformer(new FormationToNumberTransformer($this->transformer));
 
         $formModifier = function (FormInterface $form, T_Langue_Universite $langue = null) {
             $formation = null === $langue ? array() : $langue->getFormation();
@@ -99,24 +90,19 @@ class InscriptionUniversiteType extends AbstractType
         $builder->get('langue')->addEventListener(
             FormEvents::POST_SUBMIT,
             function (FormEvent $event) use ($formModifier) {
-                $formation = $event->getForm()->getData();
-                $formModifier($event->getForm()->getParent(), $formation);
+                $langue = $event->getForm()->getData();
+                $formModifier($event->getForm()->getParent(), $langue);
             });
 
         $formModifierUniversite = function (FormInterface $form, T_Formation_Universite $formation = null) {
             $nometablissement = null === $formation ? array() : $formation->getUniversite();
 
             $form->add('nometablissement', EntityType::class, array(
-                'class' => 'ESFEspaceAbonneBundle:T_Universite',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('u')
-                    ->orderBy('u.nometablissement', 'ASC');
-                },
-                'choice_label' => 'nometablissement',
-                'required'    => true,
-                'placeholder' => 'Sélectionner un élément dans la liste des etablissements',
-                'empty_data'  => null,
-                ));
+                'class'       => 'ESFEspaceAbonneBundle:T_Universite',
+                'placeholder' => 'Sélectionner un élément dans la liste des établissement',
+                'choices'     => $nometablissement,
+                ));  
+
         };
 
         $builder->addEventListener(
@@ -144,7 +130,7 @@ class InscriptionUniversiteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => null,
+            'error_bubbling' => true
             ));
     }
 

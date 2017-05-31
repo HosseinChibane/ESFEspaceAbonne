@@ -42,10 +42,10 @@ esf_espace_abonne_universiteStepsOne:
     path:      /back/universiteOne
     defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteOne } 
 esf_espace_abonne_universiteStepsTwo:
-    path:      /back/universiteTwo
+    path:      /back/universiteTwo/{id}
     defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteTwo } 
 esf_espace_abonne_universiteStepsThree:
-    path:      /back/universiteThree
+    path:      /back/universiteThree/{id}
     defaults: { _controller: ESFEspaceAbonneBundle:Back:universiteTwo } 
 
 esf_espace_abonne_langueStepsOne:

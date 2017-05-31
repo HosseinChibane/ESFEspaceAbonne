@@ -14,6 +14,7 @@ class T_Langue_Universite
 {
 
     /**
+    * Plusieurs Langues ont plusieurs Formations
    * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", inversedBy="langues")
    * @ORM\JoinTable(name="t_langue_universite_t_formation_universite")
    */
@@ -38,6 +39,14 @@ class T_Langue_Universite
     public function __toString()
     {
         return $this->getLangue();
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -96,14 +105,6 @@ class T_Langue_Universite
     public function getFormation()
     {
         return $this->formation;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->formation = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

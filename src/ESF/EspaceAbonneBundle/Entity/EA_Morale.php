@@ -3,6 +3,8 @@
 namespace ESF\EspaceAbonneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * EA_Morale
@@ -12,16 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class EA_Morale
 {
-    /**
-   * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Personne", cascade={"persist"}, cascade={"remove"})
-   */
-    private $personne;
 
      /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Langue", mappedBy="morale", cascade={"persist"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Langue", mappedBy="morale", cascade={"all"}, cascade={"remove"})
      */
-    private $langues;
-    
+     private $langues;
+
     /**
      * @var int
      *
@@ -73,6 +71,66 @@ class EA_Morale
      */
     private $alt;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numero", type="integer", nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rue", type="string", length=255, nullable=true)
+     */
+    private $rue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostal", type="string", length=255, nullable=true)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255, nullable=true)
+     */
+    private $pays;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gsm", type="string", length=255, nullable=true)
+     */
+    private $gsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
+     *
+     * @var string
+     *
+     * @ORM\Column(name="courriel", type="string", length=255, nullable=true)
+     */
+    private $courriel;
 
     public function __toString()
     {
@@ -235,29 +293,6 @@ class EA_Morale
     }
 
     /**
-     * Set personne
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Personne $personne
-     *
-     * @return EA_Morale
-     */
-    public function setPersonne(\ESF\EspaceAbonneBundle\Entity\EA_Personne $personne = null)
-    {
-        $this->personne = $personne;
-
-        return $this;
-    }
-
-    /**
-     * Get personne
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Personne
-     */
-    public function getPersonne()
-    {
-        return $this->personne;
-    }
-    /**
      * Constructor
      */
     public function __construct()
@@ -297,5 +332,197 @@ class EA_Morale
     public function getLangues()
     {
         return $this->langues;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param integer $numero
+     *
+     * @return EA_Morale
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return integer
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set rue
+     *
+     * @param string $rue
+     *
+     * @return EA_Morale
+     */
+    public function setRue($rue)
+    {
+        $this->rue = $rue;
+
+        return $this;
+    }
+
+    /**
+     * Get rue
+     *
+     * @return string
+     */
+    public function getRue()
+    {
+        return $this->rue;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return EA_Morale
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return EA_Morale
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return EA_Morale
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set gsm
+     *
+     * @param string $gsm
+     *
+     * @return EA_Morale
+     */
+    public function setGsm($gsm)
+    {
+        $this->gsm = $gsm;
+
+        return $this;
+    }
+
+    /**
+     * Get gsm
+     *
+     * @return string
+     */
+    public function getGsm()
+    {
+        return $this->gsm;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return EA_Morale
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set courriel
+     *
+     * @param string $courriel
+     *
+     * @return EA_Morale
+     */
+    public function setCourriel($courriel)
+    {
+        $this->courriel = $courriel;
+
+        return $this;
+    }
+
+    /**
+     * Get courriel
+     *
+     * @return string
+     */
+    public function getCourriel()
+    {
+        return $this->courriel;
     }
 }

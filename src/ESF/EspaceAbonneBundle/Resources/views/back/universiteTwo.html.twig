@@ -11,7 +11,7 @@
                 <h2>Etape 2</h2>
                 <div class="panel panel-default">
                     <div class="panel-body">                                        
-                       Rappel : Inscription à "{{ nometablissement }}" pour suivre la formation de {{ formation }}, en  {{ langue }}.
+                       Rappel : Inscription à "{{ eA_Demande_Inscription.etablissement }}" pour suivre la formation de "{{ eA_Demande_Inscription.formation }}", en  "{{ eA_Demande_Inscription.langue }}".
                     </div>
                 </div>              
                 <p>Veuillez télécharger le(s) PDF ci-dessous et le(s) imprimer afin de nous le(s) renvoyer.</p>      
@@ -34,7 +34,7 @@
                     </tbody>
                 </table>    
                 <a class="btn btn-danger" href="{{ path('esf_espace_abonne_universiteStepsOne') }}">Precedent</a>
-                <a class="btn btn-primary" href="{{ path('esf_espace_abonne_universiteStepsTwo') }}">Suivant</a>
+                <a class="btn btn-primary" href="{{ path('esf_espace_abonne_universiteStepsTwo', { 'id' : eA_Demande_Inscription.id }) }}">Suivant</a>
             {% endif %}
         </div>
     </div>

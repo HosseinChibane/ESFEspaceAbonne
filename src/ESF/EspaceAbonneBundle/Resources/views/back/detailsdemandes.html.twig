@@ -17,19 +17,33 @@
     <div class="col-md-12">
         <h1>Détail de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>Inscription à {{ eA_Demande_Inscription.type }}</h4>
-            </div>
-            <div class="panel-body">                                        
-                Votre demande est : {{ eA_Demande_Inscription.etat }}
-            </div>
-            <div class="panel-footer">
-                <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
-                {#
-                <a class="btn btn-primary" href="{{ path('esf_espace_abonne_modifierDemandes', { 'id': eA_Demande_Inscription.id }) }}">Modifier</a>
-                #}
-            </div>
+            <div class="panel-body">    
+                Type d'inscription : {{ eA_Demande_Inscription.type }}<br>                                    
+                Etat de l'inscription : {{ eA_Demande_Inscription.etat }}<br>
+                
+                {% if eA_Demande_Inscription.etablissement is defined %}
+                    {% if eA_Demande_Inscription.etablissement != null %}
+                        Etablissement de l'Inscription : {{ eA_Demande_Inscription.etablissement }}<br>
+                        Formation de l'Inscription : {{ eA_Demande_Inscription.formation }}<br>
+                        Langue de l'Inscription : {{ eA_Demande_Inscription.langue }}<br>
+                    {% endif %}
+                {% elseif  edit_form.partenaire is defined %}
+                    {% if eA_Demande_Inscription.partenaire != null %}
+                        Partenaire de l'Inscription : {{ eA_Demande_Inscription.partenaire }}<br>
+                    {% endif %}
+                {% endif %}
+                <object type="application/pdf" width="100%" height="400px">
+                    <param name="src" value="{{ vich_uploader_asset(eA_Demande_Inscription.documentinscription, 'pdfFile' ) }}" />
+                    <p>Il semble que votre navigateur Web n'est pas configuré pour afficher les fichiers PDF.
+                      Pas de soucis, juste <a href="{{ vich_uploader_asset(eA_Demande_Inscription.documentinscription, 'pdfFile' ) }}">Cliquez ici pour télécharger le fichier PDF.</a>
+                  </p>
+              </object>
+          </div>
+          <div class="panel-footer">
+            <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>                
+            <a class="btn btn-primary" href="{{ path('esf_espace_abonne_modifierDemandes', { 'id': eA_Demande_Inscription.id }) }}">Modifier</a>                
         </div>
     </div>
+</div>
 
 {% endblock %}

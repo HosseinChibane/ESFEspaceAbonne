@@ -14,22 +14,23 @@ class T_Universite
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Universite", mappedBy="universite", cascade={"persist"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
      */
     private $documents;
 
     /**
-     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", mappedBy="universite", cascade={"persist"})
+     * Plusieurs Université ont plusieurs Formations. 
+     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", mappedBy="universite", cascade={"all"})
      */
     private $formations;
 
     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Image_Universite", mappedBy="universite", cascade={"persist"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Image_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
      */
     private $images;
 
     /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Adresse_Universite", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Adresse_Universite", cascade={"all"})
      */
     private $adresse;
 
@@ -140,6 +141,16 @@ class T_Universite
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->formations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -219,13 +230,6 @@ class T_Universite
     public function getDescription()
     {
         return $this->description;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

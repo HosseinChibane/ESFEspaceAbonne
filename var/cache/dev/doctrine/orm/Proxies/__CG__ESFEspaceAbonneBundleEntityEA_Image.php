@@ -64,10 +64,10 @@ class EA_Image extends \ESF\EspaceAbonneBundle\Entity\EA_Image implements \Doctr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'id', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageName', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageFile', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageSize', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'updatedAt'];
+            return ['__isInitialized__', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'id', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageName', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageFile', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'updatedAt'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'id', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageName', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageFile', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageSize', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'updatedAt'];
+        return ['__isInitialized__', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'id', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageName', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'imageFile', '' . "\0" . 'ESF\\EspaceAbonneBundle\\Entity\\EA_Image' . "\0" . 'updatedAt'];
     }
 
     /**
@@ -226,28 +226,6 @@ class EA_Image extends \ESF\EspaceAbonneBundle\Entity\EA_Image implements \Doctr
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageName', []);
 
         return parent::getImageName();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setImageSize($imageSize)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImageSize', [$imageSize]);
-
-        return parent::setImageSize($imageSize);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getImageSize()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageSize', []);
-
-        return parent::getImageSize();
     }
 
     /**

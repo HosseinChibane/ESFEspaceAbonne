@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class T_Formation_Universite
 {
     /**
+    * Plusieurs Formations ont plusieurs Langues
     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Langue_Universite", mappedBy="formation")
     */
     private $langues;
@@ -104,6 +105,15 @@ class T_Formation_Universite
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+       $this->universite = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->langues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -136,14 +146,6 @@ class T_Formation_Universite
     {
         return $this->formation;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-       $this->universite = new \Doctrine\Common\Collections\ArrayCollection();
-       //$this->langues = new \Doctrine\Common\Collections\ArrayCollection();
-   }
 
     /**
      * Add langue

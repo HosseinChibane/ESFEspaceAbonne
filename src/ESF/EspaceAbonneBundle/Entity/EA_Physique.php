@@ -3,6 +3,8 @@
 namespace ESF\EspaceAbonneBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * EA_Physique
@@ -13,23 +15,19 @@ use Doctrine\ORM\Mapping as ORM;
 class EA_Physique
 {
 
-    /**
-   * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Personne", cascade={"persist"})
-   */
-    private $personne;
 
      /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Image", cascade={"all"})
      */
-    private $image;
+     private $image;
 
     /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", cascade={"all"})
      */
     private $documents;
 
     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription", mappedBy="physique", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription", mappedBy="physique", cascade={"all"})
      */
     private $demandes;
 
@@ -45,14 +43,14 @@ class EA_Physique
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     private $prenom;
 
@@ -69,6 +67,67 @@ class EA_Physique
      * @ORM\Column(name="numerocarteid", type="string", length=255, nullable=true)
      */
     private $numerocarteid;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numero", type="integer", nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rue", type="string", length=255, nullable=true)
+     */
+    private $rue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostal", type="string", length=255, nullable=true)
+     */
+    private $codepostal;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pays", type="string", length=255, nullable=true)
+     */
+    private $pays;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gsm", type="string", length=255, nullable=true)
+     */
+    private $gsm;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
+     *
+     * @var string
+     *
+     * @ORM\Column(name="courriel", type="string", length=255, nullable=true)
+     */
+    private $courriel;
 
     public function __toString()
     {
@@ -439,5 +498,197 @@ class EA_Physique
         $this->documents = $documents;
 
         return $this;
+    }
+
+    /**
+     * Set numero
+     *
+     * @param integer $numero
+     *
+     * @return EA_Physique
+     */
+    public function setNumero($numero)
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    /**
+     * Get numero
+     *
+     * @return integer
+     */
+    public function getNumero()
+    {
+        return $this->numero;
+    }
+
+    /**
+     * Set rue
+     *
+     * @param string $rue
+     *
+     * @return EA_Physique
+     */
+    public function setRue($rue)
+    {
+        $this->rue = $rue;
+
+        return $this;
+    }
+
+    /**
+     * Get rue
+     *
+     * @return string
+     */
+    public function getRue()
+    {
+        return $this->rue;
+    }
+
+    /**
+     * Set codepostal
+     *
+     * @param string $codepostal
+     *
+     * @return EA_Physique
+     */
+    public function setCodepostal($codepostal)
+    {
+        $this->codepostal = $codepostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codepostal
+     *
+     * @return string
+     */
+    public function getCodepostal()
+    {
+        return $this->codepostal;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return EA_Physique
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return EA_Physique
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set gsm
+     *
+     * @param string $gsm
+     *
+     * @return EA_Physique
+     */
+    public function setGsm($gsm)
+    {
+        $this->gsm = $gsm;
+
+        return $this;
+    }
+
+    /**
+     * Get gsm
+     *
+     * @return string
+     */
+    public function getGsm()
+    {
+        return $this->gsm;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return EA_Physique
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set courriel
+     *
+     * @param string $courriel
+     *
+     * @return EA_Physique
+     */
+    public function setCourriel($courriel)
+    {
+        $this->courriel = $courriel;
+
+        return $this;
+    }
+
+    /**
+     * Get courriel
+     *
+     * @return string
+     */
+    public function getCourriel()
+    {
+        return $this->courriel;
     }
 }

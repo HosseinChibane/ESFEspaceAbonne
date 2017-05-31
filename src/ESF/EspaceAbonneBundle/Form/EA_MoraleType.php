@@ -27,13 +27,17 @@ class EA_MoraleType extends AbstractType
         ->add('naf')
         ->add('url')
         ->add('alt')
-
-        ->add('personne', EA_PersonneType::class)
-
-        ->add('langues')
-        
+        ->add('numero')
+        ->add('rue')
+        ->add('codepostal')
+        ->add('ville')
         ->add('pays')
-
+        ->add('gsm')
+        ->add('telephone')
+        ->add('courriel')
+        ->add('langues')        
+        ->add('pays')
+        
         ->add('rechercher', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
             ))

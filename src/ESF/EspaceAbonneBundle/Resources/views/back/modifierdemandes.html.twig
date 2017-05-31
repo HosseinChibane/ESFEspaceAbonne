@@ -17,50 +17,72 @@
     <div class="col-md-12">
         <h1>Modification de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
 
-        {{ form_start(edit_form) }}
+        {{ form_start(editForm) }}
 
-        {% if not edit_form.vars.valid %}
+        {% if not editForm.vars.valid %}
             <div class="alert alert-error">
-                {{ form_errors(edit_form) }}
+                {{ form_errors(editForm) }}
             </div>
         {% endif %}
 
         <div class="form-group">
-            {{ form_label(edit_form.type, 'Type d\'Inscription') }}
-            {{ form_widget(edit_form.type, { 'attr':{'disabled':'disabled'} }) }}
+            <div class="panel panel-default">
+                <div class="panel-body">                                        
+                 {% if editForm.etablissement is defined %}
+                    {% if editForm.etablissement != null %}
+                        {{ form_label(editForm.etablissement, 'Etablissement de l\'Inscription') }}
+                        {{ form_widget(editForm.etablissement, { 'attr':{'disabled':'disabled'} }) }}
 
-            {{ form_label(edit_form.etat, 'Etat de l\'Inscription') }}
-            {{ form_widget(edit_form.etat, { 'attr':{'disabled':'disabled'} }) }}
+                        {{ form_label(editForm.formation, 'Formation de l\'Inscription') }}
+                        {{ form_widget(editForm.formation, { 'attr':{'disabled':'disabled'} }) }}
+                        
+                        {{ form_label(editForm.langue, 'Langue de l\'Inscription') }}
+                        {{ form_widget(editForm.langue, { 'attr':{'disabled':'disabled'} }) }}
+                    {% endif %}
+                {% elseif  editForm.partenaire is defined %}
+                    {% if editForm.partenaire != null %}
+                        {{ form_label(editForm.partenaire, 'Partenaire de l\'Inscription') }}
+                        {{ form_widget(editForm.partenaire, { 'attr':{'disabled':'disabled'} }) }}
+                    {% endif %}
+                {% endif %}
 
-            {{ form_label(edit_form.documentinscription.nom, 'Document d\'Inscription') }}
-            {{ form_widget(edit_form.documentinscription.nom) }}
-        </div>
+                {{ form_label(editForm.type, 'Type d\'Inscription') }}
+                {{ form_widget(editForm.type, { 'attr':{'disabled':'disabled'} }) }}
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    {{ form_widget(edit_form.documentinscription.pdfFile) }}
-                </div>
+                {{ form_label(editForm.etat, 'Etat de l\'Inscription') }}
+                {{ form_widget(editForm.etat, { 'attr':{'disabled':'disabled'} }) }}
             </div>
-        </div>
+        </div>   
+        {{ form_label(editForm.documentinscription.nom, 'Document d\'Inscription') }}
+        {{ form_widget(editForm.documentinscription.nom) }}
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                 {% for flash_message in app.session.flashBag.get('notice') %}
-                    <div class="flash-notice">
-                        {{ flash_message }}
-                    </div>
-                {% endfor %}
-                <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
-                {{ form_widget(edit_form.documentinscription.Enregistrer) }}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                {{ form_widget(editForm.documentinscription.pdfFile) }}
             </div>
         </div>
     </div>
 
-    {# Token CSRF #}
-    {{ form_widget(edit_form._token) }}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+               {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
+            {{ form_widget(editForm.documentinscription.Enregistrer) }}
+        </div>
+    </div>
+</div>
 
-    {{ form_end(edit_form, {'render_rest': false }) }}
+{# Token CSRF #}
+{{ form_widget(editForm._token) }}
+
+{{ form_end(editForm, {'render_rest': false }) }}
 </div>
 {% endblock %}

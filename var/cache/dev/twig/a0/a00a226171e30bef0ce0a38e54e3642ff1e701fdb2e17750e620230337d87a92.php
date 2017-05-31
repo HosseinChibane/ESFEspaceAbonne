@@ -23,29 +23,29 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d9a96e9303b99ef2da86513bb60462bbc905619375dc56266eea500fd12d9cd4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d9a96e9303b99ef2da86513bb60462bbc905619375dc56266eea500fd12d9cd4->enter($__internal_d9a96e9303b99ef2da86513bb60462bbc905619375dc56266eea500fd12d9cd4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/detailsdemandes.html.twig"));
+        $__internal_d966169770402db8e89783f3a2ebb757cfad8cc677500e14b1e080d58d736adc = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d966169770402db8e89783f3a2ebb757cfad8cc677500e14b1e080d58d736adc->enter($__internal_d966169770402db8e89783f3a2ebb757cfad8cc677500e14b1e080d58d736adc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/detailsdemandes.html.twig"));
 
-        $__internal_19603b5612b762eb70eba8a940cad900ee97984003de287acccf413c0ccd1314 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_19603b5612b762eb70eba8a940cad900ee97984003de287acccf413c0ccd1314->enter($__internal_19603b5612b762eb70eba8a940cad900ee97984003de287acccf413c0ccd1314_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/detailsdemandes.html.twig"));
+        $__internal_ac2a53b4cb19a77868fa81bf76da162fb515ed13eccaf5957ec88210c3352c1f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ac2a53b4cb19a77868fa81bf76da162fb515ed13eccaf5957ec88210c3352c1f->enter($__internal_ac2a53b4cb19a77868fa81bf76da162fb515ed13eccaf5957ec88210c3352c1f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/detailsdemandes.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d9a96e9303b99ef2da86513bb60462bbc905619375dc56266eea500fd12d9cd4->leave($__internal_d9a96e9303b99ef2da86513bb60462bbc905619375dc56266eea500fd12d9cd4_prof);
+        $__internal_d966169770402db8e89783f3a2ebb757cfad8cc677500e14b1e080d58d736adc->leave($__internal_d966169770402db8e89783f3a2ebb757cfad8cc677500e14b1e080d58d736adc_prof);
 
         
-        $__internal_19603b5612b762eb70eba8a940cad900ee97984003de287acccf413c0ccd1314->leave($__internal_19603b5612b762eb70eba8a940cad900ee97984003de287acccf413c0ccd1314_prof);
+        $__internal_ac2a53b4cb19a77868fa81bf76da162fb515ed13eccaf5957ec88210c3352c1f->leave($__internal_ac2a53b4cb19a77868fa81bf76da162fb515ed13eccaf5957ec88210c3352c1f_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_f3716dd0cddc34c609a21c13c6e3b041b975dbcb994f13280cdae5b59b0025e9 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_f3716dd0cddc34c609a21c13c6e3b041b975dbcb994f13280cdae5b59b0025e9->enter($__internal_f3716dd0cddc34c609a21c13c6e3b041b975dbcb994f13280cdae5b59b0025e9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_1c52293b16cde2eabdae12293a480e3a2d4bcfad2dfe92b0ace89d757a8e3aaa = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_1c52293b16cde2eabdae12293a480e3a2d4bcfad2dfe92b0ace89d757a8e3aaa->enter($__internal_1c52293b16cde2eabdae12293a480e3a2d4bcfad2dfe92b0ace89d757a8e3aaa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_70a08eefa143e3a55b97efa3a7e91b34f2952f73bd1fb04e4cbc5a1e30a81787 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_70a08eefa143e3a55b97efa3a7e91b34f2952f73bd1fb04e4cbc5a1e30a81787->enter($__internal_70a08eefa143e3a55b97efa3a7e91b34f2952f73bd1fb04e4cbc5a1e30a81787_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_111a88a4aba8d2d6ca9fe433d9a65b8def874e42ee0268acf3def81226f5d60e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_111a88a4aba8d2d6ca9fe433d9a65b8def874e42ee0268acf3def81226f5d60e->enter($__internal_111a88a4aba8d2d6ca9fe433d9a65b8def874e42ee0268acf3def81226f5d60e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    Détails Demandes - ";
@@ -53,21 +53,21 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
         echo "
 ";
         
-        $__internal_70a08eefa143e3a55b97efa3a7e91b34f2952f73bd1fb04e4cbc5a1e30a81787->leave($__internal_70a08eefa143e3a55b97efa3a7e91b34f2952f73bd1fb04e4cbc5a1e30a81787_prof);
+        $__internal_111a88a4aba8d2d6ca9fe433d9a65b8def874e42ee0268acf3def81226f5d60e->leave($__internal_111a88a4aba8d2d6ca9fe433d9a65b8def874e42ee0268acf3def81226f5d60e_prof);
 
         
-        $__internal_f3716dd0cddc34c609a21c13c6e3b041b975dbcb994f13280cdae5b59b0025e9->leave($__internal_f3716dd0cddc34c609a21c13c6e3b041b975dbcb994f13280cdae5b59b0025e9_prof);
+        $__internal_1c52293b16cde2eabdae12293a480e3a2d4bcfad2dfe92b0ace89d757a8e3aaa->leave($__internal_1c52293b16cde2eabdae12293a480e3a2d4bcfad2dfe92b0ace89d757a8e3aaa_prof);
 
     }
 
     // line 7
     public function block_breadcrumb($context, array $blocks = array())
     {
-        $__internal_8d7de0e342ad7858c1f38895a3e472098bc1bbd07601641c61b6e8a57642999f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8d7de0e342ad7858c1f38895a3e472098bc1bbd07601641c61b6e8a57642999f->enter($__internal_8d7de0e342ad7858c1f38895a3e472098bc1bbd07601641c61b6e8a57642999f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_f0cad744c94310a089d6da386f584bb258cb7ebfe8b2481e5ce70bfa75e838ed = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_f0cad744c94310a089d6da386f584bb258cb7ebfe8b2481e5ce70bfa75e838ed->enter($__internal_f0cad744c94310a089d6da386f584bb258cb7ebfe8b2481e5ce70bfa75e838ed_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
-        $__internal_36181df3522e46e3a540ab034f000a7f565df0488eca71d456be87a500c2af03 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_36181df3522e46e3a540ab034f000a7f565df0488eca71d456be87a500c2af03->enter($__internal_36181df3522e46e3a540ab034f000a7f565df0488eca71d456be87a500c2af03_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_40e3bcd3e1886fdaaab1c8c706e2d868d0b0b5222aed9c2faded5190f870263c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_40e3bcd3e1886fdaaab1c8c706e2d868d0b0b5222aed9c2faded5190f870263c->enter($__internal_40e3bcd3e1886fdaaab1c8c706e2d868d0b0b5222aed9c2faded5190f870263c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
         // line 8
         echo "    <ol class=\"breadcrumb\">
@@ -83,21 +83,21 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
     </ol>
 ";
         
-        $__internal_36181df3522e46e3a540ab034f000a7f565df0488eca71d456be87a500c2af03->leave($__internal_36181df3522e46e3a540ab034f000a7f565df0488eca71d456be87a500c2af03_prof);
+        $__internal_40e3bcd3e1886fdaaab1c8c706e2d868d0b0b5222aed9c2faded5190f870263c->leave($__internal_40e3bcd3e1886fdaaab1c8c706e2d868d0b0b5222aed9c2faded5190f870263c_prof);
 
         
-        $__internal_8d7de0e342ad7858c1f38895a3e472098bc1bbd07601641c61b6e8a57642999f->leave($__internal_8d7de0e342ad7858c1f38895a3e472098bc1bbd07601641c61b6e8a57642999f_prof);
+        $__internal_f0cad744c94310a089d6da386f584bb258cb7ebfe8b2481e5ce70bfa75e838ed->leave($__internal_f0cad744c94310a089d6da386f584bb258cb7ebfe8b2481e5ce70bfa75e838ed_prof);
 
     }
 
     // line 15
     public function block_Content($context, array $blocks = array())
     {
-        $__internal_32036419b07844919bbf5ec7aa77489aa66de1807e60b3d24e8b05d3ea5c7bad = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_32036419b07844919bbf5ec7aa77489aa66de1807e60b3d24e8b05d3ea5c7bad->enter($__internal_32036419b07844919bbf5ec7aa77489aa66de1807e60b3d24e8b05d3ea5c7bad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_a7b12aab6932afea938492e47fd6b5f54fa813146b06a80db0760bf60616dbc5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a7b12aab6932afea938492e47fd6b5f54fa813146b06a80db0760bf60616dbc5->enter($__internal_a7b12aab6932afea938492e47fd6b5f54fa813146b06a80db0760bf60616dbc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
-        $__internal_e6e59ef8e05cc66cc9b7cd13d2743ba08a37dd8c8fc5e81daa317f7b522d5395 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e6e59ef8e05cc66cc9b7cd13d2743ba08a37dd8c8fc5e81daa317f7b522d5395->enter($__internal_e6e59ef8e05cc66cc9b7cd13d2743ba08a37dd8c8fc5e81daa317f7b522d5395_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_5f9ca06c3860a6158f91cffad34d6420e9997843a2fe5613c15a0f8254a813b0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5f9ca06c3860a6158f91cffad34d6420e9997843a2fe5613c15a0f8254a813b0->enter($__internal_5f9ca06c3860a6158f91cffad34d6420e9997843a2fe5613c15a0f8254a813b0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
         echo " 
     <!-- Modifier Demandes -->
@@ -107,35 +107,84 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
         echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "id", array()), "html", null, true);
         echo " :</h1>
         <div class=\"panel panel-default\">
-            <div class=\"panel-heading\">
-                <h4>Inscription à ";
+            <div class=\"panel-body\">    
+                Type d'inscription : ";
         // line 21
         echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "type", array()), "html", null, true);
-        echo "</h4>
-            </div>
-            <div class=\"panel-body\">                                        
-                Votre demande est : ";
-        // line 24
+        echo "<br>                                    
+                Etat de l'inscription : ";
+        // line 22
         echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "etat", array()), "html", null, true);
-        echo "
-            </div>
-            <div class=\"panel-footer\">
-                <a class=\"btn btn-info\" href=\"";
-        // line 27
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_mesDemandes");
-        echo "\" role=\"button\">Retour à la liste des demandes</a>
+        echo "<br>
+                
                 ";
-        // line 31
-        echo "            </div>
+        // line 24
+        if ($this->getAttribute(($context["eA_Demande_Inscription"] ?? null), "etablissement", array(), "any", true, true)) {
+            // line 25
+            echo "                    ";
+            if (($this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "etablissement", array()) != null)) {
+                // line 26
+                echo "                        Etablissement de l'Inscription : ";
+                echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "etablissement", array()), "html", null, true);
+                echo "<br>
+                        Formation de l'Inscription : ";
+                // line 27
+                echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "formation", array()), "html", null, true);
+                echo "<br>
+                        Langue de l'Inscription : ";
+                // line 28
+                echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "langue", array()), "html", null, true);
+                echo "<br>
+                    ";
+            }
+            // line 30
+            echo "                ";
+        } elseif ($this->getAttribute(($context["edit_form"] ?? null), "partenaire", array(), "any", true, true)) {
+            // line 31
+            echo "                    ";
+            if (($this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "partenaire", array()) != null)) {
+                // line 32
+                echo "                        Partenaire de l'Inscription : ";
+                echo twig_escape_filter($this->env, $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "partenaire", array()), "html", null, true);
+                echo "<br>
+                    ";
+            }
+            // line 34
+            echo "                ";
+        }
+        // line 35
+        echo "                <object type=\"application/pdf\" width=\"100%\" height=\"400px\">
+                    <param name=\"src\" value=\"";
+        // line 36
+        echo twig_escape_filter($this->env, $this->env->getExtension('Vich\UploaderBundle\Twig\Extension\UploaderExtension')->asset($this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "documentinscription", array()), "pdfFile"), "html", null, true);
+        echo "\" />
+                    <p>Il semble que votre navigateur Web n'est pas configuré pour afficher les fichiers PDF.
+                      Pas de soucis, juste <a href=\"";
+        // line 38
+        echo twig_escape_filter($this->env, $this->env->getExtension('Vich\UploaderBundle\Twig\Extension\UploaderExtension')->asset($this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "documentinscription", array()), "pdfFile"), "html", null, true);
+        echo "\">Cliquez ici pour télécharger le fichier PDF.</a>
+                  </p>
+              </object>
+          </div>
+          <div class=\"panel-footer\">
+            <a class=\"btn btn-info\" href=\"";
+        // line 43
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_mesDemandes");
+        echo "\" role=\"button\">Retour à la liste des demandes</a>                
+            <a class=\"btn btn-primary\" href=\"";
+        // line 44
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_modifierDemandes", array("id" => $this->getAttribute(($context["eA_Demande_Inscription"] ?? $this->getContext($context, "eA_Demande_Inscription")), "id", array()))), "html", null, true);
+        echo "\">Modifier</a>                
         </div>
     </div>
+</div>
 
 ";
         
-        $__internal_e6e59ef8e05cc66cc9b7cd13d2743ba08a37dd8c8fc5e81daa317f7b522d5395->leave($__internal_e6e59ef8e05cc66cc9b7cd13d2743ba08a37dd8c8fc5e81daa317f7b522d5395_prof);
+        $__internal_5f9ca06c3860a6158f91cffad34d6420e9997843a2fe5613c15a0f8254a813b0->leave($__internal_5f9ca06c3860a6158f91cffad34d6420e9997843a2fe5613c15a0f8254a813b0_prof);
 
         
-        $__internal_32036419b07844919bbf5ec7aa77489aa66de1807e60b3d24e8b05d3ea5c7bad->leave($__internal_32036419b07844919bbf5ec7aa77489aa66de1807e60b3d24e8b05d3ea5c7bad_prof);
+        $__internal_a7b12aab6932afea938492e47fd6b5f54fa813146b06a80db0760bf60616dbc5->leave($__internal_a7b12aab6932afea938492e47fd6b5f54fa813146b06a80db0760bf60616dbc5_prof);
 
     }
 
@@ -151,7 +200,7 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
 
     public function getDebugInfo()
     {
-        return array (  129 => 31,  125 => 27,  119 => 24,  113 => 21,  107 => 18,  94 => 15,  80 => 10,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  176 => 44,  172 => 43,  164 => 38,  159 => 36,  156 => 35,  153 => 34,  147 => 32,  144 => 31,  141 => 30,  136 => 28,  132 => 27,  127 => 26,  124 => 25,  122 => 24,  117 => 22,  113 => 21,  107 => 18,  94 => 15,  80 => 10,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -183,20 +232,34 @@ class __TwigTemplate_5122f7314bd6f51d71c9b4be8dcbbf1672b9c7129e1bfb96dfd6131e68d
     <div class=\"col-md-12\">
         <h1>Détail de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
         <div class=\"panel panel-default\">
-            <div class=\"panel-heading\">
-                <h4>Inscription à {{ eA_Demande_Inscription.type }}</h4>
-            </div>
-            <div class=\"panel-body\">                                        
-                Votre demande est : {{ eA_Demande_Inscription.etat }}
-            </div>
-            <div class=\"panel-footer\">
-                <a class=\"btn btn-info\" href=\"{{ path('esf_espace_abonne_mesDemandes') }}\" role=\"button\">Retour à la liste des demandes</a>
-                {#
-                <a class=\"btn btn-primary\" href=\"{{ path('esf_espace_abonne_modifierDemandes', { 'id': eA_Demande_Inscription.id }) }}\">Modifier</a>
-                #}
-            </div>
+            <div class=\"panel-body\">    
+                Type d'inscription : {{ eA_Demande_Inscription.type }}<br>                                    
+                Etat de l'inscription : {{ eA_Demande_Inscription.etat }}<br>
+                
+                {% if eA_Demande_Inscription.etablissement is defined %}
+                    {% if eA_Demande_Inscription.etablissement != null %}
+                        Etablissement de l'Inscription : {{ eA_Demande_Inscription.etablissement }}<br>
+                        Formation de l'Inscription : {{ eA_Demande_Inscription.formation }}<br>
+                        Langue de l'Inscription : {{ eA_Demande_Inscription.langue }}<br>
+                    {% endif %}
+                {% elseif  edit_form.partenaire is defined %}
+                    {% if eA_Demande_Inscription.partenaire != null %}
+                        Partenaire de l'Inscription : {{ eA_Demande_Inscription.partenaire }}<br>
+                    {% endif %}
+                {% endif %}
+                <object type=\"application/pdf\" width=\"100%\" height=\"400px\">
+                    <param name=\"src\" value=\"{{ vich_uploader_asset(eA_Demande_Inscription.documentinscription, 'pdfFile' ) }}\" />
+                    <p>Il semble que votre navigateur Web n'est pas configuré pour afficher les fichiers PDF.
+                      Pas de soucis, juste <a href=\"{{ vich_uploader_asset(eA_Demande_Inscription.documentinscription, 'pdfFile' ) }}\">Cliquez ici pour télécharger le fichier PDF.</a>
+                  </p>
+              </object>
+          </div>
+          <div class=\"panel-footer\">
+            <a class=\"btn btn-info\" href=\"{{ path('esf_espace_abonne_mesDemandes') }}\" role=\"button\">Retour à la liste des demandes</a>                
+            <a class=\"btn btn-primary\" href=\"{{ path('esf_espace_abonne_modifierDemandes', { 'id': eA_Demande_Inscription.id }) }}\">Modifier</a>                
         </div>
     </div>
+</div>
 
 {% endblock %}", "@ESFEspaceAbonne/back/detailsdemandes.html.twig", "C:\\wamp64\\www\\Projet\\Espace abonne\\esf\\src\\ESF\\EspaceAbonneBundle\\Resources\\views\\back\\detailsdemandes.html.twig");
     }

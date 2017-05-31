@@ -14,7 +14,7 @@ class T_Adresse_Universite
 {
 
     /**
-   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Ville_Universite", cascade={"persist"})
+   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Ville_Universite", cascade={"all"})
    * @ORM\JoinColumn(nullable=false)
    */
     private $ville;

@@ -7,7 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    app.path.users_images: /users/image
+    app.path.users_images: /users/images
     app.path.users_pdf: /users/pdf
     app.path.universites_pdf: /universites/pdf
     app.path.demandes_pdf: /demandes/pdf
@@ -136,7 +136,7 @@ vich_uploader:
         users_images:
             namer:              vich_uploader.namer_origname
             uri_prefix:         '%app.path.users_images%'
-            upload_destination: '%kernel.root_dir%/../web/users/image'            
+            upload_destination: '%kernel.root_dir%/../web/users/images'            
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
