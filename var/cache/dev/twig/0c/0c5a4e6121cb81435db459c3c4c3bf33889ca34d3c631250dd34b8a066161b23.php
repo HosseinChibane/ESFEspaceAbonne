@@ -23,29 +23,29 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_de605345395a071175a332489200d4c2a355188a21e22cda0c10ca8744221d43 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_de605345395a071175a332489200d4c2a355188a21e22cda0c10ca8744221d43->enter($__internal_de605345395a071175a332489200d4c2a355188a21e22cda0c10ca8744221d43_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:mesDocuments.html.twig"));
+        $__internal_05dd201a8d491f3fd5c6b3efa07416a52f9c08e69df8c9c96690adcf0a187fd0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_05dd201a8d491f3fd5c6b3efa07416a52f9c08e69df8c9c96690adcf0a187fd0->enter($__internal_05dd201a8d491f3fd5c6b3efa07416a52f9c08e69df8c9c96690adcf0a187fd0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:mesDocuments.html.twig"));
 
-        $__internal_56131db70ce55a8255e919f3a6479c4e916dbed642915d5938d1e9be4e76e227 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_56131db70ce55a8255e919f3a6479c4e916dbed642915d5938d1e9be4e76e227->enter($__internal_56131db70ce55a8255e919f3a6479c4e916dbed642915d5938d1e9be4e76e227_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:mesDocuments.html.twig"));
+        $__internal_ddad364d83be01a225ddf7d872bd2f6ce79e29855674af7434bae975e6529f38 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ddad364d83be01a225ddf7d872bd2f6ce79e29855674af7434bae975e6529f38->enter($__internal_ddad364d83be01a225ddf7d872bd2f6ce79e29855674af7434bae975e6529f38_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "ESFEspaceAbonneBundle:back:mesDocuments.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_de605345395a071175a332489200d4c2a355188a21e22cda0c10ca8744221d43->leave($__internal_de605345395a071175a332489200d4c2a355188a21e22cda0c10ca8744221d43_prof);
+        $__internal_05dd201a8d491f3fd5c6b3efa07416a52f9c08e69df8c9c96690adcf0a187fd0->leave($__internal_05dd201a8d491f3fd5c6b3efa07416a52f9c08e69df8c9c96690adcf0a187fd0_prof);
 
         
-        $__internal_56131db70ce55a8255e919f3a6479c4e916dbed642915d5938d1e9be4e76e227->leave($__internal_56131db70ce55a8255e919f3a6479c4e916dbed642915d5938d1e9be4e76e227_prof);
+        $__internal_ddad364d83be01a225ddf7d872bd2f6ce79e29855674af7434bae975e6529f38->leave($__internal_ddad364d83be01a225ddf7d872bd2f6ce79e29855674af7434bae975e6529f38_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_2a60a1d626f234966d74c8d3bd455c9657a55fa0bc2dbfbdba6e32ff0d7dfaaf = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_2a60a1d626f234966d74c8d3bd455c9657a55fa0bc2dbfbdba6e32ff0d7dfaaf->enter($__internal_2a60a1d626f234966d74c8d3bd455c9657a55fa0bc2dbfbdba6e32ff0d7dfaaf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_16ff06c69292dbc160e115b3bd03731ea5ee1d6e13dd99f6528474c7c180fa77 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_16ff06c69292dbc160e115b3bd03731ea5ee1d6e13dd99f6528474c7c180fa77->enter($__internal_16ff06c69292dbc160e115b3bd03731ea5ee1d6e13dd99f6528474c7c180fa77_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_03de6a021b4595351613aa55ebd62fc24c5542c6c403300c43da619ab39b04a7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_03de6a021b4595351613aa55ebd62fc24c5542c6c403300c43da619ab39b04a7->enter($__internal_03de6a021b4595351613aa55ebd62fc24c5542c6c403300c43da619ab39b04a7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_d9f8d5c966632e8f96b7d36f6f266ec22ac6882460a230cbea7559475d8268d5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d9f8d5c966632e8f96b7d36f6f266ec22ac6882460a230cbea7559475d8268d5->enter($__internal_d9f8d5c966632e8f96b7d36f6f266ec22ac6882460a230cbea7559475d8268d5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    Mes Documents - ";
@@ -53,21 +53,21 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
         echo "
 ";
         
-        $__internal_03de6a021b4595351613aa55ebd62fc24c5542c6c403300c43da619ab39b04a7->leave($__internal_03de6a021b4595351613aa55ebd62fc24c5542c6c403300c43da619ab39b04a7_prof);
+        $__internal_d9f8d5c966632e8f96b7d36f6f266ec22ac6882460a230cbea7559475d8268d5->leave($__internal_d9f8d5c966632e8f96b7d36f6f266ec22ac6882460a230cbea7559475d8268d5_prof);
 
         
-        $__internal_2a60a1d626f234966d74c8d3bd455c9657a55fa0bc2dbfbdba6e32ff0d7dfaaf->leave($__internal_2a60a1d626f234966d74c8d3bd455c9657a55fa0bc2dbfbdba6e32ff0d7dfaaf_prof);
+        $__internal_16ff06c69292dbc160e115b3bd03731ea5ee1d6e13dd99f6528474c7c180fa77->leave($__internal_16ff06c69292dbc160e115b3bd03731ea5ee1d6e13dd99f6528474c7c180fa77_prof);
 
     }
 
     // line 7
     public function block_breadcrumb($context, array $blocks = array())
     {
-        $__internal_50f04c55147e0491ea9a1376bdac396437b71263c4ca0b6de00b01b6077438e3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_50f04c55147e0491ea9a1376bdac396437b71263c4ca0b6de00b01b6077438e3->enter($__internal_50f04c55147e0491ea9a1376bdac396437b71263c4ca0b6de00b01b6077438e3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_5696413f299cc0901edcc0518027af35eddce7e9b3d1c421145b5c7c13bf0c3c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5696413f299cc0901edcc0518027af35eddce7e9b3d1c421145b5c7c13bf0c3c->enter($__internal_5696413f299cc0901edcc0518027af35eddce7e9b3d1c421145b5c7c13bf0c3c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
-        $__internal_50f50be3570b5fe85e83a9cd752bb3a3d7462214646b0ef9fc4d46666548a107 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_50f50be3570b5fe85e83a9cd752bb3a3d7462214646b0ef9fc4d46666548a107->enter($__internal_50f50be3570b5fe85e83a9cd752bb3a3d7462214646b0ef9fc4d46666548a107_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_e41865aab938e789a6b2cfde343f599b6a79b72eda799fb8221fbe495d531ec0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e41865aab938e789a6b2cfde343f599b6a79b72eda799fb8221fbe495d531ec0->enter($__internal_e41865aab938e789a6b2cfde343f599b6a79b72eda799fb8221fbe495d531ec0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
         // line 8
         echo "    <ol class=\"breadcrumb\">
@@ -79,21 +79,21 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
     </ol>
 ";
         
-        $__internal_50f50be3570b5fe85e83a9cd752bb3a3d7462214646b0ef9fc4d46666548a107->leave($__internal_50f50be3570b5fe85e83a9cd752bb3a3d7462214646b0ef9fc4d46666548a107_prof);
+        $__internal_e41865aab938e789a6b2cfde343f599b6a79b72eda799fb8221fbe495d531ec0->leave($__internal_e41865aab938e789a6b2cfde343f599b6a79b72eda799fb8221fbe495d531ec0_prof);
 
         
-        $__internal_50f04c55147e0491ea9a1376bdac396437b71263c4ca0b6de00b01b6077438e3->leave($__internal_50f04c55147e0491ea9a1376bdac396437b71263c4ca0b6de00b01b6077438e3_prof);
+        $__internal_5696413f299cc0901edcc0518027af35eddce7e9b3d1c421145b5c7c13bf0c3c->leave($__internal_5696413f299cc0901edcc0518027af35eddce7e9b3d1c421145b5c7c13bf0c3c_prof);
 
     }
 
     // line 14
     public function block_Content($context, array $blocks = array())
     {
-        $__internal_a36d9ee29d37728d0d9d58f0d1d6793d21eef2c5abf4ca2dd11a3553dcda9f72 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_a36d9ee29d37728d0d9d58f0d1d6793d21eef2c5abf4ca2dd11a3553dcda9f72->enter($__internal_a36d9ee29d37728d0d9d58f0d1d6793d21eef2c5abf4ca2dd11a3553dcda9f72_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_1a052955d9a33768a49289d8ddf4a549fde87f1875c4c47e1db25eec99a212d8 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_1a052955d9a33768a49289d8ddf4a549fde87f1875c4c47e1db25eec99a212d8->enter($__internal_1a052955d9a33768a49289d8ddf4a549fde87f1875c4c47e1db25eec99a212d8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
-        $__internal_d3c56871baf95346dddad7701a484eaa853d7d93afb6ecbd32ce5876f36161f2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d3c56871baf95346dddad7701a484eaa853d7d93afb6ecbd32ce5876f36161f2->enter($__internal_d3c56871baf95346dddad7701a484eaa853d7d93afb6ecbd32ce5876f36161f2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_0644f3f782c366059e467f0cc3ea79b5961aa85d86cac92f40f24bfbf364dcca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0644f3f782c366059e467f0cc3ea79b5961aa85d86cac92f40f24bfbf364dcca->enter($__internal_0644f3f782c366059e467f0cc3ea79b5961aa85d86cac92f40f24bfbf364dcca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
         echo " 
 
@@ -139,151 +139,188 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
         echo "
 <div class=\"row\">
     <div class=\"col-md-12\">
-
         <div class=\"alert alert-info\">
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>
             <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
         </div>         
     </div>
 
-    <div class=\"col-md-6\">             
-        <div class=\"form-group\">
-            ";
-        // line 42
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportName", array()), 'label', array("label" => "Passeport"));
-        echo "
-            ";
-        // line 43
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportName", array()), 'widget');
-        echo "
-            ";
-        // line 44
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportFile", array()), 'widget');
-        echo "
-
-            ";
-        // line 46
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteName", array()), 'label', array("label" => "Carte Identite"));
-        echo "
-            ";
-        // line 47
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteName", array()), 'widget');
-        echo "
-            ";
-        // line 48
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteFile", array()), 'widget');
-        echo "
-
-            ";
-        // line 50
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacName", array()), 'label', array("label" => "Baccalaureat"));
-        echo "
+    <table id=\"demandeInsciption\" class=\"table table-striped table-bordered nowrap\" cellspacing=\"0\" width=\"100%\">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nature</th>
+                <th>Nom</th>
+                <th>Envoyer</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
             ";
         // line 51
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacName", array()), 'widget');
-        echo "
+        if ($this->getAttribute($this->getAttribute(($context["form"] ?? null), "physique", array(), "any", false, true), "documents", array(), "any", true, true)) {
+            // line 52
+            echo "                <tr>
+                    <td>1</td>
+                    <td>";
+            // line 54
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportName", array()), 'label', array("label" => "Passeport"));
+            echo "</td>
+                    <td>";
+            // line 55
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 56
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "PasseportFile", array()), 'widget');
+            echo "</td>
+                    <td>
+                        ";
+            // line 58
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadPasseport", array()), 'widget', array("label" => "Envoyer"));
+            echo "
+                        ";
+            // line 60
+            echo "                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>";
+            // line 64
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteName", array()), 'label', array("label" => "Carte Identite"));
+            echo "</td>
+                    <td>";
+            // line 65
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 66
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CarteIdentiteFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 67
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadCarteId", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>";
+            // line 71
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacName", array()), 'label', array("label" => "Baccalaureat"));
+            echo "</td>
+                    <td>";
+            // line 72
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 73
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 74
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadBac", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>";
+            // line 78
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialName", array()), 'label', array("label" => "Crédential / Autre équivalence"));
+            echo "</td>
+                    <td>";
+            // line 79
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 80
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 81
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadCredential", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>";
+            // line 85
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteName", array()), 'label', array("label" => "Bulletin de Note"));
+            echo "</td>
+                    <td>";
+            // line 86
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteName", array()), 'widget');
+            echo "</td>                
+                    <td>";
+            // line 87
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 88
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadBulletinNote", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
+                <tr>
+                    <td>6</td>                    
+                    <td>";
+            // line 92
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationName", array()), 'label', array("label" => "Lettres de Recommendation"));
+            echo "</td>
+                    <td>";
+            // line 93
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 94
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 95
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadLettreRecommendation", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>";
+            // line 99
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationName", array()), 'label', array("label" => "Lettre de Motivation"));
+            echo "</td>
+                    <td>";
+            // line 100
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationName", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 101
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationFile", array()), 'widget');
+            echo "</td>
+                    <td>";
+            // line 102
+            echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "uploadLettreMotivation", array()), 'widget', array("label" => "Envoyer"));
+            echo "</td>
+                </tr>
             ";
-        // line 52
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BacFile", array()), 'widget');
-        echo "
-
-            ";
-        // line 54
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialName", array()), 'label', array("label" => "Crédential / Autre équivalence"));
-        echo "
-            ";
-        // line 55
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialName", array()), 'widget');
-        echo "
-            ";
-        // line 56
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "CredentialFile", array()), 'widget');
-        echo "
-        </div>
-    </div>
-    <div class=\"col-md-6\">          
-        <div class=\"form-group\">
-            ";
-        // line 61
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteName", array()), 'label', array("label" => "Bulletin de Note"));
-        echo "
-            ";
-        // line 62
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteName", array()), 'widget');
-        echo "                
-            ";
-        // line 63
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "BulletinNoteFile", array()), 'widget');
-        echo "
-
-            ";
-        // line 65
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationName", array()), 'label', array("label" => "Lettres de Recommendation"));
-        echo "
-            ";
-        // line 66
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationName", array()), 'widget');
-        echo "
-            ";
-        // line 67
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreRecommendationFile", array()), 'widget');
-        echo " 
-
-            ";
-        // line 69
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationName", array()), 'label', array("label" => "Lettre de Motivation"));
-        echo "
-            ";
-        // line 70
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationName", array()), 'widget');
-        echo "
-            ";
-        // line 71
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "LettreMotivationFile", array()), 'widget');
-        echo "  
-        </div>
-    </div>
+        }
+        // line 105
+        echo "        </tbody>
+    </table>
 
     ";
-        // line 76
+        // line 109
         echo "    ";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "_token", array()), 'widget');
         echo "
-
-    <div class=\"row\">
-        <div class=\"col-md-12\">
-            <div class=\"form-group\">
-                ";
-        // line 81
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "enregistrer", array()), 'widget');
-        echo "
-               ";
-        // line 82
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "physique", array()), "documents", array()), "upload", array()), 'widget');
-        echo "
-           </div>
-       </div>
-   </div>
-
-   <div style=\"display:none;\">
     ";
-        // line 88
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'rest');
-        echo "
-</div>
-
-";
-        // line 91
-        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
+        // line 110
+        echo         $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end', array("render_rest" => false));
         echo "
 
 </div>
 </div>
 ";
         
-        $__internal_d3c56871baf95346dddad7701a484eaa853d7d93afb6ecbd32ce5876f36161f2->leave($__internal_d3c56871baf95346dddad7701a484eaa853d7d93afb6ecbd32ce5876f36161f2_prof);
+        $__internal_0644f3f782c366059e467f0cc3ea79b5961aa85d86cac92f40f24bfbf364dcca->leave($__internal_0644f3f782c366059e467f0cc3ea79b5961aa85d86cac92f40f24bfbf364dcca_prof);
 
         
-        $__internal_a36d9ee29d37728d0d9d58f0d1d6793d21eef2c5abf4ca2dd11a3553dcda9f72->leave($__internal_a36d9ee29d37728d0d9d58f0d1d6793d21eef2c5abf4ca2dd11a3553dcda9f72_prof);
+        $__internal_1a052955d9a33768a49289d8ddf4a549fde87f1875c4c47e1db25eec99a212d8->leave($__internal_1a052955d9a33768a49289d8ddf4a549fde87f1875c4c47e1db25eec99a212d8_prof);
 
     }
 
@@ -299,7 +336,7 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
 
     public function getDebugInfo()
     {
-        return array (  276 => 91,  270 => 88,  261 => 82,  257 => 81,  248 => 76,  241 => 71,  237 => 70,  233 => 69,  228 => 67,  224 => 66,  220 => 65,  215 => 63,  211 => 62,  207 => 61,  199 => 56,  195 => 55,  191 => 54,  186 => 52,  182 => 51,  178 => 50,  173 => 48,  169 => 47,  165 => 46,  160 => 44,  156 => 43,  152 => 42,  139 => 31,  133 => 28,  130 => 27,  128 => 26,  123 => 24,  119 => 22,  110 => 19,  106 => 17,  102 => 16,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  313 => 110,  308 => 109,  303 => 105,  297 => 102,  293 => 101,  289 => 100,  285 => 99,  278 => 95,  274 => 94,  270 => 93,  266 => 92,  259 => 88,  255 => 87,  251 => 86,  247 => 85,  240 => 81,  236 => 80,  232 => 79,  228 => 78,  221 => 74,  217 => 73,  213 => 72,  209 => 71,  202 => 67,  198 => 66,  194 => 65,  190 => 64,  184 => 60,  180 => 58,  175 => 56,  171 => 55,  167 => 54,  163 => 52,  161 => 51,  139 => 31,  133 => 28,  130 => 27,  128 => 26,  123 => 24,  119 => 22,  110 => 19,  106 => 17,  102 => 16,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -345,64 +382,83 @@ class __TwigTemplate_58fa82ddbb34d8488f6445669b0b369fbeac8e1a5b0303e72aa9f774960
 
 <div class=\"row\">
     <div class=\"col-md-12\">
-
         <div class=\"alert alert-info\">
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">x</button>
             <strong>Information !</strong> En cas de plusieurs \"bulletins de notes\" ou de \"lettres de recommandation\", merci de les réunir en un seul fichier PDF.
         </div>         
     </div>
 
-    <div class=\"col-md-6\">             
-        <div class=\"form-group\">
-            {{ form_label(form.physique.documents.PasseportName, 'Passeport') }}
-            {{ form_widget(form.physique.documents.PasseportName) }}
-            {{ form_widget(form.physique.documents.PasseportFile) }}
-
-            {{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}
-            {{ form_widget(form.physique.documents.CarteIdentiteName) }}
-            {{ form_widget(form.physique.documents.CarteIdentiteFile) }}
-
-            {{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}
-            {{ form_widget(form.physique.documents.BacName) }}
-            {{ form_widget(form.physique.documents.BacFile) }}
-
-            {{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}
-            {{ form_widget(form.physique.documents.CredentialName) }}
-            {{ form_widget(form.physique.documents.CredentialFile) }}
-        </div>
-    </div>
-    <div class=\"col-md-6\">          
-        <div class=\"form-group\">
-            {{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}
-            {{ form_widget(form.physique.documents.BulletinNoteName) }}                
-            {{ form_widget(form.physique.documents.BulletinNoteFile) }}
-
-            {{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}
-            {{ form_widget(form.physique.documents.LettreRecommendationName) }}
-            {{ form_widget(form.physique.documents.LettreRecommendationFile) }} 
-
-            {{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}
-            {{ form_widget(form.physique.documents.LettreMotivationName) }}
-            {{ form_widget(form.physique.documents.LettreMotivationFile) }}  
-        </div>
-    </div>
+    <table id=\"demandeInsciption\" class=\"table table-striped table-bordered nowrap\" cellspacing=\"0\" width=\"100%\">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nature</th>
+                <th>Nom</th>
+                <th>Envoyer</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if form.physique.documents is defined %}
+                <tr>
+                    <td>1</td>
+                    <td>{{ form_label(form.physique.documents.PasseportName, 'Passeport') }}</td>
+                    <td>{{ form_widget(form.physique.documents.PasseportName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.PasseportFile) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadPasseport, { 'label': 'Envoyer' }) }}
+                        {#<a class=\"btn btn-primary view-pdf\" href=\"{{ vich_uploader_asset(form.physique.documents, 'PasseportFile') }}\" alt=\"{{ form.physique.documents.PasseportName }}\"  target=\"_blank\">Télécharger</a>#}
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}</td>
+                    <td>{{ form_widget(form.physique.documents.CarteIdentiteName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.CarteIdentiteFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadCarteId, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>{{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}</td>
+                    <td>{{ form_widget(form.physique.documents.BacName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.BacFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadBac, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>{{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}</td>
+                    <td>{{ form_widget(form.physique.documents.CredentialName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.CredentialFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadCredential, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>{{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}</td>
+                    <td>{{ form_widget(form.physique.documents.BulletinNoteName) }}</td>                
+                    <td>{{ form_widget(form.physique.documents.BulletinNoteFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadBulletinNote, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>6</td>                    
+                    <td>{{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreRecommendationName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreRecommendationFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadLettreRecommendation, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>{{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreMotivationName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreMotivationFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadLettreMotivation, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
 
     {# Token CSRF #}
     {{ form_widget(form._token) }}
-
-    <div class=\"row\">
-        <div class=\"col-md-12\">
-            <div class=\"form-group\">
-                {{ form_widget(form.physique.enregistrer) }}
-               {{ form_widget(form.physique.documents.upload) }}
-           </div>
-       </div>
-   </div>
-
-   <div style=\"display:none;\">
-    {{form_rest(form)}}
-</div>
-
-{{ form_end(form) }}
+    {{ form_end(form, {'render_rest': false} ) }}
 
 </div>
 </div>

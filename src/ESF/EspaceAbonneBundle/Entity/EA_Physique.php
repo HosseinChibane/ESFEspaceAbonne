@@ -14,20 +14,18 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class EA_Physique
 {
-
-
      /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Image", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Image", cascade={"all"}, fetch="EAGER")
      */
      private $image;
 
     /**
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document", cascade={"all"}, fetch="EAGER")
      */
     private $documents;
 
     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription", mappedBy="physique", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription", mappedBy="physique", cascade={"all"}, fetch="EAGER")
      */
     private $demandes;
 

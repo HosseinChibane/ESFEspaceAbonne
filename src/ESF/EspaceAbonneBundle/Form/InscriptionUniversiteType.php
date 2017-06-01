@@ -33,7 +33,7 @@ class InscriptionUniversiteType extends AbstractType
   public function __construct(FormationToNumberTransformer $transformer = null)
   {
     $this->transformer = $transformer;
-  }
+}
 
     /**
      * {@inheritdoc}
@@ -43,17 +43,17 @@ class InscriptionUniversiteType extends AbstractType
         $builder
         ->add('langue', EntityType::class, array(
             'class'       => 'ESFEspaceAbonneBundle:T_Langue_Universite',
-            'placeholder' => 'Sélectionner une langue de formation',
+            'placeholder' => 'Sélectionnez une langue',
             ))
 
         ->add('formation', EntityType::class, array(
             'class'       => 'ESFEspaceAbonneBundle:T_Formation_Universite',
-            'placeholder' => 'Sélectionner une formation',
+            'placeholder' => 'Sélectionnez une formation',
             ))
 
         ->add('nometablissement', EntityType::class, array(
             'class'       => 'ESFEspaceAbonneBundle:T_Universite',
-            'placeholder' => 'Sélectionner un établissement de formation',
+            'placeholder' => 'Sélectionnez un établissement',
             ))
 
         ->add('rechercher', SubmitType::class, array(
@@ -63,65 +63,6 @@ class InscriptionUniversiteType extends AbstractType
         ->add('reinitialiser', ResetType::class, array(
             'attr' => array('class' => 'btn btn-danger'),
             ));
-
-        //$builder->get('formation')->addModelTransformer(new FormationToNumberTransformer($this->transformer));
-
-        $formModifier = function (FormInterface $form, T_Langue_Universite $langue = null) {
-            $formation = null === $langue ? array() : $langue->getFormation();
-
-            $form->add('formation', EntityType::class, array(
-                'class'       => 'ESFEspaceAbonneBundle:T_Formation_Universite',
-                'placeholder' => 'Sélectionner un élément dans la liste des formations',
-                'choices'     => $formation,
-                ));        
-        };
-
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) use ($formModifier) {
-                $data = $event->getData();
-                if($data === null || !method_exists($data, 'getFormation')) {
-                    $formModifier($event->getForm(), null);
-                } else {
-                    $formModifier($event->getForm(), $data->getFormation());
-                }
-            });
-
-        $builder->get('langue')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) use ($formModifier) {
-                $langue = $event->getForm()->getData();
-                $formModifier($event->getForm()->getParent(), $langue);
-            });
-
-        $formModifierUniversite = function (FormInterface $form, T_Formation_Universite $formation = null) {
-            $nometablissement = null === $formation ? array() : $formation->getUniversite();
-
-            $form->add('nometablissement', EntityType::class, array(
-                'class'       => 'ESFEspaceAbonneBundle:T_Universite',
-                'placeholder' => 'Sélectionner un élément dans la liste des établissement',
-                'choices'     => $nometablissement,
-                ));  
-
-        };
-
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) use ($formModifierUniversite) {
-                $data = $event->getData();                
-                if($data === null || !method_exists($data, 'getUniversite')) {
-                    $formModifierUniversite($event->getForm(), null);
-                } else {
-                    $formModifierUniversite($event->getForm(), $data->getUniversite());
-                }
-            });
-
-        $builder->get('formation')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) use ($formModifierUniversite) {
-                $formation = $event->getForm()->getData();
-                $formModifierUniversite($event->getForm()->getParent(), $formation);
-            });    
     }
 
     /**
@@ -142,3 +83,66 @@ class InscriptionUniversiteType extends AbstractType
         return 'esf_espaceabonnebundle_t_universite';
     }
 }
+
+
+
+/*
+   $builder->get('formation')->addModelTransformer(new FormationToNumberTransformer($this->transformer));
+
+   $formModifier = function (FormInterface $form, T_Langue_Universite $langue = null) {
+    $formation = null === $langue ? array() : $langue->getFormation();
+
+    $form->add('formation', EntityType::class, array(
+        'class'       => 'ESFEspaceAbonneBundle:T_Formation_Universite',
+        'placeholder' => 'Sélectionnez une formations',
+        'choices'     => $formation,
+        ));        
+};
+
+$builder->addEventListener(
+    FormEvents::PRE_SET_DATA,
+    function (FormEvent $event) use ($formModifier) {
+        $data = $event->getData();
+        if($data === null || !method_exists($data, 'getFormation')) {
+            $formModifier($event->getForm(), null);
+        } else {
+            $formModifier($event->getForm(), $data->getFormation());
+        }
+    });
+
+$builder->get('langue')->addEventListener(
+    FormEvents::POST_SUBMIT,
+    function (FormEvent $event) use ($formModifier) {
+        $langue = $event->getForm()->getData();
+        $formModifier($event->getForm()->getParent(), $langue);
+    });
+
+$formModifierUniversite = function (FormInterface $form, T_Formation_Universite $formation = null) {
+    $nometablissement = null === $formation ? array() : $formation->getUniversite(1);
+
+    $form->add('nometablissement', EntityType::class, array(
+        'class'       => 'ESFEspaceAbonneBundle:T_Universite',
+        'placeholder' => 'Sélectionnez un établissement',
+        'choices'     => $nometablissement,
+        ));  
+
+};
+
+$builder->addEventListener(
+    FormEvents::PRE_SET_DATA,
+    function (FormEvent $event) use ($formModifierUniversite) {
+        $data = $event->getData();                
+        if($data === null || !method_exists($data, 'getUniversite')) {
+            $formModifierUniversite($event->getForm(), null);
+        } else {
+            $formModifierUniversite($event->getForm(), $data->getUniversite());
+        }
+    });
+
+$builder->get('formation')->addEventListener(
+    FormEvents::POST_SUBMIT,
+    function (FormEvent $event) use ($formModifierUniversite) {
+        $formation = $event->getForm()->getData();
+        $formModifierUniversite($event->getForm()->getParent(), $formation);
+    });   
+*/

@@ -39,7 +39,7 @@ class InscriptionLangueType extends AbstractType
             },
             'choice_label' => 'langue',
             'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des langues',
+            'placeholder' => 'Sélectionnez une langue',
             'empty_data'  => null,
             ))
 
@@ -52,7 +52,7 @@ class InscriptionLangueType extends AbstractType
             },
             'choice_label' => 'pays',
             'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des pays',
+            'placeholder' => 'Sélectionnez un pays',
             'empty_data'  => null,
             ))
 
@@ -65,7 +65,7 @@ class InscriptionLangueType extends AbstractType
             },
             'choice_label' => 'raisonsocial',
             'required'    => true,
-            'placeholder' => 'Sélectionner un élément dans la liste des partenaire',
+            'placeholder' => 'Sélectionnez un partenaire',
             'empty_data'  => null,
             ))
 
@@ -77,7 +77,29 @@ class InscriptionLangueType extends AbstractType
             'attr' => array('class' => 'btn btn-danger'),
             ));
 
-        $formModifier = function (FormInterface $form, EA_Langue $langue = null) {
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+           'error_bubbling' => true
+           ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'esf_espaceabonnebundle_t_universite';
+    }
+}
+/*
+ $formModifier = function (FormInterface $form, EA_Langue $langue = null) {
             $raisonsocial = null === $langue ? array() : $langue->getMorale();
 
             $form->add('raisonsocial', EntityType::class, array(
@@ -104,23 +126,4 @@ class InscriptionLangueType extends AbstractType
                 $langue = $event->getForm()->getData();
                 $formModifier($event->getForm()->getParent(), $langue);
             });
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-             'error_bubbling' => true
-            ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'esf_espaceabonnebundle_t_universite';
-    }
-}
+*/

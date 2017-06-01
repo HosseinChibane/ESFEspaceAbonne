@@ -31,58 +31,82 @@
 
 <div class="row">
     <div class="col-md-12">
-
         <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">x</button>
             <strong>Information !</strong> En cas de plusieurs "bulletins de notes" ou de "lettres de recommandation", merci de les réunir en un seul fichier PDF.
         </div>         
     </div>
 
-    <div class="col-md-6">             
-        <div class="form-group">
-            {{ form_row(form.physique.documents) }}
-            {#{{ form_label(form.physique.documents.PasseportName, 'Passeport') }}
-            {{ form_widget(form.physique.documents.PasseportName) }}
-            {{ form_widget(form.physique.documents.PasseportFile) }}
-
-            {{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}
-            {{ form_widget(form.physique.documents.CarteIdentiteName) }}
-            {{ form_widget(form.physique.documents.CarteIdentiteFile) }}
-
-            {{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}
-            {{ form_widget(form.physique.documents.BacName) }}
-            {{ form_widget(form.physique.documents.BacFile) }}
-
-            {{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}
-            {{ form_widget(form.physique.documents.CredentialName) }}
-            {{ form_widget(form.physique.documents.CredentialFile) }}#}
-        </div>
-    </div>
-    <div class="col-md-6">          
-        <div class="form-group">
-            {#{{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}
-            {{ form_widget(form.physique.documents.BulletinNoteName) }}                
-            {{ form_widget(form.physique.documents.BulletinNoteFile) }}
-
-            {{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}
-            {{ form_widget(form.physique.documents.LettreRecommendationName) }}
-            {{ form_widget(form.physique.documents.LettreRecommendationFile) }} 
-
-            {{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}
-            {{ form_widget(form.physique.documents.LettreMotivationName) }}
-            {{ form_widget(form.physique.documents.LettreMotivationFile) }}  #}
-        </div>
-    </div>
+    <table id="demandeInsciption" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Nature</th>
+                <th>Nom</th>
+                <th>Envoyer</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if form.physique.documents is defined %}
+                <tr>
+                    <td>1</td>
+                    <td>{{ form_label(form.physique.documents.PasseportName, 'Passeport') }}</td>
+                    <td>{{ form_widget(form.physique.documents.PasseportName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.PasseportFile) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadPasseport, { 'label': 'Envoyer' }) }}
+                        {#<a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(form.physique.documents, 'PasseportFile') }}" alt="{{ form.physique.documents.PasseportName }}"  target="_blank">Télécharger</a>#}
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}</td>
+                    <td>{{ form_widget(form.physique.documents.CarteIdentiteName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.CarteIdentiteFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadCarteId, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>{{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}</td>
+                    <td>{{ form_widget(form.physique.documents.BacName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.BacFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadBac, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>{{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}</td>
+                    <td>{{ form_widget(form.physique.documents.CredentialName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.CredentialFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadCredential, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>{{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}</td>
+                    <td>{{ form_widget(form.physique.documents.BulletinNoteName) }}</td>                
+                    <td>{{ form_widget(form.physique.documents.BulletinNoteFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadBulletinNote, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>6</td>                    
+                    <td>{{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreRecommendationName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreRecommendationFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadLettreRecommendation, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>{{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreMotivationName) }}</td>
+                    <td>{{ form_widget(form.physique.documents.LettreMotivationFile) }}</td>
+                    <td>{{ form_widget(form.physique.documents.uploadLettreMotivation, { 'label': 'Envoyer' }) }}</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
 
     {# Token CSRF #}
     {{ form_widget(form._token) }}
-
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                {#{{ form_widget(form.physique.documents.upload) }}#}
-            </div>
-        </div>
-    </div>
     {{ form_end(form, {'render_rest': false} ) }}
 
 </div>

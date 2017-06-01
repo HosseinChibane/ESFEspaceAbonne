@@ -21,7 +21,8 @@ class EA_DocumentType extends AbstractType
         ->add('PasseportName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'passeport'))
+
         ->add('PasseportFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -32,7 +33,8 @@ class EA_DocumentType extends AbstractType
         ->add('CarteIdentiteName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'carte_identite'))
+
         ->add('CarteIdentiteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -43,7 +45,8 @@ class EA_DocumentType extends AbstractType
         ->add('BulletinNoteName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'bulletin_de_note'))
+
         ->add('BulletinNoteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -54,7 +57,8 @@ class EA_DocumentType extends AbstractType
         ->add('BacName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'baccalaureat'))
+
         ->add('BacFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -65,7 +69,8 @@ class EA_DocumentType extends AbstractType
         ->add('CredentialName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'credential'))
+
         ->add('CredentialFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -76,7 +81,8 @@ class EA_DocumentType extends AbstractType
         ->add('LettreRecommendationName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'lettre_de_recommandation'))
+
         ->add('LettreRecommendationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -87,7 +93,8 @@ class EA_DocumentType extends AbstractType
         ->add('LettreMotivationName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => null))
+            'empty_data'  => 'lettre_de_motivation'))
+        
         ->add('LettreMotivationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
@@ -97,6 +104,27 @@ class EA_DocumentType extends AbstractType
 
         ->add('updatedAt')
 
+        ->add('uploadPasseport', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadCarteId', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadBulletinNote', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadBac', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadCredential', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadLettreRecommendation', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
+        ->add('uploadLettreMotivation', SubmitType::class, array(
+            'attr' => array('class' => 'btn btn-primary'),
+            ))
         ->add('upload', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
             ))

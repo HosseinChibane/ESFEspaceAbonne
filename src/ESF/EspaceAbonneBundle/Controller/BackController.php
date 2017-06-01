@@ -2,47 +2,53 @@
 
 namespace ESF\EspaceAbonneBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use ESF\EspaceAbonneBundle\Entity\EA_FAQ;
+
+#FORM 
 use ESF\EspaceAbonneBundle\Form\ContactType;
 use ESF\EspaceAbonneBundle\Form\InscriptionType;
-use ESF\EspaceAbonneBundle\Entity\EA_Personne;
-use ESF\EspaceAbonneBundle\Form\EA_PersonneType;
-use ESF\EspaceAbonneBundle\Entity\EA_Physique;
 use ESF\EspaceAbonneBundle\Form\EA_PhysiqueType;
-use ESF\EspaceAbonneBundle\Entity\EA_Morale;
 use ESF\EspaceAbonneBundle\Form\EA_MoraleType;
-use ESF\EspaceAbonneBundle\Entity\EA_Langue;
 use ESF\EspaceAbonneBundle\Form\EA_LangueType;
-use ESF\EspaceAbonneBundle\Entity\User;
 use ESF\EspaceAbonneBundle\Form\UserType;
-use ESF\EspaceAbonneBundle\Entity\EA_Image;
 use ESF\EspaceAbonneBundle\Form\EA_ImageType;
-use ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription;
 use ESF\EspaceAbonneBundle\Form\EA_Demande_InscriptionType;
-use ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription;
 use ESF\EspaceAbonneBundle\Form\EA_Document_InscriptionType;
-use ESF\EspaceAbonneBundle\Entity\EA_Document;
 use ESF\EspaceAbonneBundle\Form\EA_DocumentType;
+use ESF\EspaceAbonneBundle\Form\T_UniversiteType;
+use ESF\EspaceAbonneBundle\Form\T_Formation_UniversiteType;
+use ESF\EspaceAbonneBundle\Form\T_Langue_UniversiteType;
+use ESF\EspaceAbonneBundle\Form\T_Document_UniversiteType;
 
-#Inscription 
+#FORM Inscription 
 use ESF\EspaceAbonneBundle\Form\InscriptionUniversiteType;
 use ESF\EspaceAbonneBundle\Form\InscriptionLangueType;
 
+#ENTITY
+use ESF\EspaceAbonneBundle\Entity\EA_FAQ;
+use ESF\EspaceAbonneBundle\Entity\EA_Physique;
+use ESF\EspaceAbonneBundle\Entity\EA_Morale;
+use ESF\EspaceAbonneBundle\Entity\EA_Langue;
+use ESF\EspaceAbonneBundle\Entity\User;
+use ESF\EspaceAbonneBundle\Entity\EA_Image;
+use ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription;
+use ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription;
+use ESF\EspaceAbonneBundle\Entity\EA_Document;
 use ESF\EspaceAbonneBundle\Entity\T_Universite;
-use ESF\EspaceAbonneBundle\Form\T_UniversiteType;
 use ESF\EspaceAbonneBundle\Entity\T_Formation_Universite;
-use ESF\EspaceAbonneBundle\Form\T_Formation_UniversiteType;
 use ESF\EspaceAbonneBundle\Entity\T_Langue_Universite;
-use ESF\EspaceAbonneBundle\Form\T_Langue_UniversiteType;
 use ESF\EspaceAbonneBundle\Entity\T_Document_Universite;
-use ESF\EspaceAbonneBundle\Form\T_Document_UniversiteType;
 
+#SYMFONY
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
+#FOSUserBundle
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -50,17 +56,17 @@ use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class BackController extends Controller
 {
+	/*
+	* Permet de rediriger l'utilisateur sur son Profil après authentification.
+	*/
 	public function indexAction()
 	{
 		try {
 			if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
 				throw new AccessDeniedException('This user does not have access to this section.');
-//return $this->redirectToRoute('fos_user_security_login');
 			}
 			else {
 				return $this->redirectToRoute('esf_espace_abonne_monProfil');
@@ -71,7 +77,9 @@ class BackController extends Controller
 		}
 	}
 
-
+	/*
+	* Permet d'afficher et d'éditer le Profil de l'utilisateur authentifié.
+	*/
 	public function monprofilAction(Request $request)
 	{ 
 		try {
@@ -109,6 +117,9 @@ class BackController extends Controller
 		}    
 	}
 
+	/*
+	* Permet d'afficher et d'éditer le mot de passe de l'utilisateur authentifié.
+	*/
 	public function mesparametresMDPAction(Request $request)
 	{    
 		try {
@@ -163,6 +174,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher et d'éditer l'adresse email de l'utilisateur authentifié.
+	*/
 	public function mesparametresMAILAction(Request $request)
 	{    
 		try {
@@ -219,6 +233,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher et d'éditer les documents personnel lié à l'utilisateur authentifié.
+	*/
 	public function mesdocumentsAction(Request $request)
 	{    
 		try {
@@ -235,7 +252,6 @@ class BackController extends Controller
 				if ($form->isSubmitted() && $form->isValid()) {
 
 					$user = $form->getData();
-					//dump($user);exit();
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($user);
 					$em->flush();
@@ -254,6 +270,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher les demandes d'inscription lié à l'utilisateur authentifié.
+	*/
 	public function mesdemandesAction()
 	{    
 		try {
@@ -278,6 +297,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher le détails de la demande d'inscription lié à l'utilisateur authentifié.
+	*/
 	public function detailsdemandesAction(EA_Demande_Inscription $eA_Demande_Inscription)
 	{    
 		try {
@@ -295,6 +317,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'éditer la demande d'inscription lié à l'utilisateur authentifié.
+	*/
 	public function modifierdemandesAction(Request $request, EA_Demande_Inscription $eA_Demande_Inscription)
 	{    
 		try {
@@ -342,6 +367,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher une aide contextuel à l'utilisateur authentifié.
+	*/
 	public function aideAction()
 	{    
 		try {
@@ -362,6 +390,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet l'envoi de mail vers le support à l'utilisateur authentifié.
+	*/
 	public function contactAction(Request $request)
 	{
 		try {
@@ -396,6 +427,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet la création d'une demande d'inscription à l'universite à l'utilisateur authentifié.
+	*/
 	public function universiteOneAction(Request $request)
 	{    
 		try {
@@ -409,7 +443,30 @@ class BackController extends Controller
 				$form = $this->createform(InscriptionUniversiteType::class);
 				$form->handleRequest($request);
 
-				if ($form->isSubmitted() && $form->isValid()) {
+				if ($request->isXmlHttpRequest()) {
+
+					if ($request->get('langue') !== null) {
+
+						$idLangue = $request->get('langue');
+
+						if (isset($idLangue)) {
+
+							$data = $this
+							->getDoctrine()
+							->getManager()
+							->getRepository('ESFEspaceAbonneBundle:T_Formation_Universite')
+							->findOneById($idLangue);
+
+							return new JsonResponse($data);
+						}
+
+
+					}elseif ($request->get('formation') !== null) {
+						$formations = $request->get('formation');
+					}
+					
+					
+				} elseif ($form->isSubmitted() && $form->isValid()) {
 					if ($form->get('langue')->getData() !== null && $form->get('formation')->getData() !== null && $form->get('nometablissement')->getData() !== null) {
 
 						$formation = $form->get('formation')->getData()->getFormation();
@@ -508,6 +565,10 @@ class BackController extends Controller
 	}
 
 
+
+	/*
+	* Permet la création d'une demande d'inscription à un cours de langue à l'utilisateur authentifié.
+	*/
 	public function langueOneAction(Request $request)
 	{    
 		try {
@@ -599,6 +660,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet la création d'une demande d'inscription à logement universite ou partenaire à l'utilisateur authentifié.
+	*/
 	public function logementOneAction(Request $request)
 	{    
 		try {
@@ -685,6 +749,9 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet la création d'une demande d'inscription à un cours de préparation à l'utilisateur authentifié.
+	*/
 	public function preparationOneAction(Request $request)
 	{    
 		try {
@@ -771,6 +838,10 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet d'afficher un lien de redirection vers l'inscription d'une mutuelle étudiante,
+	* avec un code de promotion à l'utilisateur authentifié.
+	*/
 	public function mutuelleAction()
 	{    
 		try {
@@ -791,6 +862,10 @@ class BackController extends Controller
 		}
 	}
 
+	/*
+	* Permet l'envoi de mail.
+	* tableau de données : sujet, email utilisateur, message.
+	*/
 	private function sendEmail($data){
 
 		$message = \Swift_Message::newInstance()
