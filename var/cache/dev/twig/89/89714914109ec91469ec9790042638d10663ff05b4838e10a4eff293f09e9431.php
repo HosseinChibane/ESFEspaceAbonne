@@ -23,29 +23,29 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f15da6a51f23aa0b38d4bfd80e5a0e7ea9f80eca3d6f4ea2f7613f79b43f2031 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_f15da6a51f23aa0b38d4bfd80e5a0e7ea9f80eca3d6f4ea2f7613f79b43f2031->enter($__internal_f15da6a51f23aa0b38d4bfd80e5a0e7ea9f80eca3d6f4ea2f7613f79b43f2031_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/universiteOne.html.twig"));
+        $__internal_afa4b2a4a5296a4da44fcc3f22c9436bb069c4e576f84103e288c3baa252d2ad = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_afa4b2a4a5296a4da44fcc3f22c9436bb069c4e576f84103e288c3baa252d2ad->enter($__internal_afa4b2a4a5296a4da44fcc3f22c9436bb069c4e576f84103e288c3baa252d2ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/universiteOne.html.twig"));
 
-        $__internal_3e92413dda32b184dac96c2e31cb2b445072784dc69ed47846576caea42930dd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3e92413dda32b184dac96c2e31cb2b445072784dc69ed47846576caea42930dd->enter($__internal_3e92413dda32b184dac96c2e31cb2b445072784dc69ed47846576caea42930dd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/universiteOne.html.twig"));
+        $__internal_578555b5520080e3e01a7bcd8d3edf2396a40b92c720718fdfffdd79b16ffff7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_578555b5520080e3e01a7bcd8d3edf2396a40b92c720718fdfffdd79b16ffff7->enter($__internal_578555b5520080e3e01a7bcd8d3edf2396a40b92c720718fdfffdd79b16ffff7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@ESFEspaceAbonne/back/universiteOne.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f15da6a51f23aa0b38d4bfd80e5a0e7ea9f80eca3d6f4ea2f7613f79b43f2031->leave($__internal_f15da6a51f23aa0b38d4bfd80e5a0e7ea9f80eca3d6f4ea2f7613f79b43f2031_prof);
+        $__internal_afa4b2a4a5296a4da44fcc3f22c9436bb069c4e576f84103e288c3baa252d2ad->leave($__internal_afa4b2a4a5296a4da44fcc3f22c9436bb069c4e576f84103e288c3baa252d2ad_prof);
 
         
-        $__internal_3e92413dda32b184dac96c2e31cb2b445072784dc69ed47846576caea42930dd->leave($__internal_3e92413dda32b184dac96c2e31cb2b445072784dc69ed47846576caea42930dd_prof);
+        $__internal_578555b5520080e3e01a7bcd8d3edf2396a40b92c720718fdfffdd79b16ffff7->leave($__internal_578555b5520080e3e01a7bcd8d3edf2396a40b92c720718fdfffdd79b16ffff7_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_4c620c6ecdc5c2c206b08f29e06059f11adad7df4cfe27fe00a99b9abd183919 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_4c620c6ecdc5c2c206b08f29e06059f11adad7df4cfe27fe00a99b9abd183919->enter($__internal_4c620c6ecdc5c2c206b08f29e06059f11adad7df4cfe27fe00a99b9abd183919_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_2d11438e623e3889a3048e2afb4d826be15ed0f78e1ce482f83f48164a0a0764 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2d11438e623e3889a3048e2afb4d826be15ed0f78e1ce482f83f48164a0a0764->enter($__internal_2d11438e623e3889a3048e2afb4d826be15ed0f78e1ce482f83f48164a0a0764_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_e44a645534aa81077d1afe601ba7b5a4a80230691e8ad7d0773238f9e706f405 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e44a645534aa81077d1afe601ba7b5a4a80230691e8ad7d0773238f9e706f405->enter($__internal_e44a645534aa81077d1afe601ba7b5a4a80230691e8ad7d0773238f9e706f405_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_4e5b9d434e9d146abd56399f791542e63a2f2393852d5665106b2aa8523104a8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4e5b9d434e9d146abd56399f791542e63a2f2393852d5665106b2aa8523104a8->enter($__internal_4e5b9d434e9d146abd56399f791542e63a2f2393852d5665106b2aa8523104a8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 4
         echo "    Inscription Université - ";
@@ -53,21 +53,21 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         echo "
 ";
         
-        $__internal_e44a645534aa81077d1afe601ba7b5a4a80230691e8ad7d0773238f9e706f405->leave($__internal_e44a645534aa81077d1afe601ba7b5a4a80230691e8ad7d0773238f9e706f405_prof);
+        $__internal_4e5b9d434e9d146abd56399f791542e63a2f2393852d5665106b2aa8523104a8->leave($__internal_4e5b9d434e9d146abd56399f791542e63a2f2393852d5665106b2aa8523104a8_prof);
 
         
-        $__internal_4c620c6ecdc5c2c206b08f29e06059f11adad7df4cfe27fe00a99b9abd183919->leave($__internal_4c620c6ecdc5c2c206b08f29e06059f11adad7df4cfe27fe00a99b9abd183919_prof);
+        $__internal_2d11438e623e3889a3048e2afb4d826be15ed0f78e1ce482f83f48164a0a0764->leave($__internal_2d11438e623e3889a3048e2afb4d826be15ed0f78e1ce482f83f48164a0a0764_prof);
 
     }
 
     // line 7
     public function block_breadcrumb($context, array $blocks = array())
     {
-        $__internal_dde6060f2233567aa57b7153645c337e1b8e058b7f864f85bd13b0172437da9d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_dde6060f2233567aa57b7153645c337e1b8e058b7f864f85bd13b0172437da9d->enter($__internal_dde6060f2233567aa57b7153645c337e1b8e058b7f864f85bd13b0172437da9d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_5680140cd4b24148c75e179d5441860ca25f352f0c386f5601a63707e3a8f438 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5680140cd4b24148c75e179d5441860ca25f352f0c386f5601a63707e3a8f438->enter($__internal_5680140cd4b24148c75e179d5441860ca25f352f0c386f5601a63707e3a8f438_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
-        $__internal_5c4829f46533415c7fab80a403002a9b7b69470ebf00ad2189d3e9abfd1d6a31 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5c4829f46533415c7fab80a403002a9b7b69470ebf00ad2189d3e9abfd1d6a31->enter($__internal_5c4829f46533415c7fab80a403002a9b7b69470ebf00ad2189d3e9abfd1d6a31_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
+        $__internal_3b2fd041db2fb3c42858b3e223b6779a7791626e652d632900a42810b3ac8361 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3b2fd041db2fb3c42858b3e223b6779a7791626e652d632900a42810b3ac8361->enter($__internal_3b2fd041db2fb3c42858b3e223b6779a7791626e652d632900a42810b3ac8361_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "breadcrumb"));
 
         // line 8
         echo "    <ol class=\"breadcrumb\">
@@ -79,21 +79,21 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
     </ol>
 ";
         
-        $__internal_5c4829f46533415c7fab80a403002a9b7b69470ebf00ad2189d3e9abfd1d6a31->leave($__internal_5c4829f46533415c7fab80a403002a9b7b69470ebf00ad2189d3e9abfd1d6a31_prof);
+        $__internal_3b2fd041db2fb3c42858b3e223b6779a7791626e652d632900a42810b3ac8361->leave($__internal_3b2fd041db2fb3c42858b3e223b6779a7791626e652d632900a42810b3ac8361_prof);
 
         
-        $__internal_dde6060f2233567aa57b7153645c337e1b8e058b7f864f85bd13b0172437da9d->leave($__internal_dde6060f2233567aa57b7153645c337e1b8e058b7f864f85bd13b0172437da9d_prof);
+        $__internal_5680140cd4b24148c75e179d5441860ca25f352f0c386f5601a63707e3a8f438->leave($__internal_5680140cd4b24148c75e179d5441860ca25f352f0c386f5601a63707e3a8f438_prof);
 
     }
 
     // line 14
     public function block_Content($context, array $blocks = array())
     {
-        $__internal_0bc38fd917ebd382126a793b507dc5ec6751a214c4eb18c69b845583661d1e32 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0bc38fd917ebd382126a793b507dc5ec6751a214c4eb18c69b845583661d1e32->enter($__internal_0bc38fd917ebd382126a793b507dc5ec6751a214c4eb18c69b845583661d1e32_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_7c2c73227574fb2bee40d2d244534443bb922d75256134268d3ade1fe172b796 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7c2c73227574fb2bee40d2d244534443bb922d75256134268d3ade1fe172b796->enter($__internal_7c2c73227574fb2bee40d2d244534443bb922d75256134268d3ade1fe172b796_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
-        $__internal_b3e49a936904b524e854646c844e0dcf27f4e16930d9e04e951aa6ea69ed3f6c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b3e49a936904b524e854646c844e0dcf27f4e16930d9e04e951aa6ea69ed3f6c->enter($__internal_b3e49a936904b524e854646c844e0dcf27f4e16930d9e04e951aa6ea69ed3f6c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
+        $__internal_3ca994d3eee52476133bab0997e30a045e1e0f21421e734e9a1ce255e2962e0d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3ca994d3eee52476133bab0997e30a045e1e0f21421e734e9a1ce255e2962e0d->enter($__internal_3ca994d3eee52476133bab0997e30a045e1e0f21421e734e9a1ce255e2962e0d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "Content"));
 
         echo " 
     <div class=\"row\">
@@ -125,7 +125,7 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         echo "
                 ";
         // line 28
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "langue", array()), 'errors', array("attr" => array("class" => "paysclass span3")));
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "langue", array()), 'errors');
         echo "
                 ";
         // line 29
@@ -138,7 +138,7 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         echo "
                 ";
         // line 32
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "formation", array()), 'errors', array("attr" => array("class" => "regionclass span3")));
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "formation", array()), 'errors');
         echo "
                 ";
         // line 33
@@ -151,7 +151,7 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         echo "
                 ";
         // line 36
-        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nometablissement", array()), 'errors', array("attr" => array("class" => "villeclass span3")));
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nometablissement", array()), 'errors');
         echo "
                 ";
         // line 37
@@ -186,56 +186,47 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         </div>
     </div>
 
-<script>
-        var \$langue = \$('#esf_espaceabonnebundle_t_universite_langue');
-
-        \$langue.change(function() {
-
+    <script>
+        \$('#esf_espaceabonnebundle_t_universite_langue').change(function() {
             var \$form = \$(this).closest('form');
             var data = {};
-            data[\$langue.attr('name')] = \$langue.val();
+            data[\$('#esf_espaceabonnebundle_t_universite_langue').attr('name')] = \$('#esf_espaceabonnebundle_t_universite_langue').val();
 
             \$.ajax({
                 beforeSend: function(){
                     \$(\"#esf_espaceabonnebundle_t_universite_formation\").html('<option value=\"\" selected=\"selected\">Chargement en cours...</option>');
                 },
-                url : \"";
-        // line 68
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_universiteAjax");
-        echo "\" // \$form.attr('action'),
+                url : \$form.attr('action'),
                 type: \$form.attr('method'),
                 data : data,
-                success: function(html) {
-                    \$('#esf_espaceabonnebundle_t_universite_formation').replaceWith(
-                        \$(html).find('#esf_espaceabonnebundle_t_universite_formation')
-                        );
-                    selectFormation();
-                },
-                error: function(e) {
-                    alert('Exeption: ' + e);
-                    console.log(JSON.stringify(data));
-                }
-            });
+                success: function(json) {
+                  \$('#esf_espaceabonnebundle_t_universite_formation').html('');
+                  \$.each(json, function(index, value) {
+                     \$('#esf_espaceabonnebundle_t_universite_formation').append('<option value=\"'+ value.id +'\">'+ value.nom +'</option>');
+                 });
+                  selectFormation();
+              },
+              error: function(e) {
+                alert('Exeption: ' + e);
+                console.log(JSON.stringify(data));
+            }
+        });
         });
 
         function selectFormation(){
-         var \$formation = \$('#esf_espaceabonnebundle_t_universite_formation');
-
-         \$formation.change(function() {
+         \$('#esf_espaceabonnebundle_t_universite_formation').change(function() {
             var \$form = \$(this).closest('form');
             var data = {};
-            data[\$formation.attr('name')] = \$formation.val();
+            data[\$('#esf_espaceabonnebundle_t_universite_formation').attr('name')] =  \$('#esf_espaceabonnebundle_t_universite_formation').val();
             \$.ajax({
                 beforeSend: function(){
                     \$(\"#esf_espaceabonnebundle_t_universite_nometablissement\").html('<option value=\"\" selected=\"selected\">Chargement en cours...</option>');
                 },
-                url : \"";
-        // line 95
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("esf_espace_abonne_universiteAjax");
-        echo "\" //  \$form.attr('action'),
+                url : \$form.attr('action'),
                 type: \$form.attr('method'),
                 data : data,
                 success: function(html) {
+                    console.log(JSON.stringify(data));
                     \$('#esf_espaceabonnebundle_t_universite_nometablissement').replaceWith(
                         \$(html).find('#esf_espaceabonnebundle_t_universite_nometablissement')
                         );
@@ -250,10 +241,10 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
  </script>
 ";
         
-        $__internal_b3e49a936904b524e854646c844e0dcf27f4e16930d9e04e951aa6ea69ed3f6c->leave($__internal_b3e49a936904b524e854646c844e0dcf27f4e16930d9e04e951aa6ea69ed3f6c_prof);
+        $__internal_3ca994d3eee52476133bab0997e30a045e1e0f21421e734e9a1ce255e2962e0d->leave($__internal_3ca994d3eee52476133bab0997e30a045e1e0f21421e734e9a1ce255e2962e0d_prof);
 
         
-        $__internal_0bc38fd917ebd382126a793b507dc5ec6751a214c4eb18c69b845583661d1e32->leave($__internal_0bc38fd917ebd382126a793b507dc5ec6751a214c4eb18c69b845583661d1e32_prof);
+        $__internal_7c2c73227574fb2bee40d2d244534443bb922d75256134268d3ade1fe172b796->leave($__internal_7c2c73227574fb2bee40d2d244534443bb922d75256134268d3ade1fe172b796_prof);
 
     }
 
@@ -269,7 +260,7 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
 
     public function getDebugInfo()
     {
-        return array (  234 => 95,  204 => 68,  183 => 51,  178 => 49,  171 => 44,  167 => 43,  158 => 37,  154 => 36,  150 => 35,  145 => 33,  141 => 32,  137 => 31,  132 => 29,  128 => 28,  124 => 27,  120 => 25,  114 => 22,  111 => 21,  109 => 20,  105 => 19,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  183 => 51,  178 => 49,  171 => 44,  167 => 43,  158 => 37,  154 => 36,  150 => 35,  145 => 33,  141 => 32,  137 => 31,  132 => 29,  128 => 28,  124 => 27,  120 => 25,  114 => 22,  111 => 21,  109 => 20,  105 => 19,  90 => 14,  76 => 9,  73 => 8,  64 => 7,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -309,15 +300,15 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
             <div class=\"form-group\">
 
                 {{ form_label(form.langue, 'Langue') }}
-                {{ form_errors(form.langue, {'attr' : {'class' : 'paysclass span3'}}) }}
+                {{ form_errors(form.langue) }}
                 {{ form_widget(form.langue) }}
 
                 {{ form_label(form.formation, 'Formation') }}
-                {{ form_errors(form.formation, {'attr' : {'class' : 'regionclass span3'}}) }}
+                {{ form_errors(form.formation) }}
                 {{ form_widget(form.formation) }}
 
                 {{ form_label(form.nometablissement, 'Université') }}
-                {{ form_errors(form.nometablissement, {'attr' : {'class' : 'villeclass span3'}}) }}
+                {{ form_errors(form.nometablissement) }}
                 {{ form_widget(form.nometablissement) }}
 
             </div>
@@ -336,50 +327,47 @@ class __TwigTemplate_4dac39091303b278e16a2afe9fa3f221f52b2032640f6e912a15e495b9f
         </div>
     </div>
 
-<script>
-        var \$langue = \$('#esf_espaceabonnebundle_t_universite_langue');
-
-        \$langue.change(function() {
-
+    <script>
+        \$('#esf_espaceabonnebundle_t_universite_langue').change(function() {
             var \$form = \$(this).closest('form');
             var data = {};
-            data[\$langue.attr('name')] = \$langue.val();
+            data[\$('#esf_espaceabonnebundle_t_universite_langue').attr('name')] = \$('#esf_espaceabonnebundle_t_universite_langue').val();
 
             \$.ajax({
                 beforeSend: function(){
                     \$(\"#esf_espaceabonnebundle_t_universite_formation\").html('<option value=\"\" selected=\"selected\">Chargement en cours...</option>');
                 },
-                url : \"{{ path('esf_espace_abonne_universiteAjax') }}\" // \$form.attr('action'),
+                url : \$form.attr('action'),
                 type: \$form.attr('method'),
                 data : data,
-                success: function(html) {
-                    \$('#esf_espaceabonnebundle_t_universite_formation').replaceWith(
-                        \$(html).find('#esf_espaceabonnebundle_t_universite_formation')
-                        );
-                    selectFormation();
-                },
-                error: function(e) {
-                    alert('Exeption: ' + e);
-                    console.log(JSON.stringify(data));
-                }
-            });
+                success: function(json) {
+                  \$('#esf_espaceabonnebundle_t_universite_formation').html('');
+                  \$.each(json, function(index, value) {
+                     \$('#esf_espaceabonnebundle_t_universite_formation').append('<option value=\"'+ value.id +'\">'+ value.nom +'</option>');
+                 });
+                  selectFormation();
+              },
+              error: function(e) {
+                alert('Exeption: ' + e);
+                console.log(JSON.stringify(data));
+            }
+        });
         });
 
         function selectFormation(){
-         var \$formation = \$('#esf_espaceabonnebundle_t_universite_formation');
-
-         \$formation.change(function() {
+         \$('#esf_espaceabonnebundle_t_universite_formation').change(function() {
             var \$form = \$(this).closest('form');
             var data = {};
-            data[\$formation.attr('name')] = \$formation.val();
+            data[\$('#esf_espaceabonnebundle_t_universite_formation').attr('name')] =  \$('#esf_espaceabonnebundle_t_universite_formation').val();
             \$.ajax({
                 beforeSend: function(){
                     \$(\"#esf_espaceabonnebundle_t_universite_nometablissement\").html('<option value=\"\" selected=\"selected\">Chargement en cours...</option>');
                 },
-                url : \"{{ path('esf_espace_abonne_universiteAjax') }}\" //  \$form.attr('action'),
+                url : \$form.attr('action'),
                 type: \$form.attr('method'),
                 data : data,
                 success: function(html) {
+                    console.log(JSON.stringify(data));
                     \$('#esf_espaceabonnebundle_t_universite_nometablissement').replaceWith(
                         \$(html).find('#esf_espaceabonnebundle_t_universite_nometablissement')
                         );

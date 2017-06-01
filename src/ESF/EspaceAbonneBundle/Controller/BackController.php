@@ -2,8 +2,6 @@
 
 namespace ESF\EspaceAbonneBundle\Controller;
 
-
-
 #FORM 
 use ESF\EspaceAbonneBundle\Form\ContactType;
 use ESF\EspaceAbonneBundle\Form\InscriptionType;
@@ -23,6 +21,8 @@ use ESF\EspaceAbonneBundle\Form\T_Document_UniversiteType;
 #FORM Inscription 
 use ESF\EspaceAbonneBundle\Form\InscriptionUniversiteType;
 use ESF\EspaceAbonneBundle\Form\InscriptionLangueType;
+use ESF\EspaceAbonneBundle\Form\InscriptionLogementType;
+use ESF\EspaceAbonneBundle\Form\InscriptionPrepaType;
 
 #ENTITY
 use ESF\EspaceAbonneBundle\Entity\EA_FAQ;
@@ -47,6 +47,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 #FOSUserBundle
 use FOS\UserBundle\Event\FilterUserResponseEvent;
@@ -427,6 +428,41 @@ class BackController extends Controller
 		}
 	}
 
+	/*public function universiteAjaxAction()
+	{
+		$request = $this->getRequest();
+		if ($request->isXmlHttpRequest()) {
+
+			if ($request->get('langue') !== null) {
+				$idLangue = $request->get('langue');
+
+				if (isset($idLangue)) {
+
+					$listFormation = $this
+					->getDoctrine()
+					->getManager()
+					->getRepository('ESFEspaceAbonneBundle:T_Formation_Universite')
+					->find($idLangue);
+
+					$data = array();
+					foreach ($listFormation->getFormation() as $formation) {
+						$data[] = array($formation->getId(), $formation->getFormation());
+					}
+
+					$response = new Response(json_encode($data));
+					$response->headers->set('Content-Type', 'application/json');
+
+					return $response;
+				}
+				return new Response("Erreur");
+
+			} elseif ($request->get('formation') !== null) {
+				$formations = $request->get('formation');
+			}
+
+		} 
+	}*/
+
 	/*
 	* Permet la création d'une demande d'inscription à l'universite à l'utilisateur authentifié.
 	*/
@@ -442,45 +478,21 @@ class BackController extends Controller
 
 				$form = $this->createform(InscriptionUniversiteType::class);
 				$form->handleRequest($request);
-
-				if ($request->isXmlHttpRequest()) {
-
-					if ($request->get('langue') !== null) {
-
-						$idLangue = $request->get('langue');
-
-						if (isset($idLangue)) {
-
-							$data = $this
-							->getDoctrine()
-							->getManager()
-							->getRepository('ESFEspaceAbonneBundle:T_Formation_Universite')
-							->findOneById($idLangue);
-
-							return new JsonResponse($data);
-						}
-
-
-					}elseif ($request->get('formation') !== null) {
-						$formations = $request->get('formation');
-					}
-					
-					
-				} elseif ($form->isSubmitted() && $form->isValid()) {
+				
+				if ($form->isSubmitted() && $form->isValid()) {
 					if ($form->get('langue')->getData() !== null && $form->get('formation')->getData() !== null && $form->get('nometablissement')->getData() !== null) {
 
 						$formation = $form->get('formation')->getData()->getFormation();
 						$langue = $form->get('langue')->getData()->getLangue();
 						$nomEtablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
-						
+
 						$eA_Demande_Inscription = new EA_Demande_Inscription();
-						$eA_Demande_Inscription->setPhysique($user->getPhysique());
-						$eA_Demande_Inscription->setType('Universite');
-						$eA_Demande_Inscription->setEtat('Creation');
 						$eA_Demande_Inscription->setEtablissement($nomEtablissement);
 						$eA_Demande_Inscription->setFormation($formation);
 						$eA_Demande_Inscription->setLangue($langue);
-
+						$eA_Demande_Inscription->setPhysique($user->getPhysique());
+						$eA_Demande_Inscription->setType('Universite');
+						$eA_Demande_Inscription->setEtat('Creation');
 						$em = $this->getDoctrine()->getManager();
 						$em->persist($eA_Demande_Inscription);
 						$em->flush();
@@ -533,11 +545,10 @@ class BackController extends Controller
 					$eA_Demande_Inscription->setLangue($langue);
 					$eA_Demande_Inscription->setPartenaire($partenaire);
 
-					$document = $form->getData();
 					$em = $this->getDoctrine()->getManager();
-					$em->persist($document);
+					$em->persist($eA_Demande_Inscription);
 					$em->flush();
-
+					
 					$user = $this->getUser();
 					$email = $user->getEmail();
 					$utilisateur = $user->getUserName();
@@ -554,7 +565,6 @@ class BackController extends Controller
 				}
 
 				return $this->render('ESFEspaceAbonneBundle:Back:universiteThree.html.twig', array(
-					'eA_Demande_Inscription' => $eA_Demande_Inscription,
 					'form' => $form->createView(),
 					));
 			}
@@ -563,8 +573,6 @@ class BackController extends Controller
 			return $this->render('ESFEspaceAbonneBundle:Back:monprofil.html.twig');
 		}
 	}
-
-
 
 	/*
 	* Permet la création d'une demande d'inscription à un cours de langue à l'utilisateur authentifié.
@@ -585,15 +593,15 @@ class BackController extends Controller
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					if ($form->get('langue')->getData()->getRaisonSocial() !== null && $form->get('pays')->getData()->getRaisonSocial() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
+					if ($form->get('langue')->getData()->getLangue() !== null && $form->get('pays')->getData()->getPays() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
 
-						$langue = $form->get('langue')->getData()->getRaisonSocial();
-						$pays = $form->get('pays')->getData()->getRaisonSocial();
+						$langue = $form->get('langue')->getData()->getLangue();
+						$pays = $form->get('pays')->getData()->getPays();
 						$raisonsocial = $form->get('raisonsocial')->getData()->getRaisonSocial();
-						
-						$raisonSocialId = $form->get('raisonsocial')->getData()->getId();
+						$id = $form->get('raisonsocial')->getData()->getId();
+
 						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
-						->getDocumentIncription($raisonSocialId);
+						->getDocumentIncription($id);
 
 						return $this->render('ESFEspaceAbonneBundle:Back:langueTwo.html.twig', array(
 							'form' => $form->createView(),
@@ -626,10 +634,11 @@ class BackController extends Controller
 
 					$user = $this->getUser();
 					$em = $this->getDoctrine()->getManager();
+
 					$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
 					$eA_Demande_Inscription->setPhysique($physique);
-					$eA_Demande_Inscription->setType('langue');
-					$eA_Demande_Inscription->setEtat('creation');
+					$eA_Demande_Inscription->setType('Cours de langue');
+					$eA_Demande_Inscription->setEtat('Creation');
 
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($eA_Demande_Inscription);
@@ -673,7 +682,7 @@ class BackController extends Controller
 				$user = $this->getUser();
 				$em = $this->getDoctrine()->getManager();
 
-				$form = $this->createform(InscriptionType::class);
+				$form = $this->createform(InscriptionLogementType::class);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
@@ -762,10 +771,11 @@ class BackController extends Controller
 				$user = $this->getUser();
 				$em = $this->getDoctrine()->getManager();
 
-				$form = $this->createform(InscriptionType::class);
+				$form = $this->createform(InscriptionPrepaType::class);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
+
 					$typePreparation = $form->get('typePreparation')->getData();
 					$universiteId = 1; //$form->get('typePreparation')->getData()->getId();
 
