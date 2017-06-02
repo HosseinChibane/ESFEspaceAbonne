@@ -602,10 +602,10 @@ class BackController extends Controller
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					if ($form->get('langue')->getData()->getLangue() !== null && $form->get('pays')->getData()->getPays() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
+					if ($form->get('langue')->getData()->getLangue() !== null && $form->get('lieu')->getData()->getLieu() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
 
 						$langue = $form->get('langue')->getData()->getLangue();
-						$pays = $form->get('pays')->getData()->getPays();
+						$pays = $form->get('lieu')->getData()->getLieu();
 						$raisonsocial = $form->get('raisonsocial')->getData()->getRaisonSocial();
 						$id = $form->get('raisonsocial')->getData()->getId();
 
@@ -695,18 +695,29 @@ class BackController extends Controller
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
-					if ($form->get('nometablissement')->getData()->getNomEtablissement() !== null) {
+					if ($form->get('nometablissement')->getData()->getNomEtablissement() !== null && $form->get('type')->getData() !== null) {
 
+						$type = $form->get('type')->getData();
 						$nometablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
 						$universiteId = $form->get('nometablissement')->getData()->getId();
 
-						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
-						->getDocumentIncription($universiteId);
+						if ($type == '0') {
+							$logement = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
+							->getDocumentIncription($universiteId);
+
+						} elseif ($type == '1') {
+							$universite = $em->getRepository('ESFEspaceAbonneBundle:T_Universite')
+							->findOneById($universiteId);
+							$logement = $universite->getPartenaires();
+						}
+
 
 						return $this->render('ESFEspaceAbonneBundle:Back:logementTwo.html.twig', array(
 							'form' => $form->createView(),
-							'document' => $document,
+							'logement' => $logement,
 							));	
+						
+						
 					}
 				}
 				return $this->render('ESFEspaceAbonneBundle:Back:logementOne.html.twig', array(

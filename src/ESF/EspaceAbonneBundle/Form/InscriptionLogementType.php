@@ -23,25 +23,19 @@ class InscriptionLogementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-
-        ->add('type', ChoiceType::class, array(
-            'choices' => array(
-                'Campus' => 'Campus',
-                'Partenaire' => 'Partenaire'
-                ),
-            'required'    => true,
-            'placeholder' => 'Choisir un type de logement',
-            'empty_data'  => null))
-
         ->add('nometablissement', EntityType::class, array(
             'class'       => 'ESFEspaceAbonneBundle:T_Universite',
             'placeholder' => 'Sélectionnez un établissement',
-            ))  
-
-        ->add('raisonsocial', EntityType::class, array(
-            'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
-            'placeholder' => 'Sélectionnez un établissement',
             ))
+
+        ->add('type', ChoiceType::class, array(
+            'choices' => array(
+                'Campus' => '0',
+                'Partenaire' => '1'
+                ),
+            'required'    => true,
+            'placeholder' => 'Sélectionnez un type de logement',
+            'empty_data'  => null))
 
         ->add('rechercher', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),

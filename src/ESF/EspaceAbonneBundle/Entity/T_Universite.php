@@ -15,27 +15,33 @@ class T_Universite
 
     /**
      * Une Université à plusieurs documents d'inscriptions.
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Universite", mappedBy="universite", cascade={"all"}, fetch="EAGER")
      */
     private $documents;
 
     /**
      * Plusieurs Université ont plusieurs Formations. 
-     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", mappedBy="universite", cascade={"all"})
+     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Formation_Universite", mappedBy="universite", cascade={"all"}, fetch="EAGER")
      */
     private $formations;
 
     /**
      * Une Université à plusieurs Images. 
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Image_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Image_Universite", mappedBy="universite", cascade={"all"}, fetch="EAGER")
      */
     private $images;
 
     /**
      * Une Université à une Adresse.
-     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Adresse_Universite", cascade={"all"})
+     * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Adresse_Universite", cascade={"all"}, fetch="EAGER")
      */
     private $adresse;
+
+    /**
+     * Plusieurs Université ont plusieurs Partenaires. 
+     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite", mappedBy="universite", cascade={"all"}, fetch="EAGER")
+     */
+    private $partenaires;
 
     /**
      * @var int
@@ -158,6 +164,7 @@ class T_Universite
         $this->image = new \Doctrine\Common\Collections\ArrayCollection();
         $this->formations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->documents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->partenaires = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -679,5 +686,39 @@ class T_Universite
     public function getDisponible()
     {
         return $this->disponible;
+    }
+
+    /**
+     * Add partenaire
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite $partenaire
+     *
+     * @return T_Universite
+     */
+    public function addPartenaire(\ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite $partenaire)
+    {
+        $this->partenaires[] = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove partenaire
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite $partenaire
+     */
+    public function removePartenaire(\ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite $partenaire)
+    {
+        $this->partenaires->removeElement($partenaire);
+    }
+
+    /**
+     * Get partenaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPartenaires()
+    {
+        return $this->partenaires;
     }
 }
