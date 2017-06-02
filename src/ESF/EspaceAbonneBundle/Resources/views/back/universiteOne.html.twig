@@ -52,60 +52,67 @@
         </div>
     </div>
 
-    
-{% endblock %}
-{#
-  <script>
-        $('#esf_espaceabonnebundle_t_universite_langue').change(function() {
+    <script>
+        var $langue = $('#esf_espaceabonnebundle_inscription_universite_langue');
+
+        $langue .change(function() {
+
             var $form = $(this).closest('form');
             var data = {};
-            data[$('#esf_espaceabonnebundle_t_universite_langue').attr('name')] = $('#esf_espaceabonnebundle_t_universite_langue').val();
+            data[$langue.attr('name')] = $langue.val();
 
             $.ajax({
                 beforeSend: function(){
-                    $("#esf_espaceabonnebundle_t_universite_formation").html('<option value="" selected="selected">Chargement en cours...</option>');
+                    $("#esf_espaceabonnebundle_inscription_universite_formation").html('<option value="" selected="selected">Chargement en cours...</option>');
                 },
-                url : "{{ path('esf_espace_abonne_universiteAjax')}}" //$form.attr('action'),
+                url : $form.attr('action'),
                 type: $form.attr('method'),
                 data : data,
-                dataType: 'json',
-                success: function(json) {
-                  $('#esf_espaceabonnebundle_t_universite_formation').html('');
-                  $.each(json, function(index, value) {
-                   $('#esf_espaceabonnebundle_t_universite_formation').append('<option value="'+ value.id +'">'+ value.formation +'</option>');
-               });
-                  selectFormation();
-              },
-              error: function(e) {
-                alert('Exeption: ' + e);
+                success: function(html) {
+                 $('#esf_espaceabonnebundle_inscription_universite_formation').replaceWith(
+                    $(html).find('#esf_espaceabonnebundle_inscription_universite_formation')
+                    );
+                 selectFormation();
+             },
+             error: function(e) {
+                alert('error : ' + e );
+                $("#esf_espaceabonnebundle_inscription_universite_formation").html('<option value="" selected="selected"> Nous avons rencontré un problème... </option>');
                 console.log(JSON.stringify(data));
             }
         });
         });
 
         function selectFormation(){
-           $('#esf_espaceabonnebundle_t_universite_formation').change(function() {
-            var $form = $(this).closest('form');
-            var data = {};
-            data[$('#esf_espaceabonnebundle_t_universite_formation').attr('name')] =  $('#esf_espaceabonnebundle_t_universite_formation').val();
-            $.ajax({
-                beforeSend: function(){
-                    $("#esf_espaceabonnebundle_t_universite_nometablissement").html('<option value="" selected="selected">Chargement en cours...</option>');
-                },
-                url : $form.attr('action'),
-                type: $form.attr('method'),
-                data : data,
-                success: function(html) {
-                    $('#esf_espaceabonnebundle_t_universite_nometablissement').replaceWith(
-                        $(html).find('#esf_espaceabonnebundle_t_universite_nometablissement')
-                        );
-                },
-                error: function(e) {
-                    alert('Exeption: ' + e);
-                    console.log(JSON.stringify(data));
-                }
+            var $formation = $('#esf_espaceabonnebundle_inscription_universite_formation');
+
+            $formation .change(function() {
+
+                var $form = $(this).closest('form');
+                var data = {};
+                data[$formation.attr('name')] = $formation.val();
+
+                $.ajax({
+                    beforeSend: function(){
+                        $("#esf_espaceabonnebundle_inscription_universite_nometablissement").html('<option value="" selected="selected">Chargement en cours...</option>');
+                    },
+                    url : $form.attr('action'),
+                    type: $form.attr('method'),
+                    data : data,
+                    success: function(html) {
+                        $('#esf_espaceabonnebundle_inscription_universite_nometablissement').replaceWith(
+                            $(html).find('#esf_espaceabonnebundle_inscription_universite_nometablissement')
+                            );
+                    },
+                    error: function(e) {
+                        alert('Exception: ' + e);
+                        $("#esf_espaceabonnebundle_inscription_universite_nometablissement").html('<option value="" selected="selected"> Nous avons rencontré un problème... </option>');
+                        console.log(JSON.stringify(data));
+                    }
+                });
             });
-        });
-       }
-   </script>
+        }
+    </script>
+{% endblock %}
+{#
+ 
 #}

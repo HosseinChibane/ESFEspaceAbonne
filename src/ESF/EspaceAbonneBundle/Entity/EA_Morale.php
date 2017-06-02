@@ -15,10 +15,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 class EA_Morale
 {
 
-     /**
-     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Langue", mappedBy="morale", cascade={"all"}, cascade={"remove"})
+    /**
+     * Plusieurs Partenaires ont plusieurs Formations. 
+     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale", mappedBy="morales", cascade={"all"})
      */
-     private $langues;
+    private $formations;
 
     /**
      * @var int
@@ -297,41 +298,7 @@ class EA_Morale
      */
     public function __construct()
     {
-        $this->langues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add langue
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Langue $langue
-     *
-     * @return EA_Morale
-     */
-    public function addLangue(\ESF\EspaceAbonneBundle\Entity\EA_Langue $langue)
-    {
-        $this->langues[] = $langue;
-
-        return $this;
-    }
-
-    /**
-     * Remove langue
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Langue $langue
-     */
-    public function removeLangue(\ESF\EspaceAbonneBundle\Entity\EA_Langue $langue)
-    {
-        $this->langues->removeElement($langue);
-    }
-
-    /**
-     * Get langues
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLangues()
-    {
-        return $this->langues;
     }
 
     /**
@@ -524,5 +491,39 @@ class EA_Morale
     public function getCourriel()
     {
         return $this->courriel;
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation
+     *
+     * @return EA_Morale
+     */
+    public function addFormation(\ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation)
+    {
+        $this->formations[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation
+     */
+    public function removeFormation(\ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation)
+    {
+        $this->formations->removeElement($formation);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormations()
+    {
+        return $this->formations;
     }
 }

@@ -14,6 +14,7 @@ class T_Universite
 {
 
     /**
+     * Une Université à plusieurs documents d'inscriptions.
      * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
      */
     private $documents;
@@ -25,11 +26,13 @@ class T_Universite
     private $formations;
 
     /**
+     * Une Université à plusieurs Images. 
      * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Image_Universite", mappedBy="universite", cascade={"all"}, cascade={"remove"})
      */
     private $images;
 
     /**
+     * Une Université à une Adresse.
      * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Adresse_Universite", cascade={"all"})
      */
     private $adresse;
@@ -134,6 +137,13 @@ class T_Universite
      * @ORM\Column(name="taille", type="integer")
      */
     private $taille;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="disponible", type="boolean", options={"default":true})
+     */
+    private $disponible;
 
     public function __toString()
     {
@@ -645,5 +655,29 @@ class T_Universite
     public function getTaille()
     {
         return $this->taille;
+    }
+
+    /**
+     * Set disponible
+     *
+     * @param boolean $disponible
+     *
+     * @return T_Universite
+     */
+    public function setDisponible($disponible)
+    {
+        $this->disponible = $disponible;
+
+        return $this;
+    }
+
+    /**
+     * Get disponible
+     *
+     * @return boolean
+     */
+    public function getDisponible()
+    {
+        return $this->disponible;
     }
 }

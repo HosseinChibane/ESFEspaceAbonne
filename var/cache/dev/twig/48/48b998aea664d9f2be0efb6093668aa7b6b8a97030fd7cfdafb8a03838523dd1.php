@@ -15,11 +15,11 @@ class __TwigTemplate_86c2ad551ebe1bb17812582cc48b29c0e2cfce02edc682225822547dd78
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e19eb401590a386343e202e71baaff105e12866ae6803ce42d038fee0574af87 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e19eb401590a386343e202e71baaff105e12866ae6803ce42d038fee0574af87->enter($__internal_e19eb401590a386343e202e71baaff105e12866ae6803ce42d038fee0574af87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.txt.twig"));
+        $__internal_52cc04edfe7647176fff65fb4bb27d1d6f5a4a934c64359de8f3ab033b6196e0 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_52cc04edfe7647176fff65fb4bb27d1d6f5a4a934c64359de8f3ab033b6196e0->enter($__internal_52cc04edfe7647176fff65fb4bb27d1d6f5a4a934c64359de8f3ab033b6196e0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.txt.twig"));
 
-        $__internal_9578019ae678cf314e152812d238e11e47ad3f95c30e2346369c7f38d61d288a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9578019ae678cf314e152812d238e11e47ad3f95c30e2346369c7f38d61d288a->enter($__internal_9578019ae678cf314e152812d238e11e47ad3f95c30e2346369c7f38d61d288a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.txt.twig"));
+        $__internal_4012ceb22d837233315a4111c0980b0d0a33aaa1e65ec7ed249728fd63eb7055 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4012ceb22d837233315a4111c0980b0d0a33aaa1e65ec7ed249728fd63eb7055->enter($__internal_4012ceb22d837233315a4111c0980b0d0a33aaa1e65ec7ed249728fd63eb7055_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "TwigBundle:Exception:error.txt.twig"));
 
         // line 1
         echo "Oops! An Error Occurred
@@ -36,10 +36,10 @@ Something is broken. Please let us know what you were doing when this error occu
 We will fix it as soon as possible. Sorry for any inconvenience caused.
 ";
         
-        $__internal_e19eb401590a386343e202e71baaff105e12866ae6803ce42d038fee0574af87->leave($__internal_e19eb401590a386343e202e71baaff105e12866ae6803ce42d038fee0574af87_prof);
+        $__internal_52cc04edfe7647176fff65fb4bb27d1d6f5a4a934c64359de8f3ab033b6196e0->leave($__internal_52cc04edfe7647176fff65fb4bb27d1d6f5a4a934c64359de8f3ab033b6196e0_prof);
 
         
-        $__internal_9578019ae678cf314e152812d238e11e47ad3f95c30e2346369c7f38d61d288a->leave($__internal_9578019ae678cf314e152812d238e11e47ad3f95c30e2346369c7f38d61d288a_prof);
+        $__internal_4012ceb22d837233315a4111c0980b0d0a33aaa1e65ec7ed249728fd63eb7055->leave($__internal_4012ceb22d837233315a4111c0980b0d0a33aaa1e65ec7ed249728fd63eb7055_prof);
 
     }
 

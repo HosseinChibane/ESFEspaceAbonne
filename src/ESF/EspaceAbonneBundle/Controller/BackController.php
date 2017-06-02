@@ -2,21 +2,24 @@
 
 namespace ESF\EspaceAbonneBundle\Controller;
 
-#FORM 
-use ESF\EspaceAbonneBundle\Form\ContactType;
-use ESF\EspaceAbonneBundle\Form\InscriptionType;
+#FORM Espace Abonne
 use ESF\EspaceAbonneBundle\Form\EA_PhysiqueType;
 use ESF\EspaceAbonneBundle\Form\EA_MoraleType;
 use ESF\EspaceAbonneBundle\Form\EA_LangueType;
-use ESF\EspaceAbonneBundle\Form\UserType;
 use ESF\EspaceAbonneBundle\Form\EA_ImageType;
 use ESF\EspaceAbonneBundle\Form\EA_Demande_InscriptionType;
 use ESF\EspaceAbonneBundle\Form\EA_Document_InscriptionType;
 use ESF\EspaceAbonneBundle\Form\EA_DocumentType;
+
+#FORM Table données
 use ESF\EspaceAbonneBundle\Form\T_UniversiteType;
 use ESF\EspaceAbonneBundle\Form\T_Formation_UniversiteType;
 use ESF\EspaceAbonneBundle\Form\T_Langue_UniversiteType;
 use ESF\EspaceAbonneBundle\Form\T_Document_UniversiteType;
+
+#FORM Divers
+use ESF\EspaceAbonneBundle\Form\ContactType;
+use ESF\EspaceAbonneBundle\Form\UserType;
 
 #FORM Inscription 
 use ESF\EspaceAbonneBundle\Form\InscriptionUniversiteType;
@@ -482,10 +485,21 @@ class BackController extends Controller
 				if ($form->isSubmitted() && $form->isValid()) {
 					if ($form->get('langue')->getData() !== null && $form->get('formation')->getData() !== null && $form->get('nometablissement')->getData() !== null) {
 
+						# Recuperer les valeurs saisie par l'utilisateur
 						$formation = $form->get('formation')->getData()->getFormation();
 						$langue = $form->get('langue')->getData()->getLangue();
 						$nomEtablissement = $form->get('nometablissement')->getData()->getNomEtablissement();
+						$idEtablissement = $form->get('nometablissement')->getData()->getId();
 
+						# Verifie la disponibilite de l'universite.
+						$disponibilite = $em->getRepository('ESFEspaceAbonneBundle:T_Universite')
+						->findOneById($idEtablissement);
+						if ($disponibilite == false) {
+							$this->addFlash('notice', 'Etablissement Complet');
+							return $this->redirectToRoute('esf_espace_abonne_universiteStepsOne');
+						}
+
+						# Créer une demande d'inscription
 						$eA_Demande_Inscription = new EA_Demande_Inscription();
 						$eA_Demande_Inscription->setEtablissement($nomEtablissement);
 						$eA_Demande_Inscription->setFormation($formation);
@@ -497,7 +511,7 @@ class BackController extends Controller
 						$em->persist($eA_Demande_Inscription);
 						$em->flush();
 
-						$idEtablissement = $form->get('nometablissement')->getData()->getId();
+						# Recupere les documents d'inscription lié a l'universite
 						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
 						->getDocumentIncription($idEtablissement);
 
@@ -525,6 +539,7 @@ class BackController extends Controller
 			}
 			else {
 				if (isset($eA_Demande_Inscription)) {
+					# Recupere les valeurs de la demande d'inscription
 					$type = $eA_Demande_Inscription->getType();
 					$etat = $eA_Demande_Inscription->getEtat();
 					$etablissement = $eA_Demande_Inscription->getEtablissement();
@@ -538,28 +553,23 @@ class BackController extends Controller
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
+					# Modifie les valeurs de la demande d'inscription
 					$eA_Demande_Inscription->setType($type);
 					$eA_Demande_Inscription->setEtat($etat);
 					$eA_Demande_Inscription->setEtablissement($etablissement);
 					$eA_Demande_Inscription->setFormation($formation);
 					$eA_Demande_Inscription->setLangue($langue);
 					$eA_Demande_Inscription->setPartenaire($partenaire);
-
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($eA_Demande_Inscription);
 					$em->flush();
-					
-					$user = $this->getUser();
-					$email = $user->getEmail();
-					$utilisateur = $user->getUserName();
-					$typeInscription = $eA_Demande_Inscription->getType();
 
-					$message = \Swift_Message::newInstance();
-					$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
-					$message->setFrom('dudeego.contact@gmail.com');
-					$message->setTo($email);
-					$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);
-					$this->get('mailer')->send($message);
+					# Envoi d'un email aux personne concerné
+					if($this->sendEmailInscription( $this->getUser(), $user->getEmail(), $user->getUserName(), $eA_Demande_Inscription->getType())){
+						$this->addFlash('notice','Email envoyé.');
+					} else{
+						$this->addFlash('notice','Email non envoyé.');
+					}
 
 					return $this->redirectToRoute('esf_espace_abonne_mesDemandes');
 				}
@@ -588,7 +598,6 @@ class BackController extends Controller
 				$user = $this->getUser();
 				$em = $this->getDoctrine()->getManager();
 				$form = $this->createform(InscriptionLangueType::class);
-
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
@@ -884,6 +893,23 @@ class BackController extends Controller
 		->setTo($data["email"])
 		->setBody($data["message"])
 		;
+
+		return $this->get('mailer')->send($message);
+	}
+
+		/*
+	* Permet l'envoi de mail.
+	* tableau de données : sujet, email utilisateur, message.
+	*/
+	private function sendEmailInscription($user, $email, $utilisateur, $typeInscription){
+
+
+
+		$message = \Swift_Message::newInstance();
+		$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
+		$message->setFrom('dudeego.contact@gmail.com');
+		$message->setTo($email);
+		$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);
 
 		return $this->get('mailer')->send($message);
 	}

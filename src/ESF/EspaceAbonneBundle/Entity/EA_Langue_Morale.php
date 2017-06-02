@@ -7,16 +7,18 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * EA_Langue
  *
- * @ORM\Table(name="e_a__langue")
+ * @ORM\Table(name="e_a__langue__morale")
  * @ORM\Entity(repositoryClass="ESF\EspaceAbonneBundle\Repository\EA_LangueRepository")
  */
-class EA_Langue
+class EA_Langue_Morale
 {
+
     /**
-   * @ORM\ManyToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Morale", inversedBy = "langues")
-   * @ORM\JoinColumn(nullable=false)
+    * Plusieurs Langues ont plusieurs Formations
+   * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale", inversedBy="langues")
    */
-    private $morale;
+    private $formations;
+
 
     /**
      * @var int
@@ -74,26 +76,44 @@ class EA_Langue
     }
 
     /**
-     * Set morale
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Morale $morale
-     *
-     * @return EA_Langue
+     * Constructor
      */
-    public function setMorale(\ESF\EspaceAbonneBundle\Entity\EA_Morale $morale)
+    public function __construct()
     {
-        $this->morale = $morale;
+        $this->formations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation
+     *
+     * @return EA_Langue_Morale
+     */
+    public function addFormation(\ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation)
+    {
+        $this->formations[] = $formation;
 
         return $this;
     }
 
     /**
-     * Get morale
+     * Remove formation
      *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Morale
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation
      */
-    public function getMorale()
+    public function removeFormation(\ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale $formation)
     {
-        return $this->morale;
+        $this->formations->removeElement($formation);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormations()
+    {
+        return $this->formations;
     }
 }

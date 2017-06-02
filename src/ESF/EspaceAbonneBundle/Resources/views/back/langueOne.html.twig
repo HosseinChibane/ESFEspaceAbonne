@@ -29,9 +29,9 @@
 				{{ form_errors(form.langue) }}
 				{{ form_widget(form.langue) }}
 
-				{{ form_label(form.pays, 'Pays') }}
-				{{ form_errors(form.pays) }}
-				{{ form_widget(form.pays) }}
+				{{ form_label(form.lieu, 'Pays') }}
+				{{ form_errors(form.lieu) }}
+				{{ form_widget(form.lieu) }}
 
 				{{ form_label(form.raisonsocial, 'Partenaire') }}
 				{{ form_errors(form.raisonsocial) }}
@@ -52,37 +52,68 @@
 		</div>
 	</div>
 
-
-{% endblock %}
-
-{#
-
 	<script>
-		var $langue = $('#esf_espaceabonnebundle_t_universite_langue');
+		var $langue = $('#esf_espaceabonnebundle_inscription_langue_langue');
 
 		$langue.change(function() {
+
 			var $form = $(this).closest('form');
 			var data = {};
 			data[$langue.attr('name')] = $langue.val();
+
 			$.ajax({
 				beforeSend: function(){
-					$("#esf_espaceabonnebundle_t_universite_raisonsocial").html('<option value="" selected="selected">Chargement en cours...</option>');
+					$("#esf_espaceabonnebundle_inscription_langue_lieu").html('<option value="" selected="selected">Chargement en cours...</option>');
 				},
 				url : $form.attr('action'),
 				type: $form.attr('method'),
 				data : data,
 				success: function(html) {
-					$('#esf_espaceabonnebundle_t_universite_raisonsocial').replaceWith(
-						$(html).find('#esf_espaceabonnebundle_t_universite_raisonsocial')
+					$('#esf_espaceabonnebundle_inscription_langue_lieu').replaceWith(
+						$(html).find('#esf_espaceabonnebundle_inscription_langue_lieu')
 						);
-					console.log(JSON.stringify(data));
+					selectFormation();
 				},
 				error: function(exception) {
 					alert('Exception: '+ exception);
+					$("#esf_espaceabonnebundle_inscription_langue_lieu").html('<option value="" selected="selected">Nous avons rencontré un problème...</option>');
 					console.log(JSON.stringify(data));
 				}
 			});
 		});
 
+		function selectFormation(){
+			var $lieu = $('#esf_espaceabonnebundle_inscription_langue_lieu');
+			$lieu.change(function() {
+
+				var $form = $(this).closest('form');
+				var data = {};
+				data[$lieu.attr('name')] = $lieu.val();
+
+				$.ajax({
+					beforeSend: function(){
+						$("#esf_espaceabonnebundle_inscription_langue_raisonsocial").html('<option value="" selected="selected">Chargement en cours...</option>');
+					},
+					url : $form.attr('action'),
+					type: $form.attr('method'),
+					data : data,
+					success: function(html) {
+						$('#esf_espaceabonnebundle_inscription_langue_raisonsocial').replaceWith(
+							$(html).find('#esf_espaceabonnebundle_inscription_langue_raisonsocial')
+							);
+					},
+					error: function(e) {
+						alert('Exception: ' + e);
+						$("#esf_espaceabonnebundle_inscription_langue_raisonsocial").html('<option value="" selected="selected"> Nous avons rencontré un problème... </option>');
+						console.log(JSON.stringify(data));
+					}
+				});
+			});
+		}
 	</script>
+
+{% endblock %}
+
+{#
+
 #}

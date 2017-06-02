@@ -7,8 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\FormInterface;
-use ESF\EspaceAbonneBundle\Entity\EA_Langue;
-use ESF\EspaceAbonneBundle\Entity\EA_Personne;
+use ESF\EspaceAbonneBundle\Entity\EA_Langue_Morale;
+use ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale;
 use ESF\EspaceAbonneBundle\Entity\EA_Morale;
 
 use Symfony\Component\Form\FormEvent;
@@ -32,41 +32,18 @@ class InscriptionLangueType extends AbstractType
     {
         $builder
         ->add('langue', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Langue',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                ->orderBy('u.langue', 'ASC');                
-            },
-            'choice_label' => 'langue',
-            'required'    => true,
+            'class'       => 'ESFEspaceAbonneBundle:EA_Langue_Morale',
             'placeholder' => 'Sélectionnez une langue',
-            'empty_data'  => null,
             ))
 
-
-        ->add('pays', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Morale',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                ->orderBy('u.pays', 'ASC');
-            },
-            'choice_label' => 'pays',
-            'required'    => true,
+        ->add('lieu', EntityType::class, array(
+            'class'       => 'ESFEspaceAbonneBundle:EA_Formation_Morale',
             'placeholder' => 'Sélectionnez un pays',
-            'empty_data'  => null,
             ))
-
 
         ->add('raisonsocial', EntityType::class, array(
-            'class' => 'ESFEspaceAbonneBundle:EA_Morale',
-            'query_builder' => function (EntityRepository $er) {
-                return $er->createQueryBuilder('u')
-                ->orderBy('u.raisonsocial', 'ASC');
-            },
-            'choice_label' => 'raisonsocial',
-            'required'    => true,
+            'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
             'placeholder' => 'Sélectionnez un partenaire',
-            'empty_data'  => null,
             ))
 
         ->add('rechercher', SubmitType::class, array(
@@ -77,7 +54,41 @@ class InscriptionLangueType extends AbstractType
             'attr' => array('class' => 'btn btn-danger'),
             ));
 
+        $formModifier = function (FormInterface $form, EA_Langue_Morale $langue = null) {
+            $lieu = null === $langue ? array() : $langue->getFormations();
 
+            $form->add('lieu', EntityType::class, array(
+                'class'       => 'ESFEspaceAbonneBundle:EA_Formation_Morale',
+                'placeholder' => 'Sélectionnez un pays',
+                'choices'     => $lieu,
+                ));  
+
+            $formModifierPartenaire = function (FormInterface $form, EA_Formation_Morale $lieu = null) {
+                $raisonsocial = null === $lieu ? array() : $lieu->getMorales();
+
+                $form->add('raisonsocial', EntityType::class, array(
+                    'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
+                    'placeholder' => 'Sélectionnez un partenaire',
+                    'choices'     => $raisonsocial,
+                    ));  
+
+                $builder->get('lieu')->addEventListener(
+                    FormEvents::POST_SUBMIT,
+                    function (FormEvent $event) use ($formModifierPartenaire) {
+                        $lieu = $event->getForm()->getData();
+                        $formModifierPartenaire($event->getForm()->getParent(), $lieu);
+                    }); 
+
+                //$builder->get('lieu')->addModelTransformer(new FormationToNumberTransformer($this->transformer));        
+            };
+        };
+
+        $builder->get('langue')->addEventListener(
+            FormEvents::POST_SUBMIT,
+            function (FormEvent $event) use ($formModifier) {
+                $langue = $event->getForm()->getData();
+                $formModifier($event->getForm()->getParent(), $langue);
+            });
     }
 
     /**
@@ -95,35 +106,9 @@ class InscriptionLangueType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'esf_espaceabonnebundle_t_universite';
+        return 'esf_espaceabonnebundle_inscription_langue';
     }
 }
 /*
- $formModifier = function (FormInterface $form, EA_Langue $langue = null) {
-            $raisonsocial = null === $langue ? array() : $langue->getMorale();
 
-            $form->add('raisonsocial', EntityType::class, array(
-                'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
-                'placeholder' => 'Sélectionner un élément dans la liste des partenaire',
-                'choices'     => $raisonsocial,
-                ));        
-        };
-
-        $builder->addEventListener(
-            FormEvents::PRE_SET_DATA,
-            function (FormEvent $event) use ($formModifier) {
-                $data = $event->getData();
-                if($data === null || !method_exists($data, 'getMorale')) {
-                    $formModifier($event->getForm(), null);
-                } else {
-                    $formModifier($event->getForm(), $data->getMorale());
-                }
-            });
-
-        $builder->get('langue')->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) use ($formModifier) {
-                $langue = $event->getForm()->getData();
-                $formModifier($event->getForm()->getParent(), $langue);
-            });
 */

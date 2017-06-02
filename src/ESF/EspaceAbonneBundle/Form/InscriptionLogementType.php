@@ -60,7 +60,7 @@ class InscriptionLogementType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => null
+            'error_bubbling' => true
             ));
     }
 
@@ -69,7 +69,7 @@ class InscriptionLogementType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'esf_espaceabonnebundle_t_universite';
+        return 'esf_espaceabonnebundle_inscription_logement';
     }
 
 
