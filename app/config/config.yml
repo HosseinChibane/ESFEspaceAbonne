@@ -10,6 +10,7 @@ parameters:
     app.path.users_images: /users/images
     app.path.users_pdf: /users/pdf
     app.path.universites_pdf: /universites/pdf
+    app.path.partenaires_pdf: /ârtenaires/pdf
     app.path.demandes_pdf: /demandes/pdf
 
 framework:
@@ -151,6 +152,13 @@ vich_uploader:
             namer:              vich_uploader.namer_origname
             uri_prefix:         '%app.path.universites_pdf%'
             upload_destination: '%kernel.root_dir%/../web/universites/pdf'            
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+        partenaires_pdf:
+            namer:              vich_uploader.namer_origname
+            uri_prefix:         '%app.path.partenaires_pdf%'
+            upload_destination: '%kernel.root_dir%/../web/partenaires/pdf'            
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true

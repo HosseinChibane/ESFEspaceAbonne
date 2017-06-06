@@ -17,7 +17,11 @@ class EA_ImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('imageName', TextType::class)
+        ->add('imageName', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Nom de l\'image'),
+            'empty_data'  => null ))
 
         ->add('imageFile', VichImageType::class, [
             'label' => 'Choissisez une image...',

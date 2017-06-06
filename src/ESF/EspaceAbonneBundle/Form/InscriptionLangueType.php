@@ -7,9 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\FormInterface;
-use ESF\EspaceAbonneBundle\Entity\EA_Langue_Morale;
-use ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale;
-use ESF\EspaceAbonneBundle\Entity\EA_Morale;
+use ESF\EspaceAbonneBundle\Entity\T_Langue_Formation_Partenaire;
+use ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire;
+use ESF\EspaceAbonneBundle\Entity\T_Partenaire_Universite;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -32,42 +32,43 @@ class InscriptionLangueType extends AbstractType
     {
         $builder
         ->add('langue', EntityType::class, array(
-            'class'       => 'ESFEspaceAbonneBundle:EA_Langue_Morale',
+            'class'       => 'ESFEspaceAbonneBundle:T_Langue_Formation_Partenaire',
             'placeholder' => 'Sélectionnez une langue',
             ))
 
         ->add('lieu', EntityType::class, array(
-            'class'       => 'ESFEspaceAbonneBundle:EA_Formation_Morale',
+            'class'       => 'ESFEspaceAbonneBundle:T_Lieu_Formation_Partenaire',
             'placeholder' => 'Sélectionnez un pays',
             ))
 
         ->add('raisonsocial', EntityType::class, array(
-            'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
+            'class'       => 'ESFEspaceAbonneBundle:T_Partenaire_Universite',
             'placeholder' => 'Sélectionnez un partenaire',
             ))
 
         ->add('rechercher', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
+            'label'=> 'Créer Demande',
             ))
 
         ->add('reinitialiser', ResetType::class, array(
             'attr' => array('class' => 'btn btn-danger'),
             ));
 
-        $formModifier = function (FormInterface $form, EA_Langue_Morale $langue = null) {
+        $formModifier = function (FormInterface $form, T_Langue_Formation_Partenaire $langue = null) {
             $lieu = null === $langue ? array() : $langue->getFormations();
 
             $form->add('lieu', EntityType::class, array(
-                'class'       => 'ESFEspaceAbonneBundle:EA_Formation_Morale',
+                'class'       => 'ESFEspaceAbonneBundle:T_Lieu_Formation_Partenaire',
                 'placeholder' => 'Sélectionnez un pays',
                 'choices'     => $lieu,
                 ));  
 
-            $formModifierPartenaire = function (FormInterface $form, EA_Formation_Morale $lieu = null) {
-                $raisonsocial = null === $lieu ? array() : $lieu->getMorales();
+            $formModifierPartenaire = function (FormInterface $form, T_Lieu_Formation_Partenaire $lieu = null) {
+                $raisonsocial = null === $lieu ? array() : $lieu->getPartenaires();
 
                 $form->add('raisonsocial', EntityType::class, array(
-                    'class'       => 'ESFEspaceAbonneBundle:EA_Morale',
+                    'class'       => 'ESFEspaceAbonneBundle:T_Partenaire_Universite',
                     'placeholder' => 'Sélectionnez un partenaire',
                     'choices'     => $raisonsocial,
                     ));  

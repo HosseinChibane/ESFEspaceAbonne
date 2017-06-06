@@ -22,17 +22,21 @@ class EA_Document_InscriptionType extends AbstractType
         ->add('nom', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'votre document d\'inscription'))
+            'attr' => array('placeholder' => 'Document d\'inscription'),
+            'empty_data'  => null ))
+
         ->add('pdfName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'pdf'))
+            'empty_data'  => null ))
+
         ->add('pdfFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,
             'allow_delete' => false, // optional, default is true
             'download_link' => false, // optional, default is true
             ])
+
         ->add('Enregistrer', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
             ))

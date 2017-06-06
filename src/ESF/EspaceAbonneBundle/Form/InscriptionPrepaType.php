@@ -35,6 +35,7 @@ class InscriptionPrepaType extends AbstractType
 
         ->add('rechercher', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),
+            'label'=> 'Créer Demande',
             ))
 
         ->add('reinitialiser', ResetType::class, array(

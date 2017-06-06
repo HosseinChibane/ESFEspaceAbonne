@@ -22,8 +22,8 @@
         {% endfor %}
 
         <!-- Mon profil -->
-        {{ form_start(form) }}
-
+        {{ form_start(form, {'action': path('esf_espace_abonne_monProfil'), 'method': 'POST'}) }}
+        
         {% if not form.vars.valid %}
             <div class="alert alert-error">
                 {{ form_errors(form) }}

@@ -5,7 +5,6 @@ esf_espace_abonne_homepage:
 esf_espace_abonne_monProfil:
     path:      /back/monprofil/
     defaults: { _controller: ESFEspaceAbonneBundle:Back:monprofil }
-
 esf_espace_abonne_mesParametres:
     path:      /back/mesparametres
     defaults: { _controller: ESFEspaceAbonneBundle:Back:mesparametres }
@@ -52,10 +51,10 @@ esf_espace_abonne_langueStepsOne:
     path:      /back/langueOne
     defaults: { _controller: ESFEspaceAbonneBundle:Back:langueOne } 
 esf_espace_abonne_langueStepsTwo:
-    path:      /back/langueTwo
+    path:      /back/langueTwo/{id}
     defaults: { _controller: ESFEspaceAbonneBundle:Back:langueTwo } 
 esf_espace_abonne_langueStepsThree:
-    path:      /back/langueThree
+    path:      /back/langueThree/{id}
     defaults: { _controller: ESFEspaceAbonneBundle:Back:langueTwo } 
 
 esf_espace_abonne_logementStepsOne:

@@ -14,6 +14,18 @@ class T_Partenaire_Universite
 {
 
     /**
+     * Un Partenaire à plusieurs documents d'inscriptions.
+     * @ORM\OneToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Document_Partenaire", mappedBy="partenaire", cascade={"all"}, fetch="EAGER")
+     */
+    private $documents;
+
+    /**
+     * Plusieurs Partenaires ont plusieurs Formations. 
+     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire", mappedBy="partenaires", cascade={"all"})
+     */
+    private $formations;
+
+    /**
    * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\T_Universite", inversedBy="partenaires")
    */
     private $universite;
@@ -104,6 +116,10 @@ class T_Partenaire_Universite
      */
     private $pays;
 
+    public function __toString()
+    {
+        return $this->getRaisonSocial();
+    }
 
     /**
      * Get id
@@ -418,5 +434,73 @@ class T_Partenaire_Universite
     public function getUniversite()
     {
         return $this->universite;
+    }
+
+    /**
+     * Add document
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Document_Partenaire $document
+     *
+     * @return T_Partenaire_Universite
+     */
+    public function addDocument(\ESF\EspaceAbonneBundle\Entity\T_Document_Partenaire $document)
+    {
+        $this->documents[] = $document;
+
+        return $this;
+    }
+
+    /**
+     * Remove document
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Document_Partenaire $document
+     */
+    public function removeDocument(\ESF\EspaceAbonneBundle\Entity\T_Document_Partenaire $document)
+    {
+        $this->documents->removeElement($document);
+    }
+
+    /**
+     * Get documents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * Add formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire $formation
+     *
+     * @return T_Partenaire_Universite
+     */
+    public function addFormation(\ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire $formation)
+    {
+        $this->formations[] = $formation;
+
+        return $this;
+    }
+
+    /**
+     * Remove formation
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire $formation
+     */
+    public function removeFormation(\ESF\EspaceAbonneBundle\Entity\T_Lieu_Formation_Partenaire $formation)
+    {
+        $this->formations->removeElement($formation);
+    }
+
+    /**
+     * Get formations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFormations()
+    {
+        return $this->formations;
     }
 }

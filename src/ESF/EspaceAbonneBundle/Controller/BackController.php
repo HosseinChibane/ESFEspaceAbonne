@@ -70,7 +70,7 @@ class BackController extends Controller
 	{
 		try {
 			if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
-				throw new AccessDeniedException('This user does not have access to this section.');
+				throw new AccessDeniedException('Accès à cette page, le droit tu n\'as pas.');
 			}
 			else {
 				return $this->redirectToRoute('esf_espace_abonne_monProfil');
@@ -98,7 +98,9 @@ class BackController extends Controller
 
 				$imageUser = $em->getRepository('ESFEspaceAbonneBundle:EA_Image')->findOneById($user->getPhysique()->getImage());
 
-				$form = $this->createform(UserType::class, $user);
+				$form = $this->createform(UserType::class);
+				$form->setData($user);
+
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
@@ -249,15 +251,17 @@ class BackController extends Controller
 			else {
 
 				$user = $this->getUser();
-				$form = $this->createform(UserType::class, $user);
+				$em = $this->getDoctrine()->getManager();
 
+				$documentUser = $em->getRepository('ESFEspaceAbonneBundle:EA_Document')->findOneById($user->getPhysique()->getDocuments());
+
+				$form = $this->createform(UserType::class, $user);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					$user = $form->getData();
-					$em = $this->getDoctrine()->getManager();
-					$em->persist($user);
+					$documentUser = $form->getData();
+					$em->persist($documentUser);
 					$em->flush();
 
 					$this->addFlash('notice','Documents bien enregistrée.');
@@ -266,6 +270,7 @@ class BackController extends Controller
 
 				return $this->render('ESFEspaceAbonneBundle:Back:mesdocuments.html.twig', array(
 					'form' => $form->createView(),
+					'documentUser' => $documentUser,
 					));
 			}
 		} catch (Exception $e) {
@@ -416,7 +421,7 @@ class BackController extends Controller
 							$this->addFlash('notice','Email envoyé.');
 							return $this->redirectToRoute('esf_espace_abonne_contact');
 						} else{
-							var_dump("Errooooor");
+							$this->addFlash('notice','Email non envoyé.');
 						}
 					}
 				}
@@ -548,6 +553,7 @@ class BackController extends Controller
 					$partenaire = $eA_Demande_Inscription->getPartenaire();
 				}
 
+				$user = $this->getUser();
 				$form = $this->createForm(EA_Demande_InscriptionType::class, $eA_Demande_Inscription);
 				$form->handleRequest($request);
 
@@ -604,17 +610,41 @@ class BackController extends Controller
 
 					if ($form->get('langue')->getData()->getLangue() !== null && $form->get('lieu')->getData()->getLieu() !== null && $form->get('raisonsocial')->getData()->getRaisonSocial() !== null) {
 
+						# Recuperer les valeurs saisie par l'utilisateur
 						$langue = $form->get('langue')->getData()->getLangue();
 						$pays = $form->get('lieu')->getData()->getLieu();
-						$raisonsocial = $form->get('raisonsocial')->getData()->getRaisonSocial();
+						$partenaire = $form->get('raisonsocial')->getData()->getRaisonSocial();
 						$id = $form->get('raisonsocial')->getData()->getId();
 
-						$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Universite')
-						->getDocumentIncription($id);
+						# PDF ou Lien
+						if (isset($id)) {
+							$type = 'pdf';
+							$document = $em->getRepository('ESFEspaceAbonneBundle:T_Document_Partenaire')
+							->getDocumentIncription($id);	
+							if (isset($document)) {
+								$type = 'lien';
+								$document = $em->getRepository('ESFEspaceAbonneBundle:T_Partenaire_Universite')
+								->findOneById($id);
+							}
+						}
+
+						# Créer une demande d'inscription
+						$eA_Demande_Inscription = new EA_Demande_Inscription();
+						$eA_Demande_Inscription->setPartenaire($partenaire);
+						$eA_Demande_Inscription->setFormation($pays);
+						$eA_Demande_Inscription->setLangue($langue);
+						$eA_Demande_Inscription->setPhysique($user->getPhysique());
+						$eA_Demande_Inscription->setType('Cours de langue');
+						$eA_Demande_Inscription->setEtat('Creation');
+						$em = $this->getDoctrine()->getManager();
+						$em->persist($eA_Demande_Inscription);
+						$em->flush();
 
 						return $this->render('ESFEspaceAbonneBundle:Back:langueTwo.html.twig', array(
 							'form' => $form->createView(),
 							'document' => $document,
+							'type' => $type,
+							'eA_Demande_Inscription' => $eA_Demande_Inscription,
 							));	
 					}
 				}
@@ -628,41 +658,46 @@ class BackController extends Controller
 		}
 	}
 
-	public function langueTwoAction(Request $request)
+	public function langueTwoAction(Request $request, EA_Demande_Inscription $eA_Demande_Inscription)
 	{    
 		try {
 			if (!is_object($this->getUser()) || !$this->getUser() instanceof UserInterface) {
 				throw new AccessDeniedException('Accès à cette page, le droit tu n\'as pas.');
 			}
 			else {
-				$eA_Demande_Inscription = new EA_Demande_Inscription();
+				if (isset($eA_Demande_Inscription)) {
+					# Recupere les valeurs de la demande d'inscription
+					$type = $eA_Demande_Inscription->getType();
+					$etat = $eA_Demande_Inscription->getEtat();
+					$partenaire = $eA_Demande_Inscription->getPartenaire();
+					$formation = $eA_Demande_Inscription->getFormation();
+					$langue = $eA_Demande_Inscription->getLangue();
+					$partenaire = $eA_Demande_Inscription->getPartenaire();
+				}
+
+				$user = $this->getUser();
 				$form = $this->createForm(EA_Demande_InscriptionType::class, $eA_Demande_Inscription);
 				$form->handleRequest($request);
 
 				if ($form->isSubmitted() && $form->isValid()) {
 
-					$user = $this->getUser();
-					$em = $this->getDoctrine()->getManager();
-
-					$physique = $em->getRepository('ESFEspaceAbonneBundle:EA_Physique')->findOneById($user->getPhysique()->getId());
-					$eA_Demande_Inscription->setPhysique($physique);
-					$eA_Demande_Inscription->setType('Cours de langue');
-					$eA_Demande_Inscription->setEtat('Creation');
-
+					# Modifie les valeurs de la demande d'inscription
+					$eA_Demande_Inscription->setType($type);
+					$eA_Demande_Inscription->setEtat($etat);
+					$eA_Demande_Inscription->setPartenaire($partenaire);
+					$eA_Demande_Inscription->setFormation($formation);
+					$eA_Demande_Inscription->setLangue($langue);
+					$eA_Demande_Inscription->setPartenaire($partenaire);
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($eA_Demande_Inscription);
 					$em->flush();
 
-					$email = $user->getEmail();
-					$utilisateur = $user->getUserName();
-					$typeInscription = $eA_Demande_Inscription->getType();
-
-					$message = \Swift_Message::newInstance();
-					$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
-					$message->setFrom('dudeego.contact@gmail.com');
-					$message->setTo($email);
-					$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);
-					$this->get('mailer')->send($message);
+					# Envoi d'un email aux personne concerné
+					if($this->sendEmailInscription( $this->getUser(), $user->getEmail(), $user->getUserName(), $eA_Demande_Inscription->getType())){
+						$this->addFlash('notice','Email envoyé.');
+					} else{
+						$this->addFlash('notice','Email non envoyé.');
+					}
 
 					return $this->redirectToRoute('esf_espace_abonne_mesDemandes');
 				}
@@ -758,13 +793,12 @@ class BackController extends Controller
 					$utilisateur = $user->getUserName();
 					$typeInscription = $eA_Demande_Inscription->getType();
 
-					$message = \Swift_Message::newInstance();
-					$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
-					$message->setFrom('dudeego.contact@gmail.com');
-					$message->setTo($email);
-					$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);
-					$this->get('mailer')->send($message);					
-
+					# Envoi d'un email aux personne concerné
+					if($this->sendEmailInscription( $this->getUser(), $user->getEmail(), $user->getUserName(), $eA_Demande_Inscription->getType())){
+						$this->addFlash('notice','Email envoyé.');
+					} else{
+						$this->addFlash('notice','Email non envoyé.');
+					}
 					return $this->redirectToRoute('esf_espace_abonne_mesDemandes');
 				}
 				return $this->render('ESFEspaceAbonneBundle:Back:logementThree.html.twig', array(
@@ -843,17 +877,12 @@ class BackController extends Controller
 					$em->persist($eA_Demande_Inscription);
 					$em->flush();
 
-					$email = $user->getEmail();
-					$utilisateur = $user->getUserName();
-					$typeInscription = $eA_Demande_Inscription->getType();
-
-					$message = \Swift_Message::newInstance();
-					$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
-					$message->setFrom('dudeego.contact@gmail.com');
-					$message->setTo($email);
-					$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);
-					$this->get('mailer')->send($message);
-
+					# Envoi d'un email aux personne concerné
+					if($this->sendEmailInscription( $this->getUser(), $user->getEmail(), $user->getUserName(), $eA_Demande_Inscription->getType())){
+						$this->addFlash('notice','Email envoyé.');
+					} else{
+						$this->addFlash('notice','Email non envoyé.');
+					}
 					return $this->redirectToRoute('esf_espace_abonne_mesDemandes');
 				}
 
@@ -917,7 +946,7 @@ class BackController extends Controller
 
 
 		$message = \Swift_Message::newInstance();
-		$message->setSubject('Inscription à ' . $eA_Demande_Inscription->getType());
+		$message->setSubject('Inscription à ' . $typeInscription);
 		$message->setFrom('dudeego.contact@gmail.com');
 		$message->setTo($email);
 		$message->setBody('Information : l\'utilisateur '. $utilisateur . ' souhaite s\'inscrire à ' . $typeInscription);

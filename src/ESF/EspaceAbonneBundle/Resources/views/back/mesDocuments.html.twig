@@ -13,15 +13,15 @@
 
 {% block Content %} 
 
-   {% for flash_message in app.session.flashBag.get('notice') %}
+ {% for flash_message in app.session.flashBag.get('notice') %}
     <div class="alert alert-success" role="alert" id="success-alert">
-     <button type="button" class="close" data-dismiss="alert">x</button>
-     <strong> {{ flash_message }} </strong> 
- </div>
+       <button type="button" class="close" data-dismiss="alert">x</button>
+       <strong> {{ flash_message }} </strong> 
+   </div>
 {% endfor %}
 
 <!-- Mes Documents -->
-{{ form_start(form) }}
+{{ form_start(form, {'action': path('esf_espace_abonne_mesDocuments'), 'method': 'POST'}) }}
 
 {% if not form.physique.vars.valid %}
     <div class="alert alert-error">
@@ -33,10 +33,9 @@
     <div class="col-md-12">
         <div class="alert alert-info">
             <button type="button" class="close" data-dismiss="alert">x</button>
-            <strong>Information !</strong> En cas de plusieurs "bulletins de notes" ou de "lettres de recommandation", merci de les réunir en un seul fichier PDF.
+            <strong>Information !</strong> Si vous avez plusieurs "bulletins de notes" et/ou "lettres de recommandation", merci de les réunir en un seul fichier PDF.
         </div>         
     </div>
-
     <table id="demandeInsciption" class="table table-striped table-bordered nowrap" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -56,7 +55,8 @@
                     <td>{{ form_widget(form.physique.documents.PasseportFile) }}</td>
                     <td>
                         {{ form_widget(form.physique.documents.uploadPasseport, { 'label': 'Envoyer' }) }}
-                        {#<a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(form.physique.documents, 'PasseportFile') }}" alt="{{ form.physique.documents.PasseportName }}"  target="_blank">Télécharger</a>#}
+
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'PasseportFile') }}" alt="{{ documentUser.PasseportName }}"  target="_blank">Télécharger</a>
                     </td>
                 </tr>
                 <tr>
@@ -64,42 +64,66 @@
                     <td>{{ form_label(form.physique.documents.CarteIdentiteName, 'Carte Identite') }}</td>
                     <td>{{ form_widget(form.physique.documents.CarteIdentiteName) }}</td>
                     <td>{{ form_widget(form.physique.documents.CarteIdentiteFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadCarteId, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadCarteId, { 'label': 'Envoyer' }) }}
+                        
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'CarteIdentiteFile') }}" alt="{{ documentUser.CarteIdentiteName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>3</td>
                     <td>{{ form_label(form.physique.documents.BacName, 'Baccalaureat') }}</td>
                     <td>{{ form_widget(form.physique.documents.BacName) }}</td>
                     <td>{{ form_widget(form.physique.documents.BacFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadBac, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadBac, { 'label': 'Envoyer' }) }}
+
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'BacFile') }}" alt="{{ documentUser.BacName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td>{{ form_label(form.physique.documents.CredentialName, 'Crédential / Autre équivalence') }}</td>
+                    <td>{{ form_label(form.physique.documents.CredentialName, 'Crédential / Autres équivalences') }}</td>
                     <td>{{ form_widget(form.physique.documents.CredentialName) }}</td>
                     <td>{{ form_widget(form.physique.documents.CredentialFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadCredential, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadCredential, { 'label': 'Envoyer' }) }}
+
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'CredentialFile') }}" alt="{{ documentUser.CredentialName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td>{{ form_label(form.physique.documents.BulletinNoteName, 'Bulletin de Note') }}</td>
                     <td>{{ form_widget(form.physique.documents.BulletinNoteName) }}</td>                
                     <td>{{ form_widget(form.physique.documents.BulletinNoteFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadBulletinNote, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadBulletinNote, { 'label': 'Envoyer' }) }}
+
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'BulletinNoteFile') }}" alt="{{ documentUser.BulletinNoteName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>6</td>                    
                     <td>{{ form_label(form.physique.documents.LettreRecommendationName, 'Lettres de Recommendation') }}</td>
                     <td>{{ form_widget(form.physique.documents.LettreRecommendationName) }}</td>
                     <td>{{ form_widget(form.physique.documents.LettreRecommendationFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadLettreRecommendation, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadLettreRecommendation, { 'label': 'Envoyer' }) }}
+
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'LettreRecommendationFile') }}" alt="{{ documentUser.LettreRecommendationName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
                 <tr>
                     <td>7</td>
                     <td>{{ form_label(form.physique.documents.LettreMotivationName, 'Lettre de Motivation') }}</td>
                     <td>{{ form_widget(form.physique.documents.LettreMotivationName) }}</td>
                     <td>{{ form_widget(form.physique.documents.LettreMotivationFile) }}</td>
-                    <td>{{ form_widget(form.physique.documents.uploadLettreMotivation, { 'label': 'Envoyer' }) }}</td>
+                    <td>
+                        {{ form_widget(form.physique.documents.uploadLettreMotivation, { 'label': 'Envoyer' }) }}
+                        
+                        <a class="btn btn-primary view-pdf" href="{{ vich_uploader_asset(documentUser, 'LettreMotivationFile') }}" alt="{{ documentUser.LettreMotivationName }}"  target="_blank">Télécharger</a>
+                    </td>
                 </tr>
             {% endif %}
         </tbody>
@@ -107,7 +131,11 @@
 
     {# Token CSRF #}
     {{ form_widget(form._token) }}
-    {{ form_end(form, {'render_rest': false} ) }}
+    {# Data #}
+    <div style="display:none">
+        {{form_rest(form)}}
+    </div>
+    {{ form_end(form) }}
 
 </div>
 </div>

@@ -53,15 +53,22 @@
                 {{ form_widget(editForm.etat, { 'attr':{'disabled':'disabled'} }) }}
             </div>
         </div>   
-        {{ form_label(editForm.documentinscription.nom, 'Document d\'Inscription') }}
-        {{ form_widget(editForm.documentinscription.nom) }}
+        
 
     </div>
 
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                {{ form_widget(editForm.documentinscription.pdfFile) }}
+                <div class="panel panel-default">
+                    <div class="panel-body">   
+                        {{ form_label(editForm.documentinscription.nom, 'Document d\'Inscription') }}
+                        {{ form_widget(editForm.documentinscription.nom) }}
+                        <div class="panel-footer">
+                            {{ form_widget(editForm.documentinscription.pdfFile) }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -75,6 +82,7 @@
                 </div>
             {% endfor %}
             <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
+            <a class="btn btn-primary" href="{{ path('esf_espace_abonne_detailsDemandes', { 'id': eA_Demande_Inscription.id }) }}">Détails</a>
             {{ form_widget(editForm.documentinscription.Enregistrer) }}
         </div>
     </div>

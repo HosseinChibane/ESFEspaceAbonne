@@ -16,12 +16,6 @@ class EA_Morale
 {
 
     /**
-     * Plusieurs Partenaires ont plusieurs Formations. 
-     * @ORM\ManyToMany(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Formation_Morale", mappedBy="morales", cascade={"all"})
-     */
-    private $formations;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")

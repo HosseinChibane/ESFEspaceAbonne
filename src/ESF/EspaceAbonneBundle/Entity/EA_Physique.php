@@ -393,30 +393,6 @@ class EA_Physique
     }
 
     /**
-     * Set personne
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Personne $personne
-     *
-     * @return EA_Physique
-     */
-    public function setPersonne(\ESF\EspaceAbonneBundle\Entity\EA_Personne $personne = null)
-    {
-        $this->personne = $personne;
-
-        return $this;
-    }
-
-    /**
-     * Get personne
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Personne
-     */
-    public function getPersonne()
-    {
-        return $this->personne;
-    }
-
-    /**
      * Set image
      *
      * @param \ESF\EspaceAbonneBundle\Entity\EA_Image $image

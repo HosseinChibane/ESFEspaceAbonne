@@ -21,7 +21,8 @@ class EA_DocumentType extends AbstractType
         ->add('PasseportName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'passeport'))
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
 
         ->add('PasseportFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -33,7 +34,8 @@ class EA_DocumentType extends AbstractType
         ->add('CarteIdentiteName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'carte_identite'))
+            'attr' => array('placeholder' => 'Carte d\'identité'),
+            'empty_data'  => null ))
 
         ->add('CarteIdentiteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -45,7 +47,8 @@ class EA_DocumentType extends AbstractType
         ->add('BulletinNoteName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'bulletin_de_note'))
+            'attr' => array('placeholder' => 'Bulletin de note'),
+            'empty_data'  => null ))
 
         ->add('BulletinNoteFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -57,7 +60,8 @@ class EA_DocumentType extends AbstractType
         ->add('BacName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'baccalaureat'))
+            'attr' => array('placeholder' => 'Baccalaureat'),
+            'empty_data'  => null ))
 
         ->add('BacFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -69,7 +73,8 @@ class EA_DocumentType extends AbstractType
         ->add('CredentialName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'credential'))
+            'attr' => array('placeholder' => 'Crédential'),
+            'empty_data'  => null ))
 
         ->add('CredentialFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -81,7 +86,8 @@ class EA_DocumentType extends AbstractType
         ->add('LettreRecommendationName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'lettre_de_recommandation'))
+            'attr' => array('placeholder' => 'Lettre de recommandation'),
+            'empty_data'  => null ))
 
         ->add('LettreRecommendationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
@@ -93,7 +99,8 @@ class EA_DocumentType extends AbstractType
         ->add('LettreMotivationName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
             'required'    => false,
-            'empty_data'  => 'lettre_de_motivation'))
+            'attr' => array('placeholder' => 'Lettre de motivation'),
+            'empty_data'  => null ))
         
         ->add('LettreMotivationFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
