@@ -13,60 +13,46 @@
 {% endblock %}
 
 {% block Content %} 
-    <!-- Détails Demandes -->
-    <div class="col-md-12">
-        <h1>Modification de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
-
-        {{ form_start(editForm) }}
-
-        {% if not editForm.vars.valid %}
-            <div class="alert alert-error">
-                {{ form_errors(editForm) }}
-            </div>
-        {% endif %}
-
-        <div class="form-group">
-            <div class="panel panel-default">
-                <div class="panel-body">                                        
-                 {% if editForm.etablissement is defined %}
-                    {% if editForm.etablissement != null %}
-                        {{ form_label(editForm.etablissement, 'Etablissement de l\'Inscription') }}
-                        {{ form_widget(editForm.etablissement, { 'attr':{'disabled':'disabled'} }) }}
-
-                        {{ form_label(editForm.formation, 'Formation de l\'Inscription') }}
-                        {{ form_widget(editForm.formation, { 'attr':{'disabled':'disabled'} }) }}
-                        
-                        {{ form_label(editForm.langue, 'Langue de l\'Inscription') }}
-                        {{ form_widget(editForm.langue, { 'attr':{'disabled':'disabled'} }) }}
-                    {% endif %}
-                {% elseif  editForm.partenaire is defined %}
-                    {% if editForm.partenaire != null %}
-                        {{ form_label(editForm.partenaire, 'Partenaire de l\'Inscription') }}
-                        {{ form_widget(editForm.partenaire, { 'attr':{'disabled':'disabled'} }) }}
-                    {% endif %}
-                {% endif %}
-
-                {{ form_label(editForm.type, 'Type d\'Inscription') }}
-                {{ form_widget(editForm.type, { 'attr':{'disabled':'disabled'} }) }}
-
-                {{ form_label(editForm.etat, 'Etat de l\'Inscription') }}
-                {{ form_widget(editForm.etat, { 'attr':{'disabled':'disabled'} }) }}
-            </div>
-        </div>   
-        
-
+ {% for flash_message in app.session.flashBag.get('notice') %}
+    <div class="flash-notice">
+        {{ flash_message }}
     </div>
+{% endfor %}
+<!-- Détails Demandes -->
+<div class="col-md-12">
+    <h1>Modification de la demande n°{{ eA_Demande_Inscription.id }} :</h1>
+    <div class="panel panel-default">
+        <div class="panel-body">                                
+            Type d'inscription : {{ eA_Demande_Inscription.type }}<br>                                    
+            Etat de l'inscription : {{ eA_Demande_Inscription.etat }}<br>
+            {% if eA_Demande_Inscription.etablissement is not null %}
+                Etablissement de l'Inscription : {{ eA_Demande_Inscription.etablissement }}<br>
+                Formation de l'Inscription : {{ eA_Demande_Inscription.formation }}<br>
+                Langue de l'Inscription : {{ eA_Demande_Inscription.langue }}<br>
+            {% elseif  edit_form.partenaire is not null %}
+                Partenaire de l'Inscription : {{ eA_Demande_Inscription.partenaire }}<br>
+                Lieu de l'Inscription : {{ eA_Demande_Inscription.formation }}<br>
+                Langue de l'Inscription : {{ eA_Demande_Inscription.langue }}<br>
+            {% endif %}                
+        </div>
+    </div>     
 
+    {{ form_start(form, {'action': path('esf_espace_abonne_modifierDemandes', { 'id' : eA_Demande_Inscription.id } ), 'method': 'POST'}) }}
+    {% if not form.vars.valid %}
+        <div class="alert alert-error">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
                 <div class="panel panel-default">
                     <div class="panel-body">   
-                        {{ form_label(editForm.documentinscription.nom, 'Document d\'Inscription') }}
-                        {{ form_widget(editForm.documentinscription.nom) }}
-                        <div class="panel-footer">
-                            {{ form_widget(editForm.documentinscription.pdfFile) }}
-                        </div>
+                        {{ form_label(form.documentinscription.pdfName, 'Document d\'inscription') }}
+                        {{ form_widget(form.documentinscription.pdfName) }}
+                    </div>
+                    <div class="panel-footer">
+                        {{ form_widget(form.documentinscription.pdfFile) }}
                     </div>
                 </div>
             </div>
@@ -76,21 +62,18 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-               {% for flash_message in app.session.flashBag.get('notice') %}
-                <div class="flash-notice">
-                    {{ flash_message }}
-                </div>
-            {% endfor %}
-            <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
-            <a class="btn btn-primary" href="{{ path('esf_espace_abonne_detailsDemandes', { 'id': eA_Demande_Inscription.id }) }}">Détails</a>
-            {{ form_widget(editForm.documentinscription.Enregistrer) }}
+                <a class="btn btn-info" href="{{ path('esf_espace_abonne_mesDemandes') }}" role="button">Retour à la liste des demandes</a>
+                {{ form_widget(form.documentinscription.Enregistrer) }}
+            </div>
         </div>
     </div>
-</div>
-
-{# Token CSRF #}
-{{ form_widget(editForm._token) }}
-
-{{ form_end(editForm, {'render_rest': false }) }}
+    {# Token CSRF #}
+    {{ form_widget(form._token) }}
+    {# Data #}
+    <div style="display:none">
+        {{form_rest(form)}}
+    </div>
+    {#, {'render_rest': false }#}
+    {{ form_end(form) }}
 </div>
 {% endblock %}

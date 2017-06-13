@@ -41,14 +41,14 @@ class EA_Physique
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
      */
     private $prenom;
 
@@ -131,6 +131,7 @@ class EA_Physique
     {
         return $this->getNom();
     }
+
     
     /**
      * Get id
@@ -236,242 +237,6 @@ class EA_Physique
     public function getNumerocarteid()
     {
         return $this->numerocarteid;
-    }
-
-
-    /**
-     * Set document
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $document
-     *
-     * @return EA_Physique
-     */
-    public function setDocument(\ESF\EspaceAbonneBundle\Entity\EA_Document $document)
-    {
-        $this->document = $document;
-
-        return $this;
-    }
-
-    /**
-     * Get document
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Document
-     */
-    public function getDocument()
-    {
-        return $this->document;
-    }
-
-    /**
-     * Set compteutilisateur
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\User $compteutilisateur
-     *
-     * @return EA_Physique
-     */
-    public function setCompteutilisateur(\ESF\EspaceAbonneBundle\Entity\User $compteutilisateur)
-    {
-        $this->compteutilisateur = $compteutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get compteutilisateur
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\User
-     */
-    public function getCompteutilisateur()
-    {
-        return $this->compteutilisateur;
-    }
-
-    /**
-     * Set demandeinscription
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription
-     *
-     * @return EA_Physique
-     */
-    public function setDemandeinscription(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription)
-    {
-        $this->demandeinscription = $demandeinscription;
-
-        return $this;
-    }
-
-    /**
-     * Get demandeinscription
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription
-     */
-    public function getDemandeinscription()
-    {
-        return $this->demandeinscription;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->document = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->compteutilisateur = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->demandeinscription = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add document
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $document
-     *
-     * @return EA_Physique
-     */
-    public function addDocument(\ESF\EspaceAbonneBundle\Entity\EA_Document $document)
-    {
-        $this->document[] = $document;
-
-        return $this;
-    }
-
-    /**
-     * Remove document
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $document
-     */
-    public function removeDocument(\ESF\EspaceAbonneBundle\Entity\EA_Document $document)
-    {
-        $this->document->removeElement($document);
-    }
-
-    /**
-     * Add compteutilisateur
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\User $compteutilisateur
-     *
-     * @return EA_Physique
-     */
-    public function addCompteutilisateur(\ESF\EspaceAbonneBundle\Entity\User $compteutilisateur)
-    {
-        $this->compteutilisateur[] = $compteutilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Remove compteutilisateur
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\User $compteutilisateur
-     */
-    public function removeCompteutilisateur(\ESF\EspaceAbonneBundle\Entity\User $compteutilisateur)
-    {
-        $this->compteutilisateur->removeElement($compteutilisateur);
-    }
-
-    /**
-     * Add demandeinscription
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription
-     *
-     * @return EA_Physique
-     */
-    public function addDemandeinscription(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription)
-    {
-        $this->demandeinscription[] = $demandeinscription;
-
-        return $this;
-    }
-
-    /**
-     * Remove demandeinscription
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription
-     */
-    public function removeDemandeinscription(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demandeinscription)
-    {
-        $this->demandeinscription->removeElement($demandeinscription);
-    }
-
-    /**
-     * Set image
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Image $image
-     *
-     * @return EA_Physique
-     */
-    public function setImage(\ESF\EspaceAbonneBundle\Entity\EA_Image $image = null)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Image
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Get documents
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDocuments()
-    {
-        return $this->documents;
-    }
-
-    /**
-     * Add demande
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande
-     *
-     * @return EA_Physique
-     */
-    public function addDemande(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande)
-    {
-        $this->demandes[] = $demande;
-
-        return $this;
-    }
-
-    /**
-     * Remove demande
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande
-     */
-    public function removeDemande(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande)
-    {
-        $this->demandes->removeElement($demande);
-    }
-
-    /**
-     * Get demandes
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getDemandes()
-    {
-        return $this->demandes;
-    }
-
-    /**
-     * Set documents
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $documents
-     *
-     * @return EA_Physique
-     */
-    public function setDocuments(\ESF\EspaceAbonneBundle\Entity\EA_Document $documents = null)
-    {
-        $this->documents = $documents;
-
-        return $this;
     }
 
     /**
@@ -664,5 +429,94 @@ class EA_Physique
     public function getCourriel()
     {
         return $this->courriel;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->demandes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set image
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Image $image
+     *
+     * @return EA_Physique
+     */
+    public function setImage(\ESF\EspaceAbonneBundle\Entity\EA_Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \ESF\EspaceAbonneBundle\Entity\EA_Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set documents
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Document $documents
+     *
+     * @return EA_Physique
+     */
+    public function setDocuments(\ESF\EspaceAbonneBundle\Entity\EA_Document $documents = null)
+    {
+        $this->documents = $documents;
+
+        return $this;
+    }
+
+    /**
+     * Get documents
+     *
+     * @return \ESF\EspaceAbonneBundle\Entity\EA_Document
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * Add demande
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande
+     *
+     * @return EA_Physique
+     */
+    public function addDemande(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande)
+    {
+        $this->demandes[] = $demande;
+
+        return $this;
+    }
+
+    /**
+     * Remove demande
+     *
+     * @param \ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande
+     */
+    public function removeDemande(\ESF\EspaceAbonneBundle\Entity\EA_Demande_Inscription $demande)
+    {
+        $this->demandes->removeElement($demande);
+    }
+
+    /**
+     * Get demandes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getDemandes()
+    {
+        return $this->demandes;
     }
 }

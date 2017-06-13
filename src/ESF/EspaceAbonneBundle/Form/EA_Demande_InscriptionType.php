@@ -17,12 +17,42 @@ class EA_Demande_InscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('type', TextType::class)
-        ->add('etat', TextType::class)
-        ->add('etablissement', TextType::class)
-        ->add('formation', TextType::class)
-        ->add('langue', TextType::class)
-        ->add('partenaire', TextType::class)
+        ->add('type', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+        
+        ->add('etat', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+
+        ->add('etablissement', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+
+        ->add('formation', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+
+        ->add('langue', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+
+        ->add('partenaire', TextType::class, array(
+            'attr' => array('class' => 'form-control'),
+            'required'    => false,
+            'attr' => array('placeholder' => 'Passeport'),
+            'empty_data'  => null ))
+
         ->add('physique', EA_PhysiqueType::class)
         ->add('documentinscription', EA_Document_InscriptionType::class)
         ;

@@ -68,7 +68,12 @@ class EA_PhysiqueType extends AbstractType
 
         ->add('documents', EA_DocumentType::class)
 
-        //Bug d'allocation de mémoire ->add('demandes', EA_Demande_InscriptionType::class)
+        //Bug d'allocation de mémoire 
+        /*->add('demandes', CollectionType::class, array(
+            'entry_type' => EA_Demande_InscriptionType::class,
+            'allow_add' => true,
+            'allow_delete' => true,
+            ))*/
 
         ->add('enregistrer', SubmitType::class, array(
             'attr' => array('class' => 'btn btn-primary'),

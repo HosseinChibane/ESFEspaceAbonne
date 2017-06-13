@@ -18,7 +18,7 @@ class EA_Demande_Inscription
    */
     private $physique;
 
-  /**
+    /**
      * @ORM\OneToOne(targetEntity="ESF\EspaceAbonneBundle\Entity\EA_Document_Inscription", cascade={"all"})
      */
     private $documentinscription;

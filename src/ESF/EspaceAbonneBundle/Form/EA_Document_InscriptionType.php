@@ -19,17 +19,13 @@ class EA_Document_InscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('nom', TextType::class, array(
-            'attr' => array('class' => 'form-control'),
-            'required'    => false,
-            'attr' => array('placeholder' => 'Document d\'inscription'),
-            'empty_data'  => null ))
 
         ->add('pdfName', TextType::class, array(
             'attr' => array('class' => 'form-control'),
-            'required'    => false,
+            'required'    => true,
+            'attr' => array('placeholder' => 'Document d\'inscription'),
             'empty_data'  => null ))
-
+        
         ->add('pdfFile', VichFileType::class, [
             'label' => 'Choissisez un document...',
             'required' => false,

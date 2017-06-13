@@ -26,13 +26,6 @@ class EA_Document_Inscription
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255)
-     */
-    private $nom;
-
      /**
      * @Vich\UploadableField(mapping="demandes_pdf", fileNameProperty="pdfName")
      * 
@@ -67,78 +60,6 @@ class EA_Document_Inscription
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return EA_Document_Inscription
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set alt
-     *
-     * @param string $alt
-     *
-     * @return EA_Document_Inscription
-     */
-    public function setAlt($alt)
-    {
-        $this->alt = $alt;
-
-        return $this;
-    }
-
-    /**
-     * Get alt
-     *
-     * @return string
-     */
-    public function getAlt()
-    {
-        return $this->alt;
-    }
-
-    /**
-     * Set physique
-     *
-     * @param \ESF\EspaceAbonneBundle\Entity\EA_Physique $physique
-     *
-     * @return EA_Document_Inscription
-     */
-    public function setPhysique(\ESF\EspaceAbonneBundle\Entity\EA_Physique $physique)
-    {
-        $this->physique = $physique;
-
-        return $this;
-    }
-
-    /**
-     * Get physique
-     *
-     * @return \ESF\EspaceAbonneBundle\Entity\EA_Physique
-     */
-    public function getPhysique()
-    {
-        return $this->physique;
     }
 
     /**
